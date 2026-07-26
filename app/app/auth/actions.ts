@@ -1,6 +1,5 @@
 "use server";
 
-import { redirect } from "next/navigation";
 import { createClient } from "@/app/lib/supabase/server";
 
 export async function login(formData: FormData) {
@@ -20,13 +19,13 @@ export async function login(formData: FormData) {
     const { cookies } = await import("next/headers");
     const cookieStore = await cookies();
     cookieStore.set("session_expiry", Date.now().toString(), {
-      maxAge: 60 * 60 * 24, 
+      maxAge: 60 * 60 * 24,
       httpOnly: true,
       path: "/",
     });
   }
 
-  redirect("/dashboard");
+  return { redirectTo: "/dashboard" };
 }
 
 export async function signup(formData: FormData) {
@@ -44,8 +43,7 @@ export async function signup(formData: FormData) {
 
   if (existing) {
     return {
-      error:
-        "An account with this email already exists. Please log in instead.",
+      error: "An account with this email already exists. Please log in instead.",
     };
   }
 
@@ -68,13 +66,13 @@ export async function signup(formData: FormData) {
     return { error: error.message };
   }
 
-  redirect("/dashboard");
+  return { redirectTo: "/dashboard" };
 }
 
 export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
-  redirect("/auth/login");
+  return { redirectTo: "/auth/login" };
 }
 
 export async function signInWithOAuth(provider: "google" | "github") {
@@ -91,7 +89,5 @@ export async function signInWithOAuth(provider: "google" | "github") {
     return { error: error.message };
   }
 
-  if (data.url) {
-    redirect(data.url);
-  }
+  return { redirectTo: data.url };
 }

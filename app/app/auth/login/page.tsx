@@ -31,6 +31,8 @@ const Page = () => {
     if (result?.error) {
       setError(result.error);
       setLoading(false);
+    } else if (result?.redirectTo) {
+      window.location.href = result.redirectTo;
     }
   };
 
@@ -41,6 +43,8 @@ const Page = () => {
     if (result?.error) {
       setError(result.error);
       setOauthLoading(null);
+    } else if (result?.redirectTo) {
+      window.location.href = result.redirectTo;
     }
   };
 

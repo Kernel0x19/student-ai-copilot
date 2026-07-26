@@ -16,6 +16,7 @@ const Page = () => {
     null,
   );
   const [error, setError] = useState<string | null>(null);
+  const [remember, setRemember] = useState(false);
   const searchParams = useSearchParams();
   const oauthError = searchParams.get("error");
 
@@ -115,6 +116,18 @@ const Page = () => {
               className="px-3.5 py-2.5 w-full rounded-lg text-sm border outline-none transition-colors duration-500 bg-black/8 border-black/15 text-black placeholder-black/35 focus:border-black/25 focus:bg-black/10 dark:bg-white/12 dark:border-white/20 dark:text-white dark:placeholder-white/30 dark:focus:border-white/40 dark:focus:bg-white/15"
             />
           </div>
+
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={remember}
+              onChange={(e) => setRemember(e.target.checked)}
+              className="accent-[#0C65D2]"
+            />
+            <span className="font-mono text-base text-gray-400 dark:text-[#6B7280]">
+              Remember me for 30 days
+            </span>
+          </label>
 
           <div className="w-full flex items-center justify-center">
             <button

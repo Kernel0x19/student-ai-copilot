@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
   "Home",
@@ -20,13 +21,15 @@ export default function Footer() {
   };
 
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
 
   const SOCIAL = [
     {
       icon: (
         <Image
           src={
-            resolvedTheme === "dark"
+            !mounted || resolvedTheme === "dark"
               ? "/GithubLogo-dark.svg"
               : "/GithubLogo-light.svg"
           }
@@ -42,7 +45,11 @@ export default function Footer() {
     {
       icon: (
         <Image
-          src={resolvedTheme === "dark" ? "/XLogo-dark.png" : "/XLogo.webp"}
+          src={
+            !mounted || resolvedTheme === "dark"
+              ? "/XLogo-dark.png"
+              : "/XLogo.webp"
+          }
           width={20}
           height={20}
           loading="eager"

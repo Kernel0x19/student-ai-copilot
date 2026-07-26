@@ -63,6 +63,7 @@ export default function WorkflowSection() {
       setActiveAgent(null);
     }, 3400);
     setTimeout(() => setActiveStep(4), 4200);
+    setTimeout(() => setActiveStep(5), 4800);
     setTimeout(() => setRunning(false), 5000);
   };
 

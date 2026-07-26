@@ -14,25 +14,49 @@ export async function middleware(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
+            request.cookies.set(name, value),
           );
           supabaseResponse = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+            supabaseResponse.cookies.set(name, value, options),
           );
         },
       },
-    }
+    },
   );
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: { session },
+  } = await supabase.auth.getSession();
+  const user = session?.user ?? null;
+
+  if (user) {
+    const sessionExpiry = request.cookies.get("session_expiry");
+    if (sessionExpiry) {
+      const expiry = parseInt(sessionExpiry.value);
+      const oneDayMs = 60 * 60 * 24 * 1000;
+      if (Date.now() - expiry > oneDayMs) {
+        const response = NextResponse.redirect(
+          new URL("/auth/login", request.url),
+        );
+        response.cookies.delete("session_expiry");
+        return response;
+      }
+    }
+  }
 
   const { pathname } = request.nextUrl;
 
-  const protectedRoutes = ["/dashboard", "/profile", "/scholarships", "/internships", "/chat"];
-  const isProtected = protectedRoutes.some((route) => pathname.startsWith(route));
+  const protectedRoutes = [
+    "/dashboard",
+    "/profile",
+    "/scholarships",
+    "/internships",
+    "/chat",
+  ];
+  const isProtected = protectedRoutes.some((route) =>
+    pathname.startsWith(route),
+  );
 
   if (isProtected && !user) {
     return NextResponse.redirect(new URL("/login", request.url));

@@ -5,8 +5,8 @@ import { ArrowUpRight, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { login, signInWithOAuth } from "@/app/auth/actions";
 import { useSearchParams } from "next/navigation";
+import { createClient } from "@/app/lib/supabase/client";
 
 const Page = () => {
   const [email, setEmail] = useState("");
@@ -24,28 +24,41 @@ const Page = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const fd = new FormData();
-    fd.append("email", email);
-    fd.append("password", password);
-    const result = await login(fd);
-    if (result?.error) {
-      setError(result.error);
+
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      setError(error.message);
       setLoading(false);
-    } else if (result?.redirectTo) {
-      window.location.href = result.redirectTo;
+      return;
     }
+
+    window.location.href = "/dashboard";
   };
 
   const handleOAuth = async (provider: "google" | "github") => {
     setOauthLoading(provider);
     setError(null);
-    const result = await signInWithOAuth(provider);
-    if (result?.error) {
-      setError(result.error);
+
+    const supabase = createClient();
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      setError(error.message);
       setOauthLoading(null);
-    } else if (result?.redirectTo) {
-      window.location.href = result.redirectTo;
+      return;
     }
+
+    if (data.url) window.location.href = data.url;
   };
 
   return (

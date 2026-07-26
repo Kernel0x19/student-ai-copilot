@@ -5,7 +5,7 @@ import { ArrowUpRight, MoveRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { signup, signInWithOAuth } from "@/app/auth/actions";
+import { createClient } from "@/app/lib/supabase/client";
 
 const Page = () => {
   const [loading, setLoading] = useState(false);
@@ -29,30 +29,65 @@ const Page = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const fd = new FormData();
-    fd.append("full_name", `${form.first_name} ${form.last_name}`.trim());
-    fd.append("email", form.email);
-    fd.append("password", form.password);
-    fd.append("college", form.college);
-    fd.append("stream", form.stream);
-    fd.append("year", form.year);
-    const result = await signup(fd);
-    if (result?.error) {
-      setError(result.error);
+
+    const supabase = createClient();
+
+    // Check if email already exists
+    const { data: existing } = await supabase
+      .from("profiles")
+      .select("id")
+      .eq("email", form.email)
+      .single();
+
+    if (existing) {
+      setError(
+        "An account with this email already exists. Please log in instead.",
+      );
       setLoading(false);
-    } else if (result?.redirectTo) {
-      window.location.href = result.redirectTo;
+      return;
     }
+
+    const { error } = await supabase.auth.signUp({
+      email: form.email,
+      password: form.password,
+      options: {
+        data: {
+          full_name: `${form.first_name} ${form.last_name}`.trim(),
+          college: form.college,
+          stream: form.stream,
+          year_of_study: form.year,
+        },
+      },
+    });
+
+    if (error) {
+      setError(error.message);
+      setLoading(false);
+      return;
+    }
+
+    window.location.href = "/dashboard";
   };
 
   const handleOAuth = async (provider: "google" | "github") => {
     setOauthLoading(provider);
     setError(null);
-    const result = await signInWithOAuth(provider);
-    if (result?.error) {
-      setError(result.error);
+
+    const supabase = createClient();
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      setError(error.message);
       setOauthLoading(null);
+      return;
     }
+
+    if (data.url) window.location.href = data.url;
   };
 
   return (

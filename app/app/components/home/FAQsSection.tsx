@@ -52,7 +52,7 @@ export default function FAQSection() {
               Questions students actually ask.
             </h2>
             <p className="font-mono text-sm text-gray-500 dark:text-[#6B7280] leading-relaxed transition-all duration-500">
-              Can't find what you're looking for? Ask the AI assistant directly
+              Can&apos;t find what you&apos;re looking for? Ask the AI assistant directly
               — it knows everything about EduPilot.
             </p>
           </div>

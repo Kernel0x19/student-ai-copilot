@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 import {
   LayoutDashboard,
   GraduationCap,
@@ -14,7 +13,7 @@ import {
   LogOut,
   BookOpen,
 } from "lucide-react";
-import { logout } from "@/app/auth/actions";
+import { createClient } from "@/app/lib/supabase/client";
 
 const NAV = [
   {
@@ -52,13 +51,20 @@ const NAV = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    window.location.href = "/auth/login";
+  };
 
   return (
     <aside className="hidden lg:flex flex-col w-60 shrink-0 border-r border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] min-h-screen fixed top-0 left-0 bottom-0 transition-all duration-500">
       <div className="px-6 py-5 border-b border-black/10 dark:border-white/8 transition-all duration-500">
         <div
           className="flex items-center gap-2 hover:cursor-pointer"
-          onClick={() => redirect("/")}
+          onClick={() => {
+            window.location.href = "/";
+          }}
         >
           <Image
             className="transition-all duration-500"
@@ -94,7 +100,7 @@ export default function Sidebar() {
       </nav>
       <div className="px-3 py-4 border-t border-black/10 dark:border-white/8 transition-all duration-500">
         <button
-          onClick={() => logout()}
+          onClick={handleLogout}
           className="flex items-center gap-3 px-3 py-2.5 w-full font-mono text-sm text-gray-500 dark:text-[#6B7280] hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/8 border-l-2 border-transparent transition-all duration-500 cursor-pointer"
         >
           <LogOut size={17} />

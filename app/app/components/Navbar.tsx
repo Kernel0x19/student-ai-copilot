@@ -13,7 +13,6 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import { createClient } from "@/app/lib/supabase/client";
-import { logout } from "@/app/auth/actions";
 
 const NAV_LINKS = [
   "Home",
@@ -38,6 +37,12 @@ const Navbar = ({ isAuth }: Auth) => {
   );
   const [userLoading, setUserLoading] = useState(true);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    window.location.href = "/auth/login";
+  };
 
   useEffect(() => {
     const supabase = createClient();
@@ -81,7 +86,9 @@ const Navbar = ({ isAuth }: Auth) => {
     setMenuOpen(false);
   };
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   if (!mounted) return null;
 
   const initials = user?.name?.[0]?.toUpperCase() ?? "S";
@@ -166,7 +173,7 @@ const Navbar = ({ isAuth }: Auth) => {
                   </div>
                   <div className="border-t border-black/10 dark:border-white/8 py-1">
                     <button
-                      onClick={() => logout()}
+                      onClick={handleLogout}
                       className="flex items-center gap-2.5 px-4 py-3 w-full font-mono text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/8 transition-colors duration-200 cursor-pointer"
                     >
                       <LogOut size={15} />
@@ -279,7 +286,7 @@ const Navbar = ({ isAuth }: Auth) => {
                   Go to Dashboard
                 </Link>
                 <button
-                  onClick={() => logout()}
+                  onClick={handleLogout}
                   className="flex items-center justify-center gap-2 px-4 py-3 border border-red-500/30 text-red-500 font-mono text-sm hover:bg-red-50 dark:hover:bg-red-500/8 transition-colors duration-200 cursor-pointer"
                 >
                   <LogOut size={15} />

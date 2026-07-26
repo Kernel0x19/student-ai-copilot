@@ -24,7 +24,7 @@ export default function DashboardHeader({ userName }: Props) {
           <span className="text-[#0C65D2]">{userName ?? "Student"}</span> 👋
         </p>
         <p className="font-mono text-base text-gray-400 dark:text-[#6B7280]">
-          Here's what's happening with your applications today.
+          Here&apos; what&apos; happening with your applications today.
         </p>
       </div>
       <div className="flex items-center gap-2">

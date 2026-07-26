@@ -35,7 +35,7 @@ export default function BenefitsSection() {
                   className="flex items-start gap-4 border-l-2 border-black/10 dark:border-white/8 pl-4 py-1 hover:border-[#0C65D2] transition-colors duration-500 group"
                 >
                   <p className="font-mono text-xs sm:text-sm text-gray-500 dark:text-[#6B7280] group-hover:text-gray-700 dark:group-hover:text-[#a8c7fa] leading-relaxed transition-all duration-500">
-                    "{pain}"
+                    &quot;{pain}&quot;
                   </p>
                 </div>
               ))}

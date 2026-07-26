@@ -14,3 +14,7 @@
 @theme {
   --font-jetbrains: "JetBrains Mono", monospace;
 }
+
+.input-base {
+  @apply w-full px-4 py-3 border border-black/10 dark:border-white/8 bg-transparent text-gray-900 dark:text-[#F0F4FF] font-mono text-sm placeholder:text-gray-300 dark:placeholder:text-white/20 focus:outline-none focus:border-[#0C65D2] transition-colors duration-200;
+}

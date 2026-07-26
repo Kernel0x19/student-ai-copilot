@@ -39,16 +39,16 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="border-t border-black/10 dark:border-white/8 py-24 transition-all duration-500"
+      className="border-t border-black/10 dark:border-white/8 py-16 sm:py-20 lg:py-24 transition-all duration-500"
     >
-      <div className="max-w-300 mx-auto px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] xl:grid-cols-[320px_1fr] gap-8 sm:gap-12 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-4 tracking-widest transition-all duration-500">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
               FAQ
             </div>
-            <h2 className="font-syne text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight leading-[1.1] mb-4 transition-all duration-500">
+            <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight leading-[1.1] mb-4 transition-all duration-500">
               Questions students actually ask.
             </h2>
             <p className="font-mono text-sm text-gray-500 dark:text-[#6B7280] leading-relaxed transition-all duration-500">
@@ -56,6 +56,7 @@ export default function FAQSection() {
               — it knows everything about EduPilot.
             </p>
           </div>
+
           <div className="flex flex-col">
             {FAQS.map((faq, i) => (
               <div
@@ -64,10 +65,10 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-start justify-between gap-6 py-5 text-left cursor-pointer group"
+                  className="w-full flex items-start justify-between gap-4 sm:gap-6 py-4 sm:py-5 text-left cursor-pointer group"
                 >
                   <span
-                    className={`font-syne font-bold text-base transition-all duration-500 ${
+                    className={`font-syne font-bold text-sm sm:text-base transition-all duration-500 ${
                       open === i
                         ? "text-[#0C65D2]"
                         : "text-gray-900 dark:text-[#F0F4FF] group-hover:text-[#0C65D2]"
@@ -88,10 +89,10 @@ export default function FAQSection() {
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    open === i ? "max-h-48 pb-5" : "max-h-0"
+                    open === i ? "max-h-64 pb-4 sm:pb-5" : "max-h-0"
                   }`}
                 >
-                  <p className="font-mono text-sm text-gray-500 dark:text-[#6B7280] leading-relaxed transition-all duration-500">
+                  <p className="font-mono text-xs sm:text-sm text-gray-500 dark:text-[#6B7280] leading-relaxed transition-all duration-500">
                     {faq.a}
                   </p>
                 </div>

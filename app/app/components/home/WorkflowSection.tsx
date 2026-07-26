@@ -69,21 +69,21 @@ export default function WorkflowSection() {
   return (
     <section
       id="workflow"
-      className="border-t border-black/10 dark:border-white/8 py-24 transition-all duration-500"
+      className="border-t border-black/10 dark:border-white/8 py-14 sm:py-20 lg:py-24 transition-all duration-500"
     >
-      <div className="max-w-300 mx-auto px-10">
-        <div className="mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="mb-10 sm:mb-14 lg:mb-16">
           <div className="inline-flex items-center gap-2 bg-[#0C65D2]/10 border border-[#0C65D2]/30 px-3.5 py-1.5 font-mono text-[11px] text-[#0C65D2] dark:text-[#6fa8f5] mb-4 tracking-widest transition-all duration-500">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0C65D2]" />
             WORKFLOW
           </div>
-          <div className="flex items-end justify-between">
+          <div className="flex items-end justify-between gap-4">
             <div>
-              <h2 className="font-syne text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight transition-all duration-500">
+              <h2 className="font-syne text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 dark:text-[#F0F4FF] tracking-tight transition-all duration-500">
                 How the agents
                 <span className="text-[#0C65D2]"> work together.</span>
               </h2>
-              <p className="mt-3 text-gray-500 dark:text-[#6B7280] font-mono text-sm max-w-lg transition-all duration-500">
+              <p className="mt-3 text-gray-500 dark:text-[#6B7280] font-mono text-xs sm:text-sm max-w-lg transition-all duration-500">
                 Every query is routed by an orchestrator that decides which
                 agents to activate and in what order.
               </p>
@@ -99,10 +99,21 @@ export default function WorkflowSection() {
               {running ? "Running..." : "Re-run pipeline"}
             </button>
           </div>
+          <button
+            onClick={startAnimation}
+            disabled={running}
+            className="mt-4 lg:hidden flex items-center gap-2 px-4 py-2 border border-black/10 dark:border-white/8 font-mono text-xs text-gray-500 dark:text-[#6B7280] hover:border-[#0C65D2]/40 hover:text-[#0C65D2] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer transition-all duration-500"
+          >
+            <span
+              className={`w-1.5 h-1.5 rounded-full ${running ? "bg-green-500 animate-pulse" : "bg-gray-400 dark:bg-[#6B7280]"} transition-all duration-500`}
+            />
+            {running ? "Running..." : "Re-run pipeline"}
+          </button>
         </div>
+
         <div
           id="workflow-section"
-          className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-center"
+          className="flex flex-col lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 lg:gap-0 items-stretch lg:items-center"
         >
           <PipelineNode
             active={activeStep >= 0}
@@ -134,16 +145,18 @@ export default function WorkflowSection() {
             ))}
           </div>
         </div>
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-center">
+
+        <div className="mt-4 lg:mt-6 flex flex-col lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-center">
           <div />
           <div />
           <PipelineArrow active={activeStep >= 3} vertical />
           <div />
           <div />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-0 items-center">
-          <div />
-          <div />
+
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 lg:gap-0 items-stretch lg:items-center">
+          <div className="hidden lg:block" />
+          <div className="hidden lg:block" />
           <PipelineNode
             active={activeStep >= 3}
             label="Aggregator"
@@ -159,7 +172,8 @@ export default function WorkflowSection() {
             accent
           />
         </div>
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-5 gap-3">
+
+        <div className="mt-10 sm:mt-14 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {PIPELINE_STEPS.map((step, i) => (
             <div
               key={i}
@@ -204,7 +218,7 @@ function PipelineNode({
 }) {
   return (
     <div
-      className={`border p-5 transition-all duration-500  ${
+      className={`border p-4 sm:p-5 transition-all duration-500 ${
         active
           ? highlight
             ? "border-[#0C65D2] bg-[#0C65D2]/8 dark:bg-[#0C65D2]/10"
@@ -233,7 +247,7 @@ function PipelineNode({
         />
       </div>
       <p
-        className={`font-syne font-bold text-base transition-colors duration-500 ${active ? "text-gray-900 dark:text-[#F0F4FF]" : "text-gray-400 dark:text-[#6B7280]"}`}
+        className={`font-syne font-bold text-sm sm:text-base transition-colors duration-500 ${active ? "text-gray-900 dark:text-[#F0F4FF]" : "text-gray-400 dark:text-[#6B7280]"}`}
       >
         {label}
       </p>
@@ -305,8 +319,8 @@ function PipelineArrow({
     );
   }
   return (
-    <div className="flex items-center justify-center px-2">
-      <div className={`flex items-center gap-0 transition-all duration-500`}>
+    <div className="flex items-center justify-center px-2 py-2 lg:py-0">
+      <div className="flex items-center gap-0 transition-all duration-500">
         <div
           className={`h-px w-8 transition-all duration-500 ${active ? "bg-[#0C65D2]" : "bg-black/10 dark:bg-white/8"}`}
         />

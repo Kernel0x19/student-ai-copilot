@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import ComingSoon from '@/app/components/dashboard/ComingSoon';
 import React from 'react'
 

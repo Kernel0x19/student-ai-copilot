@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+export const runtime = "edge";
 import { createClient } from "@/app/lib/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
@@ -13,55 +13,14 @@ import {
   AlertCircle,
   TrendingUp,
   ChevronRight,
-  SearchX,
   Inbox,
 } from "lucide-react";
-
-// ── TODO for AI team ──────────────────────────────────────────
-// Replace these empty arrays with real data fetched from:
-// SCHOLARSHIPS  → your scholarship matching API / Qdrant results
-// DEADLINES     → derived from saved/applied scholarships & internships
-// CHAT_HISTORY  → chat_history table filtered by user_id
-// SAVED         → saved_opportunities table joined with scholarships/internships
-// APPLICATIONS  → application_tracking table filtered by user_id
-// STATS         → counts from respective tables
-// ─────────────────────────────────────────────────────────────
-
-const SCHOLARSHIPS: {
-  id: number;
-  title: string;
-  amount: string;
-  deadline: string;
-  match: number;
-}[] = [];
-
-const DEADLINES: {
-  id: number;
-  title: string;
-  date: string;
-  daysLeft: number;
-  type: string;
-}[] = [];
-
-const CHAT_HISTORY: {
-  id: number;
-  message: string;
-  time: string;
-}[] = [];
-
-const SAVED: {
-  id: number;
-  title: string;
-  type: string;
-  saved: string;
-}[] = [];
-
-const APPLICATIONS: {
-  id: number;
-  title: string;
-  status: string;
-  pct: number;
-}[] = [];
+import {
+  getRecommendations,
+  getDashboardStats,
+  getApplications,
+  getProfile,
+} from "@/app/lib/api";
 
 function EmptyState({
   message,
@@ -88,6 +47,11 @@ function EmptyState({
   );
 }
 
+function daysLeft(deadline: string) {
+  const d = Math.ceil((new Date(deadline).getTime() - Date.now()) / 86400000);
+  return d;
+}
+
 export default async function DashboardPage() {
   const supabase = await createClient();
   const {
@@ -95,11 +59,65 @@ export default async function DashboardPage() {
   } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("full_name, college, stream, year_of_study, cgpa, is_admin")
-    .eq("id", user.id)
-    .single();
+  let profile = null;
+  let stats = { scholarships_matched: 0, internships_available: 0, documents_uploaded: 0, applications_tracked: 0, readiness_score: 0 };
+  let scholarships: { id: string; title: string; amount: string; deadline: string; match: number }[] = [];
+  let deadlines: { id: string; title: string; date: string; daysLeft: number; type: string }[] = [];
+  let applications: { id: string; title: string; status: string; pct: number }[] = [];
+  let saved: { id: string; title: string; type: string; saved: string }[] = [];
+
+  try {
+    const [profileData, statsData, recData, appsData] = await Promise.all([
+      getProfile(user.id, user.email ?? "").catch(() => null),
+      getDashboardStats(user.id, user.email ?? "").catch(() => stats),
+      getRecommendations(user.id, user.email ?? "").catch(() => ({ matches: [], total: 0, readiness_score: 0 })),
+      getApplications(user.id, user.email ?? "").catch(() => []),
+    ]);
+
+    profile = profileData;
+    stats = statsData;
+
+    scholarships = recData.matches.slice(0, 5).map((m) => ({
+      id: m.opportunity.id,
+      title: m.opportunity.title,
+      amount: m.opportunity.amount_max
+        ? `Up to ₹${m.opportunity.amount_max.toLocaleString()}`
+        : "—",
+      deadline: m.opportunity.deadline ?? "TBD",
+      match: m.match_score,
+    }));
+
+    deadlines = recData.matches
+      .filter((m) => m.opportunity.deadline)
+      .slice(0, 5)
+      .map((m) => ({
+        id: m.opportunity.id,
+        title: m.opportunity.title,
+        date: m.opportunity.deadline!,
+        daysLeft: daysLeft(m.opportunity.deadline!),
+        type: "scholarship",
+      }))
+      .sort((a, b) => a.daysLeft - b.daysLeft);
+
+    applications = appsData.slice(0, 5).map((a) => ({
+      id: a.id,
+      title: a.opportunity?.title ?? "Application",
+      status: a.state.replace(/_/g, " "),
+      pct: a.progress_pct,
+    }));
+
+    saved = appsData
+      .filter((a) => a.saved)
+      .slice(0, 5)
+      .map((a) => ({
+        id: a.id,
+        title: a.opportunity?.title ?? "Saved",
+        type: "scholarship",
+        saved: new Date(a.created_at).toLocaleDateString(),
+      }));
+  } catch {
+    // API offline — show empty states
+  }
 
   const profileComplete = !!(
     profile?.college &&
@@ -129,25 +147,25 @@ export default async function DashboardPage() {
         {[
           {
             label: "Scholarships matched",
-            value: "—",
+            value: String(stats.scholarships_matched),
             icon: <GraduationCap size={16} />,
             color: "text-[#0C65D2]",
           },
           {
             label: "Internships available",
-            value: "—",
+            value: String(stats.internships_available),
             icon: <Briefcase size={16} />,
             color: "text-green-500",
           },
           {
             label: "Documents uploaded",
-            value: "0",
+            value: String(stats.documents_uploaded),
             icon: <FileText size={16} />,
             color: "text-purple-500",
           },
           {
             label: "Applications tracked",
-            value: "0",
+            value: String(stats.applications_tracked),
             icon: <TrendingUp size={16} />,
             color: "text-orange-500",
           },
@@ -213,7 +231,7 @@ export default async function DashboardPage() {
                 Matched Scholarships
               </p>
               <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
-                Ranked by eligibility fit
+                Ranked by eligibility fit · Readiness {stats.readiness_score}%
               </p>
             </div>
             <Link
@@ -223,17 +241,18 @@ export default async function DashboardPage() {
               View all <ChevronRight size={12} />
             </Link>
           </div>
-          {SCHOLARSHIPS.length === 0 ? (
+          {scholarships.length === 0 ? (
             <EmptyState
               message="No scholarships matched yet. Complete your profile so the AI can find relevant scholarships for you."
               action={{ label: "Complete profile", href: "/dashboard/profile" }}
             />
           ) : (
             <div className="flex flex-col">
-              {SCHOLARSHIPS.map((s, i) => (
-                <div
+              {scholarships.map((s, i) => (
+                <Link
                   key={s.id}
-                  className={`flex items-center justify-between gap-4 px-5 py-4 ${i !== SCHOLARSHIPS.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
+                  href="/dashboard/scholarships"
+                  className={`flex items-center justify-between gap-4 px-5 py-4 ${i !== scholarships.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="w-8 h-8 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0">
@@ -262,7 +281,7 @@ export default async function DashboardPage() {
                       className="text-gray-300 dark:text-white/20 group-hover:text-[#0C65D2] transition-colors duration-500"
                     />
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
@@ -274,19 +293,19 @@ export default async function DashboardPage() {
                 Upcoming Deadlines
               </p>
               <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
-                Don't miss these
+                Don&apos;t miss these
               </p>
             </div>
             <Clock size={14} className="text-gray-400 dark:text-[#6B7280]" />
           </div>
-          {DEADLINES.length === 0 ? (
+          {deadlines.length === 0 ? (
             <EmptyState message="No upcoming deadlines. Save scholarships or internships to track their deadlines here." />
           ) : (
             <div className="flex flex-col">
-              {DEADLINES.map((d, i) => (
+              {deadlines.map((d, i) => (
                 <div
                   key={d.id}
-                  className={`flex items-center justify-between gap-3 px-5 py-3.5 transition-all duration-500 ${i !== DEADLINES.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""}`}
+                  className={`flex items-center justify-between gap-3 px-5 py-3.5 transition-all duration-500 ${i !== deadlines.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""}`}
                 >
                   <div className="min-w-0">
                     <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate">
@@ -323,7 +342,7 @@ export default async function DashboardPage() {
               Track your active applications
             </p>
           </div>
-          {APPLICATIONS.length === 0 ? (
+          {applications.length === 0 ? (
             <EmptyState
               message="No applications tracked yet. Start applying to scholarships and internships to track them here."
               action={{
@@ -333,7 +352,7 @@ export default async function DashboardPage() {
             />
           ) : (
             <div className="flex flex-col gap-4 p-5">
-              {APPLICATIONS.map((app) => (
+              {applications.map((app) => (
                 <div key={app.id}>
                   <div className="flex items-center justify-between mb-1.5">
                     <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate">
@@ -379,42 +398,10 @@ export default async function DashboardPage() {
               Open <ChevronRight size={12} />
             </Link>
           </div>
-          {CHAT_HISTORY.length === 0 ? (
-            <EmptyState
-              message="No conversations yet. Ask the AI anything about scholarships, eligibility, or career paths."
-              action={{ label: "Start a chat", href: "/dashboard/chat" }}
-            />
-          ) : (
-            <div className="flex flex-col">
-              {CHAT_HISTORY.map((c, i) => (
-                <div
-                  key={c.id}
-                  className={`flex items-start gap-3 px-5 py-3.5 ${i !== CHAT_HISTORY.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer`}
-                >
-                  <div className="w-6 h-6 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0 mt-0.5">
-                    <MessageSquare size={11} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-mono text-[12px] text-gray-700 dark:text-[#a8c7fa] truncate">
-                      {c.message}
-                    </p>
-                    <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] mt-0.5">
-                      {c.time}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-          <div className="px-5 py-3 border-t border-black/10 dark:border-white/8">
-            <Link
-              href="/dashboard/chat"
-              className="flex items-center justify-center gap-2 w-full py-2 bg-[#0C65D2] text-white font-mono text-[12px] hover:bg-[#0a52b0] transition-colors duration-500"
-            >
-              <MessageSquare size={13} />
-              Start new chat
-            </Link>
-          </div>
+          <EmptyState
+            message="AI Chat coming in Phase 2. Use Scholarship Agent for now."
+            action={{ label: "Browse scholarships", href: "/dashboard/scholarships" }}
+          />
         </div>
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500">
           <div className="flex items-center justify-between px-5 py-4 border-b border-black/10 dark:border-white/8">
@@ -431,7 +418,7 @@ export default async function DashboardPage() {
               className="text-gray-400 dark:text-[#6B7280]"
             />
           </div>
-          {SAVED.length === 0 ? (
+          {saved.length === 0 ? (
             <EmptyState
               message="No saved opportunities yet. Browse scholarships and internships and bookmark ones you're interested in."
               action={{
@@ -441,23 +428,13 @@ export default async function DashboardPage() {
             />
           ) : (
             <div className="flex flex-col">
-              {SAVED.map((s, i) => (
+              {saved.map((s, i) => (
                 <div
                   key={s.id}
-                  className={`flex items-center gap-3 px-5 py-3.5 ${i !== SAVED.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
+                  className={`flex items-center gap-3 px-5 py-3.5 ${i !== saved.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
                 >
-                  <div
-                    className={`w-7 h-7 flex items-center justify-center shrink-0 ${
-                      s.type === "scholarship"
-                        ? "bg-[#0C65D2]/10 border border-[#0C65D2]/20 text-[#0C65D2]"
-                        : "bg-green-500/10 border border-green-500/20 text-green-500"
-                    }`}
-                  >
-                    {s.type === "scholarship" ? (
-                      <GraduationCap size={13} />
-                    ) : (
-                      <Briefcase size={13} />
-                    )}
+                  <div className="w-7 h-7 flex items-center justify-center shrink-0 bg-[#0C65D2]/10 border border-[#0C65D2]/20 text-[#0C65D2]">
+                    <GraduationCap size={13} />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate">

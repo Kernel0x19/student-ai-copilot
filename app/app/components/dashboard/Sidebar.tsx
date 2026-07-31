@@ -13,6 +13,8 @@ import {
   User,
   LogOut,
   BookOpen,
+  Search,
+  BarChart3,
 } from "lucide-react";
 import { logout } from "@/app/auth/actions";
 
@@ -38,6 +40,11 @@ const NAV = [
     label: "AI Chat",
   },
   {
+    href: "/dashboard/search",
+    icon: <Search size={17} />,
+    label: "Search",
+  },
+  {
     href: "/dashboard/documents",
     icon: <FileText size={17} />,
     label: "Documents",
@@ -48,6 +55,8 @@ const NAV = [
     label: "Notifications",
   },
   { href: "/dashboard/profile", icon: <User size={17} />, label: "Profile" },
+  { href: "/dashboard/consent", icon: <BookOpen size={17} />, label: "Consent" },
+  { href: "/dashboard/admin", icon: <BarChart3 size={17} />, label: "Admin" },
 ];
 
 export default function Sidebar() {

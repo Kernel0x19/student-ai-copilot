@@ -1,16 +1,17 @@
 "use client";
 import { Bell, Search, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 type Props = {
   userName?: string;
 };
 
+const emptySubscribe = () => () => {};
+
 export default function DashboardHeader({ userName }: Props) {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const hour = new Date().getHours();
   const greeting =
@@ -24,7 +25,7 @@ export default function DashboardHeader({ userName }: Props) {
           <span className="text-[#0C65D2]">{userName ?? "Student"}</span> 👋
         </p>
         <p className="font-mono text-base text-gray-400 dark:text-[#6B7280]">
-          Here's what's happening with your applications today.
+          Here&apos;s what&apos;s happening with your applications today.
         </p>
       </div>
       <div className="flex items-center gap-2">

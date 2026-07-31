@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "id": "nsp",
+      "name": "National Scholarship Portal",
+      "url": "https://scholarships.gov.in",
+      "category": "scholarship",
+      "has_public_api": false,
+      "ingestion_strategy": "scrape",
+      "rate_limit": "respectful crawl, 1 req/2s",
+      "tos_notes": "Government portal — use official data feeds where available; scraping for metadata only",
+      "mvp_priority": 1,
+      "status": "connector_implemented"
+    },
+    {
+      "id": "mahadbt",
+      "name": "MahaDBT Maharashtra",
+      "url": "https://mahadbt.maharashtra.gov.in",
+      "category": "scholarship",
+      "has_public_api": false,
+      "ingestion_strategy": "scrape",
+      "rate_limit": "1 req/3s",
+      "tos_notes": "State portal — structured scheme pages",
+      "mvp_priority": 1,
+      "status": "connector_implemented"
+    },
+    {
+      "id": "myscheme",
+      "name": "myScheme (India Gov)",
+      "url": "https://www.myscheme.gov.in",
+      "category": "scholarship",
+      "has_public_api": true,
+      "api_url": "https://api.myscheme.gov.in/search",
+      "ingestion_strategy": "api",
+      "rate_limit": "undocumented — use backoff",
+      "tos_notes": "Open government API for scheme discovery",
+      "mvp_priority": 1,
+      "status": "connector_implemented"
+    },
+    {
+      "id": "aicte",
+      "name": "AICTE",
+      "url": "https://www.aicte-india.org",
+      "category": "scholarship",
+      "has_public_api": false,
+      "ingestion_strategy": "scrape",
+      "rate_limit": "manual sync",
+      "tos_notes": "Phase 2 — internship/placement overlap",
+      "mvp_priority": 2,
+      "status": "planned"
+    },
+    {
+      "id": "unstop",
+      "name": "Unstop",
+      "url": "https://unstop.com",
+      "category": "hackathon",
+      "has_public_api": false,
+      "ingestion_strategy": "scrape",
+      "rate_limit": "strict — partner API preferred",
+      "tos_notes": "ToS restricts automated scraping — partner integration needed",
+      "mvp_priority": 3,
+      "status": "planned"
+    },
+    {
+      "id": "internshala",
+      "name": "Internshala",
+      "url": "https://internshala.com",
+      "category": "internship",
+      "has_public_api": false,
+      "ingestion_strategy": "scrape",
+      "rate_limit": "strict",
+      "tos_notes": "No public API — Internship Agent phase 2",
+      "mvp_priority": 3,
+      "status": "planned"
+    }
+  ],
+  "mvp_scope": {
+    "active_agent": "scholarship",
+    "deferred_agents": ["internship", "placement", "hackathon"],
+    "rationale": "NSP/MahaDBT/myScheme have relatively structured eligibility data suitable for rules-based matching"
+  }
+}

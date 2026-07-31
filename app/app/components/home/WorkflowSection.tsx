@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const AGENTS = [
   {
@@ -31,19 +31,7 @@ export default function WorkflowSection() {
   const [activeAgent, setActiveAgent] = useState<number | null>(null);
   const [running, setRunning] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) startAnimation();
-      },
-      { threshold: 0.3 },
-    );
-    const el = document.getElementById("workflow-section");
-    if (el) observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const startAnimation = () => {
+  const startAnimation = useCallback(() => {
     if (running) return;
     setRunning(true);
     setActiveStep(0);
@@ -65,7 +53,19 @@ export default function WorkflowSection() {
     setTimeout(() => setActiveStep(4), 4200);
     setTimeout(() => setActiveStep(5), 4800);
     setTimeout(() => setRunning(false), 5000);
-  };
+  }, [running]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) startAnimation();
+      },
+      { threshold: 0.3 },
+    );
+    const el = document.getElementById("workflow-section");
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, [startAnimation]);
 
   return (
     <section

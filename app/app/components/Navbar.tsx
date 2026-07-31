@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createClient } from "@/app/lib/supabase/client";
 import { logout } from "@/app/auth/actions";
 
@@ -28,9 +28,10 @@ interface Auth {
   isAuth?: boolean;
 }
 
+const emptySubscribe = () => () => {};
+
 const Navbar = ({ isAuth }: Auth) => {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [user, setUser] = useState<{ name: string; email: string } | null>(
@@ -81,7 +82,7 @@ const Navbar = ({ isAuth }: Auth) => {
     setMenuOpen(false);
   };
 
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   if (!mounted) return null;
 
   const initials = user?.name?.[0]?.toUpperCase() ?? "S";

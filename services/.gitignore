@@ -1,1 +1,3 @@
 /.servicesEnv
+venv 
+.env

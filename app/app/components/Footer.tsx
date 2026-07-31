@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 
 const NAV_LINKS = [
   "Home",
@@ -12,6 +12,8 @@ const NAV_LINKS = [
   "FAQ",
 ];
 
+const emptySubscribe = () => () => {};
+
 export default function Footer() {
   const scrollTo = (section: string) => {
     if (typeof window === "undefined") return;
@@ -20,9 +22,8 @@ export default function Footer() {
       ?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const { resolvedTheme } = useTheme();
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const SOCIAL = [
     {

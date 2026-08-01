@@ -1,0 +1,45 @@
+*.code-workspace
+venv/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Local application data
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+chroma_data/
+secure_documents/
+
+# Tooling/editor data
+.kiro/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

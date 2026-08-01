@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-jetbrains: "JetBrains Mono", monospace;
+}
+
+.input-base {
+  @apply w-full px-4 py-3 border border-black/10 dark:border-white/8 bg-transparent text-gray-900 dark:text-[#F0F4FF] font-mono text-sm placeholder:text-gray-300 dark:placeholder:text-white/20 focus:outline-none focus:border-[#0C65D2] transition-colors duration-200;
+}
+
+@keyframes loading-bar {
+  0% { width: 0%; margin-left: 0%; }
+  50% { width: 70%; margin-left: 15%; }
+  100% { width: 0%; margin-left: 100%; }
+}

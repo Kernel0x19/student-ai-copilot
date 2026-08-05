@@ -312,7 +312,10 @@ class InternshalaConnector(BaseConnector):
                             "selectors_tried": internship_selectors
                         })
                     
-                    # Extract data from each internship card
+                    # Extract data from each internship card (honour max_cards)
+                    max_cards = self.config.get("max_cards", len(internships))
+                    internships = internships[:max_cards]
+
                     for idx, internship in enumerate(internships):
                         try:
                             # Get inner HTML

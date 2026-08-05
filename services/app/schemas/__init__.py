@@ -44,8 +44,11 @@ class StudentProfileCreate(BaseModel):
     year_of_study: int | None = None
     cgpa: float | None = None
     percentage_12th: float | None = None
+    backlogs: int | None = None
     skills: list[str] = Field(default_factory=list)
     documents: list[dict] = Field(default_factory=list)
+    # preferences stores: work_mode, pref_duration, availability,
+    # pref_locations, interests, resume_url, portfolio_url, cover_letter_url
     preferences: dict = Field(default_factory=dict)
 
 
@@ -72,6 +75,7 @@ class OpportunityResponse(BaseModel):
     application_url: str | None
     state_filter: list[str]
     tags: list[str]
+    raw_data: dict | None = None
 
     model_config = {"from_attributes": True}
 

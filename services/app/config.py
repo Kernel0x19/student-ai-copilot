@@ -43,7 +43,7 @@ class Settings(BaseSettings):
     
     # Data Connectors
     unstop_api_key: str = ""
-    enabled_connectors: str = "aicte,unstop,internshala"
+    enabled_connectors: str = "unstop,internshala"
     
     # Document Verification
     tesseract_cmd: str = ""  # Path to tesseract executable

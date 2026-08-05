@@ -19,13 +19,6 @@ settings = get_settings()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
-    from app.db.session import SessionLocal
-
-    db = SessionLocal()
-    try:
-        run_ingestion(db)
-    finally:
-        db.close()
     yield
 
 

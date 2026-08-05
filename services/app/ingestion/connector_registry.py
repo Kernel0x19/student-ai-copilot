@@ -31,8 +31,7 @@ from app.db.models import (
     Opportunity,
 )
 from app.ingestion.connectors.base import BaseConnector
-from app.ingestion.connectors.aicte import AICTEConnector
-from app.ingestion.connectors.unstop import UnstopConnector
+from app.ingestion.connectors.unstop_connector import UnstopConnector
 from app.ingestion.connectors.internshala import InternshalaConnector
 
 logger = logging.getLogger(__name__)
@@ -40,7 +39,6 @@ logger = logging.getLogger(__name__)
 
 # Global connector registry mapping connector names to their classes
 CONNECTOR_REGISTRY: Dict[str, Type[BaseConnector]] = {
-    'aicte': AICTEConnector,
     'unstop': UnstopConnector,
     'internshala': InternshalaConnector,
 }

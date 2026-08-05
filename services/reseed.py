@@ -6,12 +6,13 @@ from app.ingestion.connectors.indeed_connector import IndeedConnector
 from app.ingestion.connectors.naukri_connector import NaukriConnector
 from app.ingestion.connectors.wellfound_connector import WellfoundConnector
 from app.ingestion.connectors.unstop_connector import UnstopConnector
+from app.ingestion.connectors.seed_connectors import InternshalaSeeder
 
 init_db()
 db = SessionLocal()
 rag = HybridRAG()
 
-for ConnClass in [IndeedConnector, NaukriConnector, WellfoundConnector, UnstopConnector]:
+for ConnClass in [IndeedConnector, NaukriConnector, WellfoundConnector, UnstopConnector, InternshalaSeeder]:
     c = ConnClass()
     items = c.fetch()
     for raw in items:

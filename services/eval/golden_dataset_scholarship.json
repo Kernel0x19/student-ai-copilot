@@ -1,0 +1,92 @@
+[
+  {
+    "question": "What is the AICTE Swanath Scholarship and who is eligible?",
+    "ground_truth": "The AICTE-Swanath Scholarship is for orphans, wards of parents who died due to Covid-19, wards of Armed Forces/Central Paramilitary Forces martyred in action. Eligibility: studying in AICTE-approved Degree/Diploma institution; family income must not exceed ₹8,00,000 per annum; must not be receiving any other Central/State/AICTE scholarship. Amount: ₹50,000 per annum (lump sum for college fee, books, equipment, etc.).",
+    "category": "eligibility"
+  },
+  {
+    "question": "What is the scholarship amount for the Pragati Scholarship Scheme for girl students in technical degree programs?",
+    "ground_truth": "Amount: up to ₹50,000 per annum. Duration: maximum 4 years for first-year admitted students, maximum 3 years for second-year lateral-entry students. Offered by AICTE/Ministry of Education to girl students in AICTE-approved technical degree programs (engineering, technology, architecture, pharmacy).",
+    "category": "amount"
+  },
+  {
+    "question": "What is the fellowship amount for the Maulana Azad National Fellowship?",
+    "ground_truth": "JRF rate: ₹31,000 per month for the first two years. SRF rate: ₹35,000 per month for the remaining tenure. Additional contingency grant of ₹10,000 per annum (Humanities/Social Sciences) or ₹20,500 per annum (Sciences). The fellowship covers M.Phil and Ph.D. studies at UGC-recognized universities for students from minority communities.",
+    "category": "amount"
+  },
+  {
+    "question": "Who is eligible for the Merit Cum Means Based Scholarship from the Ministry of Minority Affairs?",
+    "ground_truth": "Eligibility: students from minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Zoroastrian) pursuing technical/professional UG or PG courses at a listed institute; must have secured at least 50% marks in the previous final examination; annual family income from all sources must not exceed ₹2.50 lakh.",
+    "category": "eligibility"
+  },
+  {
+    "question": "What are the benefits of the INSPIRE Scholarship for Higher Education?",
+    "ground_truth": "Scholarship amount: ₹80,000 per annum (₹60,000 annual scholarship + ₹20,000 summer attachment grant). Awarded to top 1% students in Class XII board exams to pursue B.Sc./B.S./B.Stat./B.Math./Int. M.Sc./M.S. in natural and basic sciences. Offered by the Department of Science and Technology (DST).",
+    "category": "amount"
+  },
+  {
+    "question": "What scholarships are available for SC/ST students pursuing higher education?",
+    "ground_truth": "Key schemes: (1) Post Matric Scholarship for SC Students — financial assistance for post-matriculation courses, income limit ₹2.50 lakh. (2) National Fellowship for Scheduled Tribe Students — JRF ₹31,000/month, SRF ₹35,000/month for M.Phil/Ph.D. (3) PM Yasasvi Scholarship — for OBC/EBC/DNT students. (4) Dr. Ambedkar Central Sector Scheme — for OBC/EBC students for overseas studies.",
+    "category": "category_listing"
+  },
+  {
+    "question": "Are there scholarships specifically for girl students in technical education?",
+    "ground_truth": "Yes. Key schemes: (1) Pragati Scholarship Scheme (Technical Degree) — ₹50,000/year for girl students in AICTE-approved degree programs. (2) Pragati Scholarship Scheme (Technical Diploma) — for girl students in AICTE-approved diploma courses. (3) Saksham Scholarship — for differently-abled girl students in AICTE programs. All offered by AICTE/Ministry of Education. Maximum two girl children per family can avail Pragati.",
+    "category": "category_listing"
+  },
+  {
+    "question": "What scholarships are available for students from minority communities?",
+    "ground_truth": "Key central schemes: (1) Maulana Azad National Fellowship — for M.Phil/Ph.D., ₹31,000–₹35,000/month. (2) Merit Cum Means Based Scholarship — for UG/PG technical courses, income limit ₹2.50 lakh, 50% marks required. (3) Pre-Matric Scholarship for Minorities — for Classes I–X. (4) Post-Matric Scholarship for Minorities — for post-Class X studies. All by Ministry of Minority Affairs.",
+    "category": "category_listing"
+  },
+  {
+    "question": "What is the National Merit Cum Means Scholarship for Class 9 students?",
+    "ground_truth": "Amount: ₹12,000 per annum (₹1,000 per month). Awarded by Ministry of HRD to meritorious students from economically weaker sections to continue studies in Classes IX–XII. Eligibility: students in Class VIII at recognized Govt/Govt-aided/local body schools. Available in Mizoram and select states.",
+    "category": "eligibility"
+  },
+  {
+    "question": "What is the ICAR Netaji Subhas International Fellowship?",
+    "ground_truth": "The Netaji Subhas–ICAR International Fellowship is offered by the Indian Council of Agricultural Research (ICAR), Ministry of Agriculture and Farmers Welfare. Objective: develop human resources trained in top international agricultural laboratories (for Indian candidates) and expose overseas researchers to Indian Agricultural Universities. Fellows work in identified best laboratories worldwide for advanced research in agriculture.",
+    "category": "scholarship"
+  },
+  {
+    "question": "What is the Central Sector Scheme of Scholarships for College and University Students?",
+    "ground_truth": "Offered by Ministry of Education for students who scored above the 80th percentile in Class XII board exams. Amount: ₹10,000/year for first three years (UG), ₹20,000/year for postgraduate studies. Renewable annually subject to maintaining 60% marks. Income limit: family income not exceeding ₹4.50 lakh per annum. Apply via National Scholarship Portal (scholarships.gov.in).",
+    "category": "eligibility"
+  },
+  {
+    "question": "Is there a scholarship for students pursuing research in science and technology?",
+    "ground_truth": "Yes. Key schemes: (1) INSPIRE Fellowship (DST) — ₹20,000/month + ₹20,000 contingency/year for Ph.D. in natural sciences. (2) INSPIRE Scholarship for Higher Education (SHE) — ₹80,000/year for B.Sc./M.Sc. in basic sciences. (3) Maulana Azad National Fellowship — ₹31,000–₹35,000/month for M.Phil/Ph.D. in any discipline (minorities). (4) Netaji Subhas–ICAR International Fellowship — for agricultural research.",
+    "category": "category_listing"
+  },
+  {
+    "question": "What documents are typically required to apply for the Pragati Scholarship?",
+    "ground_truth": "Documents required for Pragati Scholarship: admission letter from AICTE-approved institution, income certificate (family income ≤ ₹8 lakh/year), Aadhaar card, bank account details, previous year marksheet, fee receipt, and self-declaration that no other Central/State/AICTE scholarship is being received.",
+    "category": "scholarship"
+  },
+  {
+    "question": "What is the Devnarayan Post Matric Scholarship?",
+    "ground_truth": "The Devnarayan Post Matric Scholarship is offered by the Government of Rajasthan for students belonging to the Banjara/Bairwa/Balai/Bhatia (backward class) communities. Benefits include reimbursement of maintenance allowance and tuition/non-refundable fees. Income limit: ₹2,50,000 per annum. Apply through the state scholarship portal.",
+    "category": "scholarship"
+  },
+  {
+    "question": "What is the deadline for the AICTE Pragati Scholarship for girl students?",
+    "ground_truth": "The AICTE Pragati Scholarship typically opens applications in September–October each year and closes by November–December. Exact deadlines vary by academic year and are announced on the National Scholarship Portal (scholarships.gov.in). Check the portal for the current cycle's deadline.",
+    "category": "deadline"
+  },
+  {
+    "question": "Is there a scholarship called the 'PM Modi Student Excellence Award'?",
+    "ground_truth": "No scheme by this exact name was found in the database. You may be thinking of the PM Yasasvi Scholarship (for OBC/EBC/DNT students), the PM Scholarship Scheme for Central Armed Police Forces, or the Merit-cum-Means scholarship. Please verify the name on the National Scholarship Portal (scholarships.gov.in).",
+    "category": "edge_case"
+  },
+  {
+    "question": "What scholarships are available for students in Maharashtra?",
+    "ground_truth": "Key Maharashtra-specific schemes: (1) Rajarshi Shahu Maharaj Scholarship (MahaDBT) — for OBC/SEBC/VJNT students, ₹5,000–₹25,000. (2) EBC Scholarship for Professional Courses (MahaDBT) — for EBC students in engineering/pharmacy/architecture, ₹15,000–₹40,000, income ≤ ₹6 lakh. Apply via mahadbt.maharashtra.gov.in. Central schemes like Post Matric SC/ST scholarship are also available to Maharashtra students.",
+    "category": "category_listing"
+  },
+  {
+    "question": "Can a general category student with a family income of Rs 6 lakh apply for any scholarship?",
+    "ground_truth": "Yes. Options for general category with ₹6 lakh income: (1) Central Sector Scheme of Scholarships — income limit ₹4.50 lakh (may not qualify). (2) Merit Cum Means Scholarship for Professional Courses — income limit ₹6 lakh, requires 60%+ marks in technical/professional streams. (3) State-level scholarships vary by state; Maharashtra's EBC scholarship covers income up to ₹6 lakh. Check the National Scholarship Portal for current eligibility.",
+    "category": "edge_case"
+  }
+]

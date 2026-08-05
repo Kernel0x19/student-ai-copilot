@@ -1,0 +1,484 @@
+user_input,retrieved_contexts,response,reference,faithfulness,answer_relevancy,context_precision,context_recall,agent,evaluated_at,sample_size
+What is the AICTE Swanath Scholarship and who is eligible?,"['Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0']","I’m not familiar with an “AICTE Swanath Scholarship.” AICTE (All India Council for Technical Education) does run a few scholarship schemes—such as the Pragati Scholarship for girl students in technical programs—but I don’t have any details on a Swanath‑named award.
+
+**What you can do next**
+
+1. **Visit the official AICTE website** – the “Scholarships & Financial Assistance” section lists all current schemes and their eligibility criteria.  
+2. **Check the AICTE portal (e‑Sankalp or AICTE’s scholarship portal)** – you’ll need your login (usually your college roll number or email) to view available scholarships.  
+3. **Ask your college’s placement or student‑welfare office** – they often have up‑to‑date information on AICTE‑funded scholarships and can tell you whether a Swanath scholarship exists for your course/level.  
+4. **Look for announcements on the Ministry of Education or the National Scholarship Portal (NSP)** – sometimes new AICTE schemes are first posted there.
+
+If you find the scholarship’s official notice, note the following typical eligibility points that AICTE schemes usually consider:
+
+- **Program** – must be a technical/diploma/degree course approved by AICTE.  
+- **Academic performance** – a minimum CGPA/percentage (often 7.0 / 70% or higher).  
+- **Category** – some scholarships are gender‑specific, caste‑specific, or income‑based.  
+- **Financial need** – many require an income certificate or proof of economic hardship.  
+- **Year of study** – usually limited to 1st‑3rd year or specific semesters.
+
+Once you have the exact criteria, you can gather the usual documents: ID proof, income certificate, caste/social‑category certificate (if applicable), recent mark‑sheet/transcript, and a passport‑size photograph.
+
+If you locate the official details and want help interpreting the eligibility or the application steps, feel free to share them here—I’ll be happy to guide you through the process!","The AICTE-Swanath Scholarship is for orphans, wards of parents who died due to Covid-19, wards of Armed Forces/Central Paramilitary Forces martyred in action. Eligibility: studying in AICTE-approved Degree/Diploma institution; family income must not exceed ₹8,00,000 per annum; must not be receiving any other Central/State/AICTE scholarship. Amount: ₹50,000 per annum (lump sum for college fee, books, equipment, etc.).",0.14285714285714285,0.0,0.0,0.0,scholarship,20260805T201604Z,18
+What is the scholarship amount for the Pragati Scholarship Scheme for girl students in technical degree programs?,"['Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0']","The Pragati Scholarship for girl students in technical degree programs provides a scholarship amount of **₹ 50,000**.","Amount: up to ₹50,000 per annum. Duration: maximum 4 years for first-year admitted students, maximum 3 years for second-year lateral-entry students. Offered by AICTE/Ministry of Education to girl students in AICTE-approved technical degree programs (engineering, technology, architecture, pharmacy).",1.0,0.9822407761405667,0.9999999999,0.3333333333333333,scholarship,20260805T201604Z,18
+What is the fellowship amount for the Maulana Azad National Fellowship?,"['National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0']","I’m sorry, I don’t have the exact fellowship amount for the Maulana Azad National Fellowship in my current data. You can find the most up‑to‑date details, including the stipend amount and eligibility criteria, on the official Ministry of Education website or the scholarship portal (scholarships.gov.in). If you need help navigating the site or preparing the required documents, just let me know!","JRF rate: ₹31,000 per month for the first two years. SRF rate: ₹35,000 per month for the remaining tenure. Additional contingency grant of ₹10,000 per annum (Humanities/Social Sciences) or ₹20,500 per annum (Sciences). The fellowship covers M.Phil and Ph.D. studies at UGC-recognized universities for students from minority communities.",0.25,0.0,0.0,0.0,scholarship,20260805T201604Z,18
+Who is eligible for the Merit Cum Means Based Scholarship from the Ministry of Minority Affairs?,"['Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0']","**Eligibility for the Merit‑cum‑Means Scholarship (Ministry of Minority Affairs)**  
+
+| Criterion | Details |
+|-----------|---------|
+| **Community** | Must belong to a **Minority community** as defined by the Government of India (e.g., Muslim, Christian, Sikh, Buddhist, Parsi, Jain). |
+| **Citizenship** | Indian citizen (including NRIs who have taken Indian citizenship). |
+| **Course of study** | Pursuing a **professional/technical program** – engineering, medical, dental, pharmacy, nursing, pharmacy, architecture, law, management, computer applications, etc. (both degree and diploma levels are covered). |
+| **Academic performance** | Minimum **60 % aggregate** (or equivalent grade) in the previous qualifying examination (e.g., 12th grade, diploma, or the last semester of the ongoing course). |
+| **Family income** | **Annual family income not exceeding ₹ 2,50,000** (the limit may be relaxed for certain categories, but the ceiling is generally ₹ 2.5 Lakh). Income is assessed on the basis of the latest Income Tax Return, Form‑16, or an income certificate from the appropriate authority. |
+| **Age** | No specific age ceiling, but the applicant must be **continuously enrolled** in the course for the full duration of the scholarship. |
+| **Admission status** | Must have a **confirmed admission** (i.e., admission letter/offer letter) in the eligible course from a recognized institution (government, government‑aided, or recognized private college/university). |
+| **Residence** | Must be a resident of India; the scholarship is not available to students studying abroad. |
+| **Other** | The applicant must **not be receiving any other scholarship** for the same course from the central or state government. |
+
+### Typical Documents Required
+1. **Minority Community Certificate** (issued by the competent authority).  
+2. **Proof of Indian citizenship** (Aadhaar card, PAN, passport, etc.).  
+3. **Income proof** – latest Income Tax Return, Form‑16, or an income certificate from the local Tehsildar/Revenue Office.  
+4. **Academic transcripts** and **mark sheets** of the qualifying exam.  
+5. **Admission/Offer letter** from the institution where the course is pursued.  
+6. **Bank account details** (passbook or cancelled cheque) for scholarship disbursement.  
+7. **Passport‑size photographs** (usually 2‑3, recent, on white background).  
+8. **Self‑declaration** stating that the applicant is not receiving any other scholarship for the same course.
+
+### How to Apply
+1. **Visit the official portal** of the Ministry of Minority Affairs – [scholarships.moa.gov.in](https://scholarships.moa.gov.in).  
+2. **Register** using your email/mobile number and create a password.  
+3. **Fill in the online application form** with personal, academic, and family‑income details.  
+4. **Upload scanned copies** of all required documents (PDF/JPEG, size ≤ 200 KB each).  
+5. **Submit the application** and note the **Application Reference Number (ARN)**.  
+6. **Track the status** regularly on the portal; you may be called for document verification or a personal interview.  
+7. Once approved, the scholarship amount (₹ 30,000 per annum, usually disbursed in instalments) will be transferred directly to the bank account you provided.
+
+---
+
+**Tip:** Even if you’re not sure whether you meet the income ceiling, it’s worth applying—many applicants are accepted with a slightly higher income after a detailed review. Always keep a copy of every document you upload, and double‑check the deadline (this year : **5 September 2026**).  
+
+If you have any other questions—like how to obtain a minority certificate, or which documents are most critical—feel free to ask!","Eligibility: students from minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Zoroastrian) pursuing technical/professional UG or PG courses at a listed institute; must have secured at least 50% marks in the previous final examination; annual family income from all sources must not exceed ₹2.50 lakh.",0.034482758620689655,0.9043151603218069,0.9999999999,0.0,scholarship,20260805T201604Z,18
+What are the benefits of the INSPIRE Scholarship for Higher Education?,"['National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0']","The **INSPIRE (Innovation in Science Pursuit for Inspired Research) Scholarship** is a centrally‑funded scheme of the Department of Science & Technology, Government of India. It is aimed at encouraging talented students to pursue higher studies and research in the science‑technology stream. Here are the main benefits you can expect if you receive the scholarship:
+
+| Benefit | What it means for you |
+|---------|-----------------------|
+| **Financial assistance** | • **₹80,000 per annum** for a 3‑year undergraduate program (B.Sc./B.Tech).<br>• An additional **₹20,000 per year** for a 2‑year postgraduate program (M.Sc./M.Tech). |
+| **Stipend for research** | If you continue into a Ph.D. after your master’s, you get a **research stipend of ₹31,000 per month** (subject to periodic revisions). |
+| **One‑time equipment grant** | A **₹10,000** (under‑grad) or **₹30,000** (post‑grad) grant to purchase laboratory or research equipment, software, or books. |
+| **Travel allowance** | Up to **₹15,000 per year** for attending conferences, workshops, or seminars related to your field of study. |
+| **Mentorship & networking** | Access to a network of senior scientists, mentors, and fellow scholars through the INSPIRE portal and annual meet‑ups. |
+| **Priority for fellowships** | INSPIRE scholars are often given preference for other national fellowships (e.g., CSIR, UGC, or DST research grants). |
+| **Recognition** | Being an INSPIRE scholar adds a prestigious credential to your CV, helping with job placements, higher‑education admissions, and scholarship applications. |
+| **Career guidance** | Periodic webinars and counseling sessions on career pathways in research, industry, and academia. |
+
+### Why these benefits matter
+- **Financial security** lets you focus on studies and research without worrying about tuition fees or living expenses.
+- **Equipment & travel funds** give you hands‑on experience and exposure to the latest scientific developments.
+- **Mentorship** helps you build professional relationships early, which can lead to internships, projects, and publications.
+- **Recognition** enhances your profile for future scholarships, graduate admissions, and job applications.
+
+### Next steps
+If you think you meet the eligibility criteria (Indian citizen, age 16‑25, minimum 75 % in Class 10, and a strong interest in science), you can start the application process on the official INSPIRE portal (https://www.inspireindia.gov.in). Keep the following documents handy:
+
+- Class 10 and Class 12 mark sheets
+- Proof of Indian citizenship (Aadhaar, passport, etc.)
+- Income certificate (if applying under the “merit‑cum‑means” category)
+- A brief statement of purpose / research interest
+
+Always double‑check the latest guidelines on the official website, as amounts and conditions may be updated each year. Good luck!","Scholarship amount: ₹80,000 per annum (₹60,000 annual scholarship + ₹20,000 summer attachment grant). Awarded to top 1% students in Class XII board exams to pursue B.Sc./B.S./B.Stat./B.Math./Int. M.Sc./M.S. in natural and basic sciences. Offered by the Department of Science and Technology (DST).",0.0,0.9048924352894395,0.0,0.0,scholarship,20260805T201604Z,18
+What scholarships are available for SC/ST students pursuing higher education?,"['Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0']","**Based on your profile, you're eligible for the Post Matric Scholarship for SC Students.**
+
+| Scholarship | Who can apply | Amount | Deadline |
+|-------------|--------------|--------|----------|
+| **Post Matric Scholarship for SC Students** | SC (and ST, if the state’s guidelines include them) pursuing any post‑matriculation course (graduation, post‑graduation, professional courses, etc.) | ₹ 50,000 per year (may vary by course & year) | **5 Oct 2026** |
+
+### Why this matches you
+- It is **specifically for SC/​ST students**.
+- It covers **higher‑education programmes** (undergraduate, postgraduate, professional courses).
+- The amount is enough to help with tuition, books, and living expenses.
+
+### How to apply (quick steps)
+
+1. **Check eligibility details** on the official portal of the Ministry of Social Justice & Empowerment or your state scholarship website. Typical requirements include:
+   - Valid SC/ST certificate (original & photocopy).
+   - Proof of admission (admission letter/letter of acceptance).
+   - Income certificate (if a family‑income ceiling is specified).
+   - Academic marksheets & mark‑sheet of the previous qualification.
+
+2. **Gather documents**  
+   - SC/ST caste certificate (issued by the competent authority).  
+   - Aadhaar card.  
+   - Recent passport‑size photographs (white background).  
+   - Income certificate (if required).  
+   - Admission/offer letter from the college/university.  
+   - Latest academic transcripts.
+
+3. **Register on the scholarship portal** (e.g., *Scholarship Portal – Ministry of Social Justice & Empowerment*).  
+   - Create a new user ID & password.  
+   - Fill in personal, family, and academic details exactly as they appear on your documents.
+
+4. **Upload scanned copies** of all required documents (PDF/JPEG, usually ≤ 200 KB each).  
+
+5. **Submit the application** before the deadline (5 Oct 2026). You will receive an acknowledgment number—keep it safe for future tracking.
+
+6. **Follow up**  
+   - Check the portal regularly for status updates.  
+   - If shortlisted, you may be asked to submit original documents to the college or the scholarship office.
+
+### Tips
+- **Apply early**; portals can get crowded close to the deadline.  
+- Keep **both digital and hard copies** of every document.  
+- If you belong to **both SC and ST categories**, you can apply under either—choose the one that gives you the higher benefit (usually the same amount here).  
+- Explore **state‑specific SC/ST scholarships** (e.g., Maharashtra’s *Rajarshi Shahu Maharaj Scholarship* for SC/ST students) as additional support; they are not listed in the current search but may be available in your state.
+
+Good luck with your applications! If you need detailed steps for any particular document or have questions about another scholarship, just let me know.","Key schemes: (1) Post Matric Scholarship for SC Students — financial assistance for post-matriculation courses, income limit ₹2.50 lakh. (2) National Fellowship for Scheduled Tribe Students — JRF ₹31,000/month, SRF ₹35,000/month for M.Phil/Ph.D. (3) PM Yasasvi Scholarship — for OBC/EBC/DNT students. (4) Dr. Ambedkar Central Sector Scheme — for OBC/EBC students for overseas studies.",0.06666666666666667,0.5521131697312105,0.0,0.0,scholarship,20260805T201604Z,18
+Are there scholarships specifically for girl students in technical education?,"['Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0']","Yes! The **Pragati Scholarship for Girl Students (Technical)** is a dedicated AICTE scheme that supports female students pursuing technical degree or diploma programmes.
+
+**Key details**
+
+| Item | Information |
+|------|-------------|
+| **Eligibility** | • Female students enrolled in a *degree* or *diploma* program in any technical discipline (engineering, IT, architecture, etc.)  <br>• Indian nationality <br>• Must be admitted to a recognized institution approved by AICTE |
+| **Award amount** | **₹ 50,000** (one‑time) |
+| **Application deadline** | **10 September 2026** |
+| **What you’ll need** | • Admission / enrollment proof (letter of admission, fee receipt) <br>• Latest mark‑sheet / academic transcript <br>• Passport‑size photograph <br>• Income certificate (if the scheme asks for it) <br>• Caste/category certificate is **not** required for this scholarship |
+| **Where to apply** | The application is hosted on the AICTE portal (usually under the “Scholarships & Financial Assistance” section). You’ll create a user ID, fill in the online form, and upload the documents listed above. After submission, a reference number is generated for tracking. |
+| **Official source** | Visit the AICTE website (https://www.aicte-india.org) and look for the “Pragati Scholarship” announcement for the 2026‑2027 cycle. The portal also provides a downloadable PDF with full guidelines and a FAQ sheet. |
+
+**Why this matches your interest**
+
+- It is **specifically for girl students** – exactly what you asked about.  
+- It targets **technical education**, covering engineering, computer science, electronics, etc.  
+- The amount (₹ 50 k) can help with tuition fees, books, or other study‑related expenses.
+
+**Next steps**
+
+1. **Check eligibility** – confirm you are enrolled (or about to enroll) in a recognized technical programme.  
+2. **Gather documents** – start collecting the admission proof, mark‑sheet, photo, and any income proof you may need.  
+3. **Create an AICTE account** – register on the AICTE portal well before the deadline.  
+4. **Complete the online form** – fill in all required fields and upload the scanned documents.  
+5. **Submit & note the reference number** – keep it safe for any follow‑up queries.  
+
+If you need help with any part of the application (e.g., how to upload documents or what format the income certificate should be in), just let me know! Good luck, and don’t forget to explore other scholarships as well – applying to multiple opportunities increases your chances of receiving support.","Yes. Key schemes: (1) Pragati Scholarship Scheme (Technical Degree) — ₹50,000/year for girl students in AICTE-approved degree programs. (2) Pragati Scholarship Scheme (Technical Diploma) — for girl students in AICTE-approved diploma courses. (3) Saksham Scholarship — for differently-abled girl students in AICTE programs. All offered by AICTE/Ministry of Education. Maximum two girl children per family can avail Pragati.",0.14814814814814814,0.5832772125015376,0.9999999999,0.5,scholarship,20260805T201604Z,18
+What scholarships are available for students from minority communities?,"['Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0', 'Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0']","Here are some of the major scholarships that specifically target students from minority or socially‑economically‑backward communities and are currently open:
+
+| Scholarship | Who can apply | Deadline | Amount (₹) | Key eligibility points |
+|-------------|---------------|----------|------------|------------------------|
+| **Post‑Matric Scholarship for SC Students** | Students belonging to the Scheduled Caste (SC) category who are enrolled in any post‑matriculation course (diploma, degree, professional, etc.) | **5 Oct 2026** | 50,000 | • Valid SC caste certificate<br>• Admission to a recognized institution<br>• Usually requires family income ≤ ₹6 Lakhs (check the exact cut‑off) |
+| **Rajarshi Shahu Maharaj Scholarship (Maharashtra)** | Economically backward class (EBC) students residing in Maharashtra | **15 Sep 2026** | 25,000 | • EBC certificate issued by the Maharashtra government<br>• Enrolled in a regular academic program (any stream)<br>• Income‑card limit as defined by the state (typically ≤ ₹4 Lakhs) |
+| **Merit‑cum‑Means Scholarship for Professional Courses** | Students from low‑income families pursuing professional/technical courses (engineering, pharmacy, nursing, etc.) | **5 Sep 2026** | 30,000 | • Family annual income below the prescribed threshold (usually ≤ ₹3 Lakhs)<br>• Minimum academic performance (often 60 % in previous exam)<br>• Indian citizenship |
+| **EBC Scholarship for Professional Courses (Maharashtra)** | EBC‑category students studying a professional degree in Maharashtra | **30 Sep 2026** | 40,000 | • EBC certificate from the Maharashtra government<br>• Admission to a professional course (e.g., B.Tech, B.Pharm, MBBS, etc.)<br>• Usually requires a minimum academic score (around 55‑60 %) |
+| **Pragati Scholarship for Girl Students (Technical)** | Female students (any community) enrolled in a technical diploma or degree program | **10 Sep 2026** | 50,000 | • Gender‑based (girls only)<br>• Enrolled in an AICTE‑approved technical program<br>• Academic merit and/or family income criteria as per AICTE norms |
+
+### How to use this list
+1. **Check your own eligibility** – compare your caste/community certificate, residence, income, and the course you’re studying with the columns above.  
+2. **Gather the usual documents** – caste/EBC certificate, income proof (Aadhaar‑linked bank statement or tax return), latest marksheets/transcripts, admission proof, and a passport‑size photograph.  
+3. **Visit the official portal** for each scheme (usually the state education department or the Ministry of Social Justice & Empowerment) to download the application form and read the detailed guidelines.  
+4. **Apply before the deadline** – most applications are online; some states still accept offline forms. Keep a copy of the submitted form and the acknowledgment receipt.  
+5. **Apply to multiple scholarships** – there’s no restriction on applying for more than one, as long as you meet each set of criteria.
+
+### A quick tip
+If you belong to a minority community other than SC/EBC (e.g., ST, OBC, or minority‑religious groups), also explore central‑government schemes such as:
+
+- **National Scholarship Portal (NSP) – Minority Scholarship** (for SC/ST/OBC/Minority students in higher education)  
+- **UPESETA/UGC‑funded scholarships for minority students**  
+
+These are not in the current list but are regularly open; you can find them on the **National Scholarship Portal** (scholarships.gov.in).
+
+---
+
+**Next steps:** Review the eligibility points above, collect the required documents, and start the application process on the respective official websites. Good luck, and feel free to ask if you need step‑by‑step guidance for any specific scholarship!","Key central schemes: (1) Maulana Azad National Fellowship — for M.Phil/Ph.D., ₹31,000–₹35,000/month. (2) Merit Cum Means Based Scholarship — for UG/PG technical courses, income limit ₹2.50 lakh, 50% marks required. (3) Pre-Matric Scholarship for Minorities — for Classes I–X. (4) Post-Matric Scholarship for Minorities — for post-Class X studies. All by Ministry of Minority Affairs.",0.5161290322580645,0.8504344465597931,0.0,0.0,scholarship,20260805T201604Z,18
+What is the National Merit Cum Means Scholarship for Class 9 students?,"['National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0']","**National Means‑cum‑Merit Scholarship (NMMS)**  
+
+**What it is**  
+The National Means‑cum‑Merit Scholarship (NMMS) is a centrally funded scheme aimed at encouraging meritorious students from economically weaker sections to continue their studies beyond class 8. It is open to students studying in class 9 or 10 in government‑aided, government, or recognized private schools/colleges.
+
+**Who can apply (Class 9‑10)**  
+
+| Eligibility factor | Typical requirement |
+|---------------------|---------------------|
+| **Class** | Enrolled in class 9 or 10 (the scholarship can be taken up to class 12) |
+| **Age** | Usually ≤ 16 years at the time of admission to class 9 (varies by state) |
+| **Academic merit** | Minimum 60 % marks in the previous class (class 8) and at least 60 % in the current class (or as per the latest guidelines) |
+| **Economic background** | Family annual income ≤  ₹ 1.5 lakhs (the exact ceiling may differ slightly by state) |
+| **School type** | Attending a government‑aided, government, or recognized private school/college that participates in the scheme |
+| **Other** | No previous receipt of the same scholarship for the same academic year |
+
+**What the scholarship provides**  
+
+| Component | Amount (per year) |
+|-----------|-------------------|
+| **Scholarship award** | ₹ 12,000 (disbursed in two installments) |
+| **Duration** | Up to three years (class 9, 10, 11 or 12, depending on continuation and performance) |
+| **Additional support** | Some states provide a one‑time “means‑cum‑merit” grant or a study kit, but the core amount is ₹ 12,000 per year. |
+
+**Key dates (2026‑27 cycle)**  
+
+- **Application deadline:** **4 November 2026**  
+- **Result announcement:** Usually within 2–3 weeks after the deadline, posted on the official portal and notified through the school.  
+
+**How to apply**  
+
+1. **Check with your school** – Most schools submit applications on behalf of students through the online portal (e‑Sankalp/PMUGY or the state‑specific portal).  
+2. **Gather required documents**  
+   - Class 8 mark sheet (minimum 60 % required)  
+   - Current class 9 mark sheet (if already available)  
+   - Income certificate (issued by the Tahsildar or a recognized authority)  
+   - Caste/Community certificate (if applicable) – not mandatory for NMMS but may be required for additional state benefits.  
+   - School fee receipt & admission letter.  
+   - Passport‑size photograph (recent, white background).  
+3. **Online registration** (if your school does not handle it)  
+   - Visit the official portal (e.g., `https://scholarships.gov.in` or your state’s education department site).  
+   - Create a user ID using your mobile number and email.  
+   - Fill in personal, academic, and family‑income details.  
+   - Upload scanned copies of the documents listed above (PDF/JPEG, ≤ 200 KB each).  
+   - Review and submit.  
+4. **School verification** – The school’s designated officer (Headmaster/Principal) will verify the details and forward the application to the district education office.  
+5. **Follow up** – After submission, you can track the status on the portal using the application number.  
+6. **Result & disbursement** – If selected, the scholarship amount is transferred directly to the bank account linked to the student’s Aadhaar or to the school’s account, which then releases the funds to the student.
+
+**Tips for a strong application**  
+
+- **Maintain ≥ 60 %** in all subjects; the scholarship is merit‑based, so higher percentages improve chances.  
+- **Ensure income certificate is up‑to‑date** (issued within the last 3 months).  
+- **Double‑check document clarity** – blurry scans often lead to rejections.  
+- **Submit before the deadline** – applications are accepted on a first‑come, first‑served basis after verification.  
+- **Keep copies** of all submitted forms and receipts for future reference.
+
+**Where to find official information**  
+
+- **National Scholarship Portal (NSP):** `https://scholarships.gov.in`  
+- **Your state’s education department website** (search “NMMS [Your State]” for any state‑specific variations).  
+- **School office** – they usually have a printed brochure and can guide you through the exact process.
+
+---
+
+If you have any specific questions—like how to obtain the income certificate, what bank details are needed, or whether you qualify based on your family’s income—feel free to ask! Good luck, and remember that applying to multiple scholarships (e.g., Merit‑cum‑Means for Professional Courses, PM Yasasvi, etc.) can increase the overall support you receive.","Amount: ₹12,000 per annum (₹1,000 per month). Awarded by Ministry of HRD to meritorious students from economically weaker sections to continue studies in Classes IX–XII. Eligibility: students in Class VIII at recognized Govt/Govt-aided/local body schools. Available in Mizoram and select states.",0.02631578947368421,0.6777589832708139,0.9999999999,0.25,scholarship,20260805T201604Z,18
+What is the ICAR Netaji Subhas International Fellowship?,"['Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0']","The **ICAR Netaji Subhas International Fellowship** is a **prestigious research fellowship offered by the Indian Council of Agricultural Research (ICAR)** in collaboration with the Netaji Subhas Institute of Technology (NSIT) and several international partner institutions.
+
+### What the fellowship is for
+- **Purpose:** To support Indian postgraduate students (M.Sc., M.Tech, or Ph.D. candidates) who wish to undertake short‑term (typically 3‑6 months) research projects abroad in the fields of agriculture, allied sciences, food technology, horticulture, animal husbandry, fisheries, etc.
+- **Goal:** To give young researchers exposure to advanced laboratories, modern techniques, and international scientific networks, thereby strengthening India’s agricultural research capacity.
+
+### Who can apply
+| Criterion | Typical Requirement |
+|-----------|----------------------|
+| **Citizenship** | Indian citizen |
+| **Academic standing** | Must be a **full‑time** student of an ICAR‑affiliated institute or university, having cleared at least **one year** of the postgraduate program (M.Sc./M.Tech) or be a Ph.D. scholar with a satisfactory progress report. |
+| **Academic performance** | Generally a **minimum CGPA/percentage of 60 %** (or equivalent grade) in the qualifying degree. |
+| **Age** | Usually **under 30 years** (some calls may allow up to 35). |
+| **Language** | Adequate proficiency in English (often demonstrated by TOEFL/IELTS or an internal test). |
+| **Research proposal** | A well‑crafted proposal that aligns with the expertise of the host overseas institution. |
+
+*(Exact eligibility can vary from year to year, so always check the latest call notice.)*
+
+### What the fellowship covers
+- **Travel allowance** (airfare to/from the host country)
+- **Living allowance** (monthly stipend for the duration of the stay)
+- **Medical insurance** for the fellowship period
+- **Research grant** (to cover consumables, fieldwork, etc., if required by the host lab)
+
+### Application process (typical steps)
+1. **Identify a host institution** abroad and secure a **letter of invitation** from a faculty mentor there.  
+2. **Prepare a research proposal** (max 2,000–3,000 words) with objectives, methodology, expected outcomes, and a timeline.  
+3. **Obtain internal approvals** from your home institute’s Dean/Director and the ICAR Regional Office.  
+4. **Fill the online application form** on the ICAR portal (or the specific portal mentioned in the call). Upload:  
+   - Academic transcripts & mark sheets  
+   - Caste/Category certificate (if applicable) – not mandatory for this fellowship  
+   - Proof of English proficiency (if required)  
+   - Host institution’s invitation letter  
+   - Research proposal and CV  
+5. **Submit the application** before the announced deadline (usually **June–July** for a September–October start).  
+6. **Selection** – A joint ICAR‑host‑institution committee evaluates proposals on merit, relevance, and feasibility. Shortlisted candidates are invited for an interview (often via video conference).  
+7. **Award letter** – Successful fellows receive an official award letter with details of the stipend, travel, and reporting requirements.
+
+### Key points to remember
+- **Start early:** Securing a host mentor can take several weeks. Begin outreach at least 3–4 months before the application deadline.  
+- **Documentation:** Keep digital copies of all certificates, transcripts, and the invitation letter; the portal often rejects applications with missing or illegible files.  
+- **Follow up:** After submission, monitor your email and the ICAR portal for any requests for additional information or interview scheduling.  
+- **Reporting:** Fellows must submit a **progress report** to ICAR and a **final report** after returning, detailing research outcomes and any publications/patents.
+
+### Where to find the official notice
+- **ICAR website:** `www.icar.org.in` → “Schemes & Fellowships” → “International Fellowships”.  
+- **ICAR Regional Offices** (e.g., New Delhi, Hyderabad) often circulate PDF notices.  
+- **Your institute’s Research Cell** usually posts the call and can help with the internal approval steps.
+
+---
+
+**Bottom line:** The ICAR Netaji Subhas International Fellowship is a great opportunity to gain global research exposure in agriculture‑related fields. If you are currently pursuing a postgraduate degree in an ICAR‑affiliated program and meet the academic criteria, start looking for a suitable overseas host and prepare your proposal well ahead of the next call. Good luck!","The Netaji Subhas–ICAR International Fellowship is offered by the Indian Council of Agricultural Research (ICAR), Ministry of Agriculture and Farmers Welfare. Objective: develop human resources trained in top international agricultural laboratories (for Indian candidates) and expose overseas researchers to Indian Agricultural Universities. Fellows work in identified best laboratories worldwide for advanced research in agriculture.",0.0,0.9210384464966913,0.0,0.0,scholarship,20260805T201604Z,18
+What is the Central Sector Scheme of Scholarships for College and University Students?,"['Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0']","The **Central Sector Scheme of Scholarships for College and University Students** is a government‑run programme that provides financial assistance to meritorious students from economically weaker sections (EWS) who are pursuing undergraduate, postgraduate, diploma, or professional courses in colleges and universities across India.
+
+### Who can apply?
+| Category | Basic eligibility |
+|----------|-------------------|
+| **General/EWS** | Family annual income ≤ ₹4 lakhs (the exact ceiling may vary by year). |
+| **SC/ST/OBC** | Family annual income ≤ ₹8 lakhs (or the amount specified in the latest notification). |
+| **Minorities & Other Backward Classes** | Same income limits as SC/ST/OBC, but must provide community certificate. |
+| **Students with Disabilities** | Must have a disability certificate (≥ 40 % visual, hearing, locomotor, or multiple disabilities). |
+| **Academic performance** | Minimum of **60 %** in the qualifying examination (10 % lower for reserved categories). |
+| **Course of study** | Any regular undergraduate, postgraduate, diploma, or professional programme (engineering, medicine, law, etc.) recognized by the University Grants Commission (UGC) or the relevant statutory body. |
+
+### What does the scholarship cover?
+- **Annual stipend** of **₹12,000** (₹3,000 per quarter) for the duration of the course, payable directly to the student’s bank account.
+- The amount is **tax‑free** and **non‑withdrawable** (students cannot keep it as a lump‑sum).
+
+### How to apply
+1. **Register on the National Scholarship Portal (NSP):**  
+   - Website: https://scholarships.gov.in  
+   - Create a login ID/password using your mobile number and email.
+2. **Fill in the online application:**  
+   - Enter personal, academic, and family‑income details.  
+   - Upload scanned copies of required documents (see below).  
+   - Submit the form before the deadline (usually in June–July for the academic year 2026‑27; exact dates are announced each year).
+3. **Upload supporting documents:**  
+   - Class 10th & 12th (or equivalent) mark sheets & certificates.  
+   - Current college/university admission/registration proof.  
+   - Income proof (e.g., income certificate, Form 16, or bank statement).  
+   - Caste/Community certificate (if applicable).  
+   - Disability certificate (if applicable).  
+   - Passport‑size photograph (in specified format).  
+4. **Verification:**  
+   - The college/university verifies the data and forwards it to the Ministry of Education.  
+   - You will receive an SMS/email with the status (approved/rejected).  
+5. **Disbursement:**  
+   - Once approved, the scholarship amount is transferred directly to the bank account you provided, in quarterly installments.
+
+### Important points to remember
+- **One‑time registration:** You need to register only once on NSP; the same login can be used for future years (you’ll have to re‑apply each academic year).  
+- **Renewal:** After the first year, you must submit a **“Renewal Application”** with the previous year’s marksheet and a fresh income certificate (if income has changed).  
+- **Non‑compliance:** Failure to submit marksheets or any false information can lead to cancellation of the scholarship and recovery of the amount already paid.  
+- **Multiple scholarships:** You can receive this central scholarship **in addition to** state‑level or institution‑level scholarships, provided the total amount does not exceed the prescribed limit (usually ₹12,000 per year).  
+
+### Where to find the latest details
+- Official notification on the **National Scholarship Portal** (NSP) under “Central Sector Scheme – College & University Students.”  
+- Ministry of Education’s website: https://www.education.gov.in/scholarships  
+
+If you meet the income and academic criteria, this scheme can significantly reduce the financial burden of higher education. Good luck with your application!","Offered by Ministry of Education for students who scored above the 80th percentile in Class XII board exams. Amount: ₹10,000/year for first three years (UG), ₹20,000/year for postgraduate studies. Renewable annually subject to maintaining 60% marks. Income limit: family income not exceeding ₹4.50 lakh per annum. Apply via National Scholarship Portal (scholarships.gov.in).",0.0,0.9233715491257547,0.0,0.0,scholarship,20260805T201604Z,18
+Is there a scholarship for students pursuing research in science and technology?,"['EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0']","There isn’t a scholarship in the current list that is specifically for research projects, but a few of the programmes do support students who are studying technical or professional courses in science / technology. If you are enrolled in a degree or diploma that has a strong research component, you may still be able to apply.
+
+| Scholarship | Who can apply | What it covers | Deadline |
+|------------|---------------|----------------|----------|
+| **Pragati Scholarship for Girl Students (Technical)** | Female students enrolled in AICTE‑approved degree or diploma programmes in engineering, technology, pharmacy, etc. | Up to ₹ 50,000 per year for tuition, books, lab fees | 10 Sept 2026 |
+| **Merit‑cum‑Means Scholarship for Professional Courses** | Students from families with annual income below the prescribed threshold, pursuing any professional/technical course (engineering, pharmacy, B‑Tech, M‑Tech, etc.) | Up to ₹ 30,000 per year | 5 Sept 2026 |
+| **EBC Scholarship for Professional Courses (Maharashtra)** | Economically Backward Class (EBC) students studying any professional degree in Maharashtra | Up to ₹ 40,000 per year | 30 Sept 2026 |
+| **Rajarshi Shahu Maharaj Scholarship (Maharashtra)** | Economically backward‑class students of any stream (including science & tech) studying in Maharashtra | Up to ₹ 25,000 per year | 15 Sept 2026 |
+| **Post Matric Scholarship for SC Students** | SC‑category students pursuing post‑secondary courses (including B‑Tech, M‑Tech, research‑oriented programmes) | Up to ₹ 50,000 per year | 5 Oct 2026 |
+
+### Why they might be relevant
+* **Technical focus** – All of the above are meant for students in engineering, technology, or other professional science streams, which often include laboratory work or research projects.
+* **Financial support** – The amounts can be used for tuition, lab fees, books, or even research‑related expenses (e.g., materials, conference travel) as long as the institution accepts them.
+* **Eligibility windows** – Most require proof of income or caste/category, plus a valid enrolment certificate from an AICTE‑approved or state‑recognised institute.
+
+### How to proceed
+1. **Check your eligibility** – Gather the basic documents:  
+   * Income certificate / family income proof  
+   * Caste or category certificate (if applicable)  
+   * Latest mark‑sheet / provisional admission letter from your college  
+   * Passport‑size photographs and ID proof
+2. **Visit the official portal** – Each scholarship has a state or central government website (e.g., Maharashtra State Scholarship Portal, AICTE Scholarship Portal). Look for the “Apply Online” section and download the application form.
+3. **Fill the form carefully** – Enter the details exactly as they appear on your certificates. Mistakes often lead to rejection.
+4. **Upload scanned documents** – Ensure PDFs are clear, under the size limit (usually ≤ 200 KB per file).
+5. **Submit before the deadline** – Late submissions are not accepted, so aim to finish a few days early.
+6. **Track your application** – Most portals provide a reference number; keep it handy for status checks.
+
+### Other research‑oriented funding you may want to explore
+* **CSIR‑UGC NET / JRF** – National fellowship for research in science and engineering.  
+* **DST‑INSPIRE Fellowship** – For M.Sc./M.Tech/Integrated Ph.D. students showing strong research potential.  
+* **University‑specific research grants** – Many Indian universities have their own fellowships for undergraduate/ postgraduate research projects.
+
+Even if a scholarship isn’t labelled “research,” the financial aid can still help you cover the costs of your laboratory work, project materials, or conference travel. Apply to as many eligible schemes as you can – the more applications you submit, the better your chances of receiving support.
+
+Good luck with your research journey, and feel free to ask if you need step‑by‑step help with any of the application forms!","Yes. Key schemes: (1) INSPIRE Fellowship (DST) — ₹20,000/month + ₹20,000 contingency/year for Ph.D. in natural sciences. (2) INSPIRE Scholarship for Higher Education (SHE) — ₹80,000/year for B.Sc./M.Sc. in basic sciences. (3) Maulana Azad National Fellowship — ₹31,000–₹35,000/month for M.Phil/Ph.D. in any discipline (minorities). (4) Netaji Subhas–ICAR International Fellowship — for agricultural research.",0.375,0.8143486020393405,0.0,0.2,scholarship,20260805T201604Z,18
+What documents are typically required to apply for the Pragati Scholarship?,"['Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0']","Here’s a checklist of the documents you’ll usually need to submit for the **Pragati Scholarship for Girl Students (Technical)** (AICTE scheme). The exact list can vary slightly by the institution, so always double‑check the official notice on the AICTE or your college’s website.
+
+| No. | Document | Why it’s needed |
+|-----|----------|-----------------|
+| 1 | **Proof of Identity** (Aadhaar card, Passport, Voter ID, or PAN) | Confirms your citizenship and gender (the scheme is for girl students). |
+| 2 | **Proof of Indian Citizenship** (Passport, Birth Certificate, or Indian passport copy) | Required for any central‑government scholarship. |
+| 3 | **Academic Records** – latest mark sheet / grade card of the qualifying examination (10th, 12th, or previous semester) | Shows you meet the academic eligibility (generally ≥ 60 % in the previous exam). |
+| 4 | **Proof of Admission** (Letter of admission / provisional admission letter / enrollment confirmation) | Verifies that you are currently enrolled in a **degree or diploma technical program** (engineering, pharmacy, architecture, etc.). |
+| 5 | **Income Certificate / Family Income Proof** (BPL card, Income Certificate from the Tahsildar, or latest Income Tax Return) | The scheme is aimed at students from economically weaker sections; the exact income ceiling is specified in the AICTE notification. |
+| 6 | **Caste/Category Certificate** (if you belong to SC/ST/OBC/EBC) – optional but often required to claim additional benefits or to meet the “economically backward” criteria. |
+| 7 | **Passport‑size Photographs** (recent, white background, usually 2‑3 copies) | For the application form and the scholarship card. |
+| 8 | **Bank Account Details** (Cancelled cheque or passbook copy) | The scholarship amount will be transferred directly to this account. |
+| 9 | **Declaration / Undertaking Form** (signed by you and, if you’re a minor, by a parent/guardian) | Confirms that the information provided is true and that you will continue the course. |
+| 10| **Any additional documents requested by your college/university** (e.g., a copy of the fee receipt, a letter of recommendation) | Some institutes ask for institution‑specific forms. |
+
+### Quick Application‑Ready Tips
+1. **Scan everything in PDF format** (preferably under 2 MB each) and keep a clear, legible copy.  
+2. **Name files consistently** – e.g., `Pragati_Aadhaar.pdf`, `Pragati_Marksheet_Sem2.pdf`.  
+3. **Check the deadline** – the final date to submit is **10 September 2026**. Aim to upload at least a week earlier to avoid last‑minute glitches.  
+4. **Keep a backup** of all documents (cloud storage or a USB drive) in case the portal asks for re‑upload.  
+5. **Verify the income ceiling** in the AICTE notification (usually an annual family income of ≤ 2 Lakhs, but it can differ).  
+
+> **Remember:** The scholarship portal may also ask you to fill out an online form where you’ll enter the same details. Having the documents ready beforehand speeds up the process and reduces the chance of errors.
+
+If you need step‑by‑step guidance on how to fill the online application or have any other questions, just let me know! Good luck—you’re on the right track.","Documents required for Pragati Scholarship: admission letter from AICTE-approved institution, income certificate (family income ≤ ₹8 lakh/year), Aadhaar card, bank account details, previous year marksheet, fee receipt, and self-declaration that no other Central/State/AICTE scholarship is being received.",0.08,0.8326562655747136,0.0,0.0,scholarship,20260805T201604Z,18
+What is the Devnarayan Post Matric Scholarship?,"['Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0']","I’m sorry, I don’t have specific information about a “Devnarayan Post Matric Scholarship.”  
+
+If you’re looking for a post‑matriculation scholarship for SC students, the **Post Matric Scholarship for SC Students** is a central‑government scheme that provides ₹50,000 per year to eligible candidates pursuing courses after the 12th grade. Its deadline this year is 5 October 2026.
+
+For the Devnarayan scholarship, I recommend:
+
+1. Checking the official website of the **Ministry of Social Justice & Empowerment** or your state’s education department.  
+2. Looking for a notification or PDF titled “Devnarayan Post Matric Scholarship” on those sites.  
+3. Contacting the scholarship cell of your college or the nearest District Education Office—they can give you the latest eligibility criteria, amount, and application procedure.
+
+If you find the details and want help understanding the eligibility or application steps, feel free to share them and I’ll guide you through the process!","The Devnarayan Post Matric Scholarship is offered by the Government of Rajasthan for students belonging to the Banjara/Bairwa/Balai/Bhatia (backward class) communities. Benefits include reimbursement of maintenance allowance and tuition/non-refundable fees. Income limit: ₹2,50,000 per annum. Apply through the state scholarship portal.",0.18181818181818182,0.0,0.0,0.0,scholarship,20260805T201604Z,18
+What is the deadline for the AICTE Pragati Scholarship for girl students?,"['Pragati Scholarship for Girl Students (Technical) | AICTE scheme for girl students in degree/diploma technical programs. | Deadline: 2026-09-10 | Amount: 50000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0']","The deadline for the **AICTE Pragati Scholarship for Girl Students** is **September 10, 2026**.",The AICTE Pragati Scholarship typically opens applications in September–October each year and closes by November–December. Exact deadlines vary by academic year and are announced on the National Scholarship Portal (scholarships.gov.in). Check the portal for the current cycle's deadline.,1.0,0.9999999999999998,0.0,0.0,scholarship,20260805T201604Z,18
+Is there a scholarship called the 'PM Modi Student Excellence Award'?,"['Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'National Means-cum-Merit Scholarship (NMMS) | Encourages meritorious students from economically weaker sections to continue studies. | Deadline: 2026-11-04 | Amount: 12000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0']","I’m not aware of a scholarship by that exact name. There is a **PM Modi Fellowship** (a research‑oriented program) and various awards named after the Prime Minister, but a “PM Modi Student Excellence Award” isn’t listed among the current scholarship schemes I have information on.
+
+If you’ve seen a mention of it elsewhere, I’d recommend:
+
+1. Checking the official **Ministry of Education** or **PMO** website for any recent announcements.  
+2. Looking at reputable news sources or the **National Scholarship Portal (NSP)** to see if it’s been added recently.  
+
+If you find more details (e.g., eligibility criteria, sponsor, or application portal) and want help understanding them, feel free to share and I can guide you through the next steps!","No scheme by this exact name was found in the database. You may be thinking of the PM Yasasvi Scholarship (for OBC/EBC/DNT students), the PM Scholarship Scheme for Central Armed Police Forces, or the Merit-cum-Means scholarship. Please verify the name on the National Scholarship Portal (scholarships.gov.in).",0.2222222222222222,0.0,0.19999999998,0.3333333333333333,scholarship,20260805T201604Z,18
+What scholarships are available for students in Maharashtra?,"['Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0']","Here are some scholarships that specifically target students in **Maharashtra**:
+
+| Scholarship | Who can apply | Amount | Application deadline |
+|--------------|---------------|--------|----------------------|
+| **Rajarshi Shahu Maharaj Scholarship** | Economically backward class (EBC) students studying in Maharashtra | ₹ 25,000 | 15 Sept 2026 |
+| **EBC Scholarship for Professional Courses** | EBC‑category students enrolled in professional degree programmes (e.g., engineering, medicine, pharmacy, etc.) within Maharashtra | ₹ 40,000 | 30 Sept 2026 |
+
+### Quick overview
+- **Rajarshi Shahu Maharaj Scholarship** – A state‑run scheme aimed at helping financially weaker students continue their studies. You’ll need an income certificate, caste/EBC certificate, and academic transcripts.
+- **EBC Scholarship for Professional Courses** – Designed for students from the EBC category who are pursuing professional courses. The same set of documents (income proof, caste/EBC certificate, admission letter) is typically required.
+
+### What to do next
+1. **Check eligibility** – Verify that you fall under the EBC/Economically Backward Class as defined by the Maharashtra government.
+2. **Gather documents** – Income certificate, caste/EBC certificate, recent mark sheets, and a copy of your admission letter.
+3. **Visit the official portal** – Applications are usually submitted through the Maharashtra State Scholarship portal or the respective university’s scholarship page. Look for the latest notification for 2026‑27.
+4. **Apply before the deadline** – Submit the online form and upload scanned copies of all required documents.
+
+Feel free to ask if you need step‑by‑step guidance on any of these applications or help locating the official websites!","Key Maharashtra-specific schemes: (1) Rajarshi Shahu Maharaj Scholarship (MahaDBT) — for OBC/SEBC/VJNT students, ₹5,000–₹25,000. (2) EBC Scholarship for Professional Courses (MahaDBT) — for EBC students in engineering/pharmacy/architecture, ₹15,000–₹40,000, income ≤ ₹6 lakh. Apply via mahadbt.maharashtra.gov.in. Central schemes like Post Matric SC/ST scholarship are also available to Maharashtra students.",0.5,0.9924763019616246,0.9999999999666667,0.25,scholarship,20260805T201604Z,18
+Can a general category student with a family income of Rs 6 lakh apply for any scholarship?,"['Merit-cum-Means Scholarship for Professional Courses | For students pursuing professional/technical courses with family income below threshold. | Deadline: 2026-09-05 | Amount: 30000.0', 'Rajarshi Shahu Maharaj Scholarship (Maharashtra) | State scholarship for economically backward class students in Maharashtra. | Deadline: 2026-09-15 | Amount: 25000.0', 'PM Yasasvi Scholarship for OBC, EBC and DNT Students | Central sector scheme for OBC, EBC and DNT category students in Class 9-12. | Deadline: 2026-09-20 | Amount: 125000.0', 'Post Matric Scholarship for SC Students | Financial assistance to SC students pursuing post-matriculation courses. | Deadline: 2026-10-05 | Amount: 50000.0', 'EBC Scholarship for Professional Courses (Maharashtra) | For EBC category students in professional degree programs within Maharashtra. | Deadline: 2026-09-30 | Amount: 40000.0']","Based on the details you’ve shared (General‑category student with a family income of ₹6 lakh), the only scholarship in the current list that could match your profile is:
+
+**Merit‑cum‑Means Scholarship for Professional Courses**  
+* **Eligibility** – Open to students pursuing professional/technical courses whose family income is below the income ceiling set by the scheme.  
+* **Deadline** – 5 September 2026  
+* **Award** – ₹30,000  
+
+The scheme is meant for “merit‑cum‑means” candidates, so if the income ceiling for the year is ₹6 lakh (or higher), you would be eligible. The other scholarships you see are specifically for OBC, EBC, SC or state‑resident categories, so they would not apply to a General‑category student.
+
+### What to do next
+1. **Confirm the income ceiling** – Visit the official portal of the Merit‑cum‑Means Scholarship (usually the Ministry of Education or the respective state website) and check the exact family‑income limit for 2026.  
+2. **Gather required documents**  
+   * Income certificate (e.g., Form 16, Income Tax Return, or a certificate from the tahsildar) showing total household income ≤ the stated limit.  
+   * Academic mark sheets / provisional certificate of the professional course you are enrolled in.  
+   * Identity proof (Aadhaar, passport, etc.).  
+   * Recent passport‑size photograph.  
+3. **Application steps** (typical for this scholarship)  
+   * Register on the scholarship portal and create a login ID.  
+   * Fill in personal, academic and family‑income details.  
+   * Upload the scanned copies of the documents listed above.  
+   * Review the information, submit the application, and note the application reference number.  
+   * Keep the reference number handy for future status checks.  
+
+### Tips
+* Apply as early as possible; the deadline is 5 Sept 2026 and slots fill quickly.  
+* Even if you are only marginally above the income limit, you can still explore other merit‑based scholarships offered by private foundations, NGOs, or the university you are attending.  
+* Keep digital copies of all certificates and photos ready; the portal usually accepts PDF or JPG files under 2 MB.  
+
+If you need help locating the official portal or have questions about any of the document requirements, just let me know!","Yes. Options for general category with ₹6 lakh income: (1) Central Sector Scheme of Scholarships — income limit ₹4.50 lakh (may not qualify). (2) Merit Cum Means Scholarship for Professional Courses — income limit ₹6 lakh, requires 60%+ marks in technical/professional streams. (3) State-level scholarships vary by state; Maharashtra's EBC scholarship covers income up to ₹6 lakh. Check the National Scholarship Portal for current eligibility.",0.2857142857142857,0.8340352405792925,0.8666666666377778,0.0,scholarship,20260805T201604Z,18

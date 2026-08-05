@@ -466,3 +466,100 @@ async def chat_with_bot(
     """Convenience function to chat with the bot."""
     agent = get_chatbot_agent()
     return await agent.chat(db, user_id, message, user_profile, thread_id)
+
+
+# ---------------------------------------------------------------------------
+# Eval-only function — NOT used by any production endpoint.
+# Returns both the answer and the raw retrieved context chunks so that
+# offline evaluation frameworks (Ragas, DeepEval) can score them.
+# The production chat API shape is left completely unchanged.
+# ---------------------------------------------------------------------------
+
+async def query_scholarship_with_context(question: str) -> Dict[str, Any]:
+    """
+    Stateless eval entry-point for the Scholarship RAG pipeline.
+
+    Runs a single question through retrieval + generation and returns:
+        {
+            "answer":   str,          # generated response
+            "contexts": list[str],    # raw text of each retrieved chunk
+        }
+
+    Uses its own short-lived DB session (same pattern as run_ingestion) so
+    it can be called from eval scripts without an active HTTP request context.
+    Does NOT persist any chat history or memory.
+    """
+    from app.db.session import SessionLocal  # imported here to avoid circular imports at module load
+    from app.db.models import Opportunity as Opp
+
+    db = SessionLocal()
+    try:
+        agent = ChatbotAgent()
+
+        # --- Retrieval (bypass eligibility filter for eval) ---
+        # retrieve_for_profile filters out docs when profile=None because
+        # evaluate_eligibility returns eligible=False for anonymous users.
+        # For eval we always want real context, so we use semantic_search directly.
+        candidates = agent.rag.semantic_search(question, limit=5, category="scholarship")
+        ids = [item["opportunity_id"] for item in candidates if item.get("opportunity_id")]
+        opportunities: Dict[str, Any] = {
+            opp.id: opp for opp in db.query(Opp).filter(
+                Opp.id.in_(ids), Opp.is_active.is_(True)
+            ).all()
+        } if ids else {}
+
+        retrieved_docs: List[Dict[str, Any]] = []
+        for candidate in candidates:
+            opp = opportunities.get(candidate.get("opportunity_id"))
+            if not opp:
+                continue
+            retrieved_docs.append({
+                "opportunity_id": opp.id,
+                "title": opp.title,
+                "description": opp.description or "",
+                "category": opp.category.value if opp.category else "scholarship",
+                "relevance_score": candidate["score"],
+                "deadline": opp.deadline.isoformat() if opp.deadline else None,
+                "amount": opp.amount_max or opp.amount_min,
+            })
+
+        # Build raw context strings for Ragas
+        contexts: List[str] = []
+        for doc in retrieved_docs:
+            parts = [doc.get("title", "")]
+            if doc.get("description"):
+                parts.append(doc["description"])
+            if doc.get("deadline"):
+                parts.append(f"Deadline: {doc['deadline']}")
+            if doc.get("amount"):
+                parts.append(f"Amount: {doc['amount']}")
+            contexts.append(" | ".join(p for p in parts if p))
+
+        if not contexts:
+            contexts = ["No context retrieved."]
+
+        # --- Context string for generation ---
+        context_parts = ["Relevant scholarship opportunities:"]
+        for i, doc in enumerate(retrieved_docs, 1):
+            context_parts.append(
+                f"{i}. {doc['title']}\n"
+                f"   Description: {doc['description'][:300]}\n"
+                f"   Deadline: {doc['deadline'] or 'Not specified'}\n"
+                f"   Amount: {doc['amount'] or 'Not specified'}"
+            )
+        context_str = "\n".join(context_parts) if retrieved_docs else ""
+
+        # --- Generation ---
+        system_prompt = agent._build_system_prompt({}, context_str, "")
+        llm_messages = [SystemMessage(content=system_prompt), HumanMessage(content=question)]
+        try:
+            response = await agent.llm.ainvoke(llm_messages)
+            answer: str = response.content if isinstance(response.content, str) else str(response.content)
+        except Exception as exc:
+            answer = f"[eval error: {exc}]"
+
+        return {"answer": answer, "contexts": contexts}
+    finally:
+        db.close()
+
+

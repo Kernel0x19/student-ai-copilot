@@ -1,0 +1,9 @@
+# Ragas evaluation results are saved here as timestamped CSV files.
+# Format: ragas_results_<YYYYMMDDTHHMMSSz>.csv
+#
+# Generate results by running:
+#   cd services && python eval/ragas_eval.py
+#
+# This directory is tracked in git (to allow the dashboard to serve results),
+# but the CSV files themselves are gitignored.
+# See: services/eval/README.md for full documentation.

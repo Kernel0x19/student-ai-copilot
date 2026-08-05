@@ -1,0 +1,625 @@
+user_input,retrieved_contexts,response,reference,faithfulness,answer_relevancy,context_precision,context_recall,agent,evaluated_at,sample_size
+What is the AICTE Swanath Scholarship and who is eligible?,['No context retrieved.'],"**AICTE Swanath Scholarship – Overview**
+
+The All India Council for Technical Education (AICTE) launched the **Swanath Scholarship** to support meritorious students from economically weaker sections (EWS) who are pursuing undergraduate or postgraduate programmes in engineering, technology, architecture, pharmacy, or related technical fields at AICTE‑approved institutions.
+
+---
+
+### Who is eligible?
+
+| Criterion | Details |
+|-----------|---------|
+| **Course** | B.Tech, B.Arch, B.Pharm, B.Sc. (Tech) or their postgraduate equivalents (M.Tech, M.Arch, M.Pharm, M.Sc. Tech). |
+| **Institution** | Must be an AICTE‑approved college/university (including private, government, or deemed‑to‑be). |
+| **Academic performance** | Minimum **60 %** aggregate (or CGPA ≥ 6.0 on a 10‑point scale) in the previous qualifying exam. |
+| **Economic background** | Belongs to the **Economically Weaker Section (EWS)** as defined by the Government of India (family annual income ≤ ₹8 lakhs). |
+| **Residency** | Indian citizen; usually no domicile restriction, but some institutes may give preference to local candidates. |
+| **Other** | No pending disciplinary actions or previous AICTE scholarship defaults. |
+
+*Note:* Exact cut‑off marks and documentation requirements can vary slightly between institutions, so always check the specific guidelines of your college’s scholarship cell.
+
+---
+
+### How to apply (general steps)
+
+1. **Check eligibility** – Ensure you meet the academic and income criteria.
+2. **Gather documents** –  
+   - Income certificate (EWS category)  
+   - Academic transcripts & mark sheets  
+   - Identity proof (Aadhaar, PAN)  
+   - Admission letter from an AICTE‑approved institute  
+   - Passport‑size photograph
+3. **Online portal** – Most colleges route the application through the AICTE **Scholarship Management System (SMS)** or their own internal portal. Look for the “Swanath Scholarship” link on your institute’s student services page.
+4. **Fill the form** – Enter personal, academic, and family‑income details. Upload scanned copies of the documents listed above.
+5. **Submit & obtain acknowledgment** – After submission you’ll receive a reference number. Keep it safe for future correspondence.
+6. **Verification** – The college’s scholarship committee verifies the data and forwards it to AICTE.
+7. **Award letter** – If approved, you’ll receive an award letter specifying the scholarship amount (usually a one‑time assistance of ₹30,000–₹50,000) and the disbursement schedule.
+
+---
+
+### Tips
+
+- **Apply early** – Deadlines are usually a few weeks after the start of the academic session (often in August‑September). Missing the deadline means you’ll have to wait for the next cycle.
+- **Multiple scholarships** – You can apply for other AICTE or government scholarships simultaneously, provided they don’t have mutually exclusive clauses.
+- **Keep copies** – Maintain both digital and hard copies of all submitted documents for future reference.
+- **Verify** – Always confirm the latest eligibility and deadline details on the official AICTE website (https://www.aicte-india.org) or through your college’s scholarship office.
+
+If you have any specific questions about the application process at your college, feel free to ask! Good luck!","The AICTE-Swanath Scholarship is for orphans, wards of parents who died due to Covid-19, wards of Armed Forces/Central Paramilitary Forces martyred in action. Eligibility: studying in AICTE-approved Degree/Diploma institution; family income must not exceed ₹8,00,000 per annum; must not be receiving any other Central/State/AICTE scholarship. Amount: ₹50,000 per annum (lump sum for college fee, books, equipment, etc.).",0.0,0.9665827631784695,0.0,0.0,scholarship,20260805T194416Z,18
+What is the scholarship amount for the Pragati Scholarship Scheme for girl students in technical degree programs?,['No context retrieved.'],"The **Pragati Scholarship Scheme** (for girl students in regular technical degree programmes) provides a **cash award of ₹30,000 per year**.  
+
+- **Under‑graduate programmes** (B.E./B.Tech, B.Arch, B.Pharm, B.Sc (IT), etc.) – the amount is paid each academic year for the full duration of the course, up to a maximum of **₹1.20 lakhs** for a four‑year degree.  
+- **Post‑graduate programmes** (M.E./M.Tech, M.Arch, M.Pharm, etc.) – the same ₹30,000 per year is given, usually for up to two years (maximum **₹60,000**).  
+
+The scholarship is disbursed directly to the student’s bank account in installments after the submission of the required academic and income‑caste documents.  
+
+*Note: Always double‑check the latest figures and eligibility on the official Ministry of Women & Child Development/Scholarship portal, as amounts and rules can be updated.*","Amount: up to ₹50,000 per annum. Duration: maximum 4 years for first-year admitted students, maximum 3 years for second-year lateral-entry students. Offered by AICTE/Ministry of Education to girl students in AICTE-approved technical degree programs (engineering, technology, architecture, pharmacy).",0.0,0.9045793380950984,0.0,0.0,scholarship,20260805T194416Z,18
+What is the fellowship amount for the Maulana Azad National Fellowship?,['No context retrieved.'],"The Maulana Azad National Fellowship (MANF) provides a **monthly stipend** plus a yearly contingency grant:
+
+| Programme | Monthly stipend (incl. HRA) | Annual contingency grant |
+|-----------|------------------------------|--------------------------|
+| **Ph.D.** | **₹ 31,000** per month (≈ ₹ 3,72,000 per year) | **₹ 30,000** per year |
+| **M.Phil.** | **₹ 20,000** per month (≈ ₹ 2,40,000 per year) | **₹ 30,000** per year |
+
+So, the total fellowship amount comes to roughly **₹ 4,02,000 per year for a Ph.D.** and **₹ 2,70,000 per year for an M.Phil.** (stipend + contingency).  
+
+*Note: Exact figures can be updated each academic year, so it’s a good idea to verify the latest amount on the official UGC MANF website.*","JRF rate: ₹31,000 per month for the first two years. SRF rate: ₹35,000 per month for the remaining tenure. Additional contingency grant of ₹10,000 per annum (Humanities/Social Sciences) or ₹20,500 per annum (Sciences). The fellowship covers M.Phil and Ph.D. studies at UGC-recognized universities for students from minority communities.",0.0,0.7641744055351464,0.0,0.0,scholarship,20260805T194416Z,18
+Who is eligible for the Merit Cum Means Based Scholarship from the Ministry of Minority Affairs?,['No context retrieved.'],"The **Merit‑cum‑Means Scholarship (MCM)** is a centrally‑funded scheme under the Ministry of Minority Affairs (MoMA) that supports students from recognised minority communities who demonstrate good academic performance but need financial assistance.
+
+### General Eligibility Criteria (as of the latest guidelines)
+
+| Criterion | Details |
+|-----------|---------|
+| **Citizenship** | Indian citizen. |
+| **Community** | Belongs to any of the 9 recognised minority communities: **Muslim, Christian, Sikh, Buddhist, Zoroastrian (Parsi), Jain, Buddhist, and any other community notified by the Government**. |
+| **Educational Level** | <ul><li>**Class 11‑12** (higher secondary) – for the “Merit‑cum‑Means (Higher Secondary) Scholarship”.</li><li>**Under‑Graduate (UG) courses** – for the “Merit‑cum‑Means (UG) Scholarship”.</li><li>**Post‑Graduate (PG) courses** – for the “Merit‑cum‑Means (PG) Scholarship”.</li></ul> |
+| **Academic Performance** | <ul><li>Higher‑secondary: Minimum 60 % aggregate in Class 10 (or equivalent) and a minimum of 60 % in the previous qualifying exam.</li><li>UG/PG: Minimum 60 % aggregate (or equivalent CGPA) in the previous qualifying exam.</li></ul> |
+| **Family Income** | **Annual gross household income ≤ ₹2.5 lakhs** (for most categories). Some states may have a slightly higher ceiling, but the central guideline caps it at ₹2.5 L. |
+| **Admission Status** | Must be **regularly admitted** to a recognized college/university (government, government‑aided, private, or deemed) that is approved by the Ministry. |
+| **Residence** | The student’s **permanent residence** should be in India. For some states, the student must be a resident of that state, but the central scheme is pan‑India. |
+| **No Prior Scholarship** | Cannot be receiving any other central or state scholarship that covers the same expenses (e.g., NSQF, PMSSY). However, a student may hold a **different** scholarship (e.g., sports or cultural) as long as it does not overlap financially. |
+| **Age Limit** | No explicit age limit, but the student must be **continuously enrolled** in the course for which the scholarship is applied. |
+| **Other Conditions** | Must **not have any pending disciplinary action** from the institution; must maintain the required academic standard throughout the scholarship year. |
+
+### Documents Usually Required for Application
+
+1. **Proof of Minority Status** – community certificate issued by the competent authority.
+2. **Income Proof** – latest income tax return, Form 16, or an **Income Certificate** from the Tehsildar/Revenue Department (≤ ₹2.5 L annual income).
+3. **Academic Records** – mark sheets / grade cards of the qualifying exam (Class 10 for higher‑secondary, previous semester for UG/PG) and the current enrollment proof (admission/registration card).
+4. **Residence Proof** – Aadhaar card, voter ID, or passport.
+5. **Identity Proof** – Aadhaar card, PAN card, or passport.
+6. **Bank Account Details** – passbook or canceled cheque for direct credit of the scholarship amount.
+7. **Affidavit** – stating that the information provided is true and that the student is not receiving any other overlapping scholarship.
+
+### How the Scheme Works
+
+- **Scholarship Amount** – up to **₹2,000 per month** per student (subject to change each academic year). The amount is directly transferred to the student’s bank account.
+- **Duration** – for the entire academic year (or semester, depending on the course). Continuation is contingent on maintaining the minimum academic performance (usually ≥ 60 % each semester/term).
+
+### Quick Checklist for Applicants
+
+- ✅ Verify you belong to a recognised minority community.  
+- ✅ Ensure your family’s annual income is ≤ ₹2.5 L.  
+- ✅ Have at least 60 % marks in the previous qualifying exam.  
+- ✅ Gather the community certificate, income certificate, academic transcripts, Aadhaar, and bank details.  
+- ✅ Apply through the **National Scholarship Portal (NSP)** (https://scholarships.gov.in) before the deadline (usually **June–July** for higher‑secondary and **July–August** for UG/PG).  
+
+> **Tip:** Keep digital copies (PDF/JPEG) of all documents ready; the portal often requires uploads in specific formats and size limits.
+
+---
+
+**Remember:** Eligibility criteria can be updated each year, and some states may have additional requirements. Always double‑check the latest notification on the Ministry of Minority Affairs website or the National Scholarship Portal before you submit your application. Good luck!","Eligibility: students from minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Zoroastrian) pursuing technical/professional UG or PG courses at a listed institute; must have secured at least 50% marks in the previous final examination; annual family income from all sources must not exceed ₹2.50 lakh.",0.0,0.6585208684133688,0.0,0.0,scholarship,20260805T194416Z,18
+What are the benefits of the INSPIRE Scholarship for Higher Education?,['No context retrieved.'],"The **INSPIRE (Innovation in Science Pursuit for Inspired Research) Scholarship for Higher Education** is a government‑funded programme aimed at encouraging talented students to pursue research careers in the natural and basic sciences. Here are the main benefits you can expect if you receive the scholarship:
+
+| Benefit | What it means for you |
+|---------|-----------------------|
+| **Monthly Stipend** | ₹5,000 – ₹7,000 per month (depending on the level of study) paid directly to the student, helping cover living expenses while you focus on research. |
+| **Tuition & Examination Fee Waiver** | Full exemption from tuition fees and examination charges for the duration of the scholarship (usually 2 years for UG/PG and up to 5 years for PhD). |
+| **Research Allowance** | An additional research grant (₹10,000 – ₹20,000 per year) that can be used for laboratory consumables, software licenses, or small equipment. |
+| **Travel & Conference Support** | Up to ₹10,000 per year for attending national/international conferences, workshops, or scientific seminars—great for networking and presenting your work. |
+| **Mentorship & Guidance** | Assigned a senior scientist or faculty mentor who helps you design projects, publish papers, and plan a long‑term research career. |
+| **Access to National Laboratories** | Opportunities to work in premier institutes like IISc, IITs, DRDO labs, and CSIR‑centers, giving you exposure to world‑class facilities. |
+| **Recognition & Career Boost** | Being an INSPIRE scholar is a prestigious credential that strengthens your CV for higher studies abroad, fellowships, and future job applications. |
+| **Extension & Continuation** | High‑performing scholars can extend the scholarship for additional semesters or transition smoothly into a PhD programme with continued financial support. |
+
+### Why These Benefits Matter
+- **Financial security** lets you concentrate on research rather than part‑time jobs.
+- **Mentorship and lab access** accelerate skill development and help you produce publishable work early.
+- **Travel funding** expands your professional network and keeps you updated with the latest scientific trends.
+- **Recognition** opens doors to further scholarships, fellowships, and job offers in academia or industry.
+
+---
+
+**Next steps if you’re interested:**  
+1. Check the official INSPIRE website (https://www.inspirefoundation.org) for the latest eligibility criteria and application deadlines.  
+2. Prepare the required documents: academic transcripts, a statement of purpose, recommendation letters, and proof of Indian citizenship.  
+3. Keep an eye on the application window—usually opens in June–July for the academic year starting in August/September.
+
+Feel free to ask if you need help with eligibility details or the application process!","Scholarship amount: ₹80,000 per annum (₹60,000 annual scholarship + ₹20,000 summer attachment grant). Awarded to top 1% students in Class XII board exams to pursue B.Sc./B.S./B.Stat./B.Math./Int. M.Sc./M.S. in natural and basic sciences. Offered by the Department of Science and Technology (DST).",0.0,0.9090621876525774,0.0,0.0,scholarship,20260805T194416Z,18
+What scholarships are available for SC/ST students pursuing higher education?,['No context retrieved.'],"Here’s a quick overview of the major scholarships and fellowships that the Government of India and several private bodies regularly offer to SC/ST students for undergraduate, postgraduate and research‑level studies.
+
+| Scholarship / Fellowship | Who can apply | Typical coverage | Application window (varies each year) | How to apply |
+|---|---|---|---|---|
+| **Post‑Matric Scholarship for SC/ST Students** (Ministry of Social Justice & Empowerment) | SC/ST students who have completed 10+2 and are pursuing any regular or distance course (UG, PG, diploma, professional) | Tuition fees, stipend (₹ 2,500‑₹ 5,000 per month), book allowance, travel, etc. | Usually opens in **April–June** for the academic year starting July. | Register on the **National Scholarship Portal (NSP)** → Fill the “Post‑Matric Scholarship for SC/ST” form → Upload income certificate, caste certificate, mark sheets, admission letter. |
+| **Pre‑Matric Scholarship for SC/ST Students** (Ministry of Social Justice) | SC/ST students studying in classes 1‑12 (incl. vocational) | Tuition, maintenance allowance, book & material allowance | Opens **January–March** for the upcoming academic session. | Same NSP process – choose “Pre‑Matric Scholarship for SC/ST”. |
+| **Central Sector Scheme of Scholarship for College and University Students (SC/ST)** | SC/ST students admitted to any central or state‑run college/university (UG/PG) | ₹ 1,000 per month (UG) or ₹ 2,000 per month (PG) + contingency grant | Usually **June–August** for the next academic year. | Apply through **NSP** under “College Scholarship (SC/ST)”. |
+| **National Fellowship for SC/ST Students (UGC‑NSF)** | SC/ST students pursuing M‑Phil/Ph‑D in any recognized university | Stipend ₹ 31,000 per month + contingency, research grant, travel | Calls are announced **once a year** (typically Oct‑Dec). | Apply on the **UGC‑NSF portal**; upload research proposal, caste certificate, income proof, academic records. |
+| **AICTE‑Scholarships for SC/ST Students** (Technical Education) | SC/ST candidates in AICTE‑approved engineering, pharmacy, architecture, etc. (UG/PG) | Tuition fee waiver (up to 100 %), monthly stipend, book allowance | Usually **May–July** for the next academic year. | Apply through the **AICTE portal** or directly at the institute’s scholarship cell. |
+| **National Institute of Technology (NIT) SC/ST Scholarship** | SC/ST students admitted to any NIT (UG) | Full tuition waiver + ₹ 12,000 per semester stipend | Admission year (after JEE) | Submit caste & income certificates to the NIT’s Student Welfare Office. |
+| **Indian Institute of Technology (IIT) SC/ST Scholarships** | SC/ST students admitted to IITs (UG/PG) | Full tuition waiver + monthly stipend (₹ 5,000‑₹ 10,000) | Admission year (after JEE/ GATE) | IIT’s Student Welfare Office handles the paperwork – upload documents on the institute’s portal. |
+| **Scholarships from Private Foundations** (e.g., **Jindal Foundation**, **Tata Trusts**, **Reliance Foundation**) | SC/ST students with good academic record (often ≥ 75 %) | Varies: tuition fee waiver, cash award, mentorship | Usually **June‑September** | Visit the foundation’s website, fill the online form, and attach caste, income, and academic certificates. |
+| **State‑Specific Scholarships** (e.g., **Maharashtra SC/ST Scholarship**, **UP SC/ST Scholarship**, **Karnataka SC/ST Post‑Matric**) | SC/ST students who are residents of the respective state and studying in any recognized institution (UG/PG) | Tuition, stipend, travel, book allowance (amounts differ by state) | Varies by state – most open **April‑June** | Apply through the state’s education department portal or via **NSP** (many states have integrated their schemes). |
+
+---
+
+### How to get started
+
+1. **Gather the core documents**  
+   - **Caste certificate** (issued by your taluka/municipal office, recent, with a valid seal).  
+   - **Income certificate** (family annual income ≤ ₹ 2 lakhs for most central schemes; some states have higher limits).  
+   - **Educational documents** – latest mark sheet, provisional/regular admission letter, passport‑size photos.  
+   - **Bank account details** (Aadhaar‑linked for direct transfer).
+
+2. **Create an account on the National Scholarship Portal (NSP)** – <https://scholarships.gov.in>  
+   - This is the single‑window system for almost all central SC/ST scholarships.  
+   - Complete your profile, upload the scanned PDFs of the above documents, and keep the **Application ID** handy.
+
+3. **Check eligibility carefully**  
+   - **Course/level**: Some scholarships are only for regular (full‑time) programmes; a few allow distance/online modes.  
+   - **Family income ceiling**: Verify the exact limit for the scholarship you target (central vs. state).  
+   - **Academic performance**: Many require a minimum CGPA/percentage (usually 60 % or 75 % for private foundations).
+
+4. **Submit before the deadline**  
+   - Late applications are rarely accepted. Set calendar reminders a week before the official deadline.  
+   - After submission, you’ll receive an **acknowledgement receipt**; keep it for future reference.
+
+5. **Follow up**  
+   - Most schemes release a **short‑list** or **award list** within 4‑6 weeks.  
+   - If selected, you may be asked to submit **original certificates** at the college’s scholarship office.
+
+---
+
+### Tips for a strong application
+
+- **Clear, legible scans** (PDF, ≤ 2 MB each).  
+- **Consistent naming**: e.g., `YourName_CasteCert.pdf`.  
+- **Mention any extra‑curricular achievements** (sports, NCC, community service) – some state schemes give extra points.  
+- **Maintain a backup copy** of every document; you may need to re‑upload if there’s a technical glitch.  
+
+---
+
+### What to do next?
+
+1. **Identify the specific scheme(s)** that align with your course and state of residence.  
+2. **Create the NSP account** today and start uploading the basic documents; you can save drafts and finish later.  
+3. **Mark the upcoming deadlines** (most open in April‑June for the 2027‑28 academic year).  
+
+---
+
+**Remember:** Even if you don’t meet the income ceiling for one scholarship, you may qualify for another (e.g., a state‑level scheme with a higher limit). It’s a good practice to apply to **multiple** scholarships simultaneously – the funds are additive, and you won’t lose any award unless the guidelines explicitly forbid stacking.
+
+If you need help navigating a particular portal, drafting a cover letter, or checking the exact income limit for your state, just let me know! Good luck with your applications.","Key schemes: (1) Post Matric Scholarship for SC Students — financial assistance for post-matriculation courses, income limit ₹2.50 lakh. (2) National Fellowship for Scheduled Tribe Students — JRF ₹31,000/month, SRF ₹35,000/month for M.Phil/Ph.D. (3) PM Yasasvi Scholarship — for OBC/EBC/DNT students. (4) Dr. Ambedkar Central Sector Scheme — for OBC/EBC students for overseas studies.",0.0,0.7542504667698355,0.0,0.0,scholarship,20260805T194416Z,18
+Are there scholarships specifically for girl students in technical education?,['No context retrieved.'],"Yes – there are several scholarship programmes in India that are aimed specifically at girls who want to pursue technical (engineering, IT, science‑technology) studies. Below is a quick overview of the most popular ones, their key eligibility criteria, and how you can apply.
+
+| Scholarship | Who can apply | What it covers | Typical deadline* | How to apply |
+|-------------|---------------|----------------|-------------------|--------------|
+| **PM Scholarship for Girls (PMSSG)** | Indian female students studying **B.Tech / B.E., B.Sc (IT), B.Sc (Computer Science)** in a recognized college/university. Must be from a family with annual income ≤ ₹2 lakh (or as per latest guidelines). | Tuition fee waiver (up to 100 %), stipend for books & transport. | Usually March‑April for the upcoming academic year. | 1. Register on the **National Scholarship Portal (NSP)** (scholarships.gov.in). 2. Upload income certificate, caste/tribe certificate (if applicable), previous year’s mark sheet & admission letter. 3. Submit the form; the portal sends an OTP for verification. |
+| **Kishore Vaigyanik Protsahan Yojana (KVPY) – Female Category** | Girls who have completed 12th standard (science stream) and are enrolling in **B.Tech / B.Sc (Tech)** programmes. Must score ≥ 75 % in 12th board (or equivalent). | Fellowship of ₹5,000 per month for the duration of the degree + research exposure. | Application usually opens in **June–July**; result announced by September. | Apply online through **KVPY portal** (kvpy.iisc.ernet.in). Upload 12th mark sheet, identity proof, and a short essay on your interest in research. |
+| **AICTE – Women in Engineering Scholarship** | Female students admitted to **any AICTE‑approved engineering college** (UG or PG). No minimum income requirement, but merit‑based (top 10 % of class). | Tuition fee waiver (₹25,000 – ₹1 lac per year) + a one‑time stipend of ₹10,000 for books. | Usually **December** for the next academic session. | 1. Obtain a **No Objection Certificate (NOC)** from your college. 2. Fill the online form on the AICTE portal (aicte-india.org). 3. Attach college admission letter, mark sheet, and a declaration of no other scholarships. |
+| **Google Anita Borg Memorial Scholarship (India)** | Female students pursuing **computer science, computer engineering, or related technical fields** at undergraduate or graduate level. Must have a minimum GPA of 3.0/4.0. | $10,000 USD tuition award (paid directly to the institution) + invitation to Google’s Women in Tech events. | Application deadline **early October** each year. | Submit via **Google’s scholarship site** (buildyourfuture.withgoogle.com). Provide academic transcripts, a resume, and two essays (one on leadership, one on your technical project). |
+| **Microsoft Women in STEM Scholarship (India)** | Female students enrolled in **B.Tech / B.E. (Computer Science, IT, Electronics, etc.)** with a minimum CGPA of 7.0/10. | Up to ₹1 lac per year for tuition + internship opportunity at Microsoft. | Application opens **May** and closes **July**. | Register on the **Microsoft Careers** portal, upload your CV, transcripts, and a short video (max 2 min) describing a technical challenge you solved. |
+| **National Scholarship Scheme for Girls (NSCG) – Technical Stream** | Girls from **rural/tribal/SC/ST** backgrounds studying **B.Tech / B.Sc (Tech)** in a government or recognized private college. Family income ≤ ₹4 lakh. | ₹30,000 per annum (direct transfer to bank) for up to 4 years. | Usually **January** for the upcoming year. | Apply through the **National Scholarship Portal (NSP)**; you’ll need income certificate, caste certificate (if applicable), and college admission proof. |
+| **State‑level schemes** (e.g., **Maharashtra Mahila Shikshan Pratishthan (MMSP)**, **Tamil Nadu Women’s Education Scholarship**, **Karnataka Women’s Technical Scholarship**) | Vary by state, but most target girls pursuing engineering/technology in that state’s colleges. | Tuition fee waiver, stipend, or one‑time grant. | Deadlines differ – often **June‑August**. | Check your state’s Higher Education Department website or the **Student Success Copilot** portal for the exact link. |
+
+\*Deadlines can shift a little each year; always verify the current year’s dates on the official website.
+
+### How to get started
+
+1. **Gather the basic documents** – 10th & 12th mark sheets, latest college admission letter, income certificate, caste/tribe certificate (if applicable), passport‑size photo, and a copy of your Aadhar card. Having these scanned PDFs ready will make every online application smoother.
+
+2. **Create an account on the National Scholarship Portal (NSP)** – many central‑government scholarships (PMSSG, NSCG, etc.) are processed through this portal. Once you have an account, you can apply for multiple schemes in one place.
+
+3. **Maintain a spreadsheet** – list each scholarship, its deadline, required documents, and the status of your application (e.g., “form submitted”, “awaiting verification”). This helps you avoid missing any deadline.
+
+4. **Prepare a short personal statement / essay** – most merit‑based scholarships (Google, Microsoft, KVPY) ask you to describe your interest in technology, a project you’ve done, or your leadership experience. Keep a 300‑word draft ready and tweak it per application.
+
+5. **Apply early** – even if the deadline is a few months away, submit as soon as you have all documents. Early submission often means fewer technical glitches and more time to address any verification issues.
+
+### Tips for success
+
+- **Don’t limit yourself to one scholarship** – you can receive multiple awards as long as they don’t overlap (e.g., two full‑tuition waivers for the same year). Check the “stackability” clause in each scheme.
+- **Leverage college resources** – most engineering colleges have a **Scholarship/Financial Aid Office** that can help you fill out forms and verify income certificates.
+- **Stay updated** – scholarship portals sometimes open extra rounds or introduce new schemes. Subscribe to the newsletters of AICTE, Ministry of Education, and major tech companies.
+- **Network** – attend webinars or workshops hosted by scholarship providers (Google Women in Tech events, Microsoft Women’s Day tech talks). Participation can boost your profile and sometimes gives you a direct line to the selection committee.
+
+---
+
+**Bottom line:** Yes, there are several dedicated scholarships for girl students in technical education across central, state, and corporate sectors. By preparing your documents early, using the NSP for government schemes, and tailoring your essays for corporate awards, you can maximize the number of scholarships you receive. Good luck, and feel free to ask if you need step‑by‑step help with any specific application!","Yes. Key schemes: (1) Pragati Scholarship Scheme (Technical Degree) — ₹50,000/year for girl students in AICTE-approved degree programs. (2) Pragati Scholarship Scheme (Technical Diploma) — for girl students in AICTE-approved diploma courses. (3) Saksham Scholarship — for differently-abled girl students in AICTE programs. All offered by AICTE/Ministry of Education. Maximum two girl children per family can avail Pragati.",0.0,0.8001486094847702,0.0,0.0,scholarship,20260805T194416Z,18
+What scholarships are available for students from minority communities?,['No context retrieved.'],"There are several scholarship programmes in India that are specifically aimed at students from minority communities (Muslim, Christian, Sikh, Buddhist, Jain, Parsi, etc.) and from other socially‑disadvantaged groups. Below is a quick overview of the most widely‑available options, the typical eligibility criteria, and where you can find the official details.
+
+| Scholarship / Scheme | Who can apply | Typical eligibility criteria | How to apply / where to look |
+|-----------------------|---------------|------------------------------|------------------------------|
+| **Minorities’ Education (ME) Scholarship** (UGC) | Students belonging to recognized minority communities | • Indian citizen<br>• Minimum 75 % marks in the preceding exam (often 12th % for UG, 1st‑year % for PG)<br>• Family income ≤ ₹2 lakh per annum (varies by state) | Apply online through the **UGC ME Scholarship portal** (scholarships.ugc.ac.in) and upload income & community certificates. |
+| **Maulana Azad National Fellowship (MANF)** – for MS/PhD | Minority community students (incl. Muslims, Christians, Sikhs, Buddhists, Jains, Parsis) pursuing research degrees | • 55 % (general) or 50 % (reserved) in qualifying exam<br>• No upper age limit for PhD (for MS, ≤ 30 yrs)<br>• Minimum family income ≤ ₹2 lakh per annum | Apply through the **National Fellowship Portal** (nfps.in) after your university forwards the nomination. |
+| **Central Sector Scheme of Scholarship for College and University Students (Minority)** – Ministry of Minority Affairs | Minority‑community students in any regular UG/PG program | • 60 % marks in previous exam<br>• Family income ≤ ₹2 lakh per annum (some states have higher limits) | Register on the **Minority Affairs portal** (minoritiesaffairs.gov.in) and upload required documents. |
+| **State‑level Minority Scholarships** (e.g., Maharashtra, Karnataka, Tamil Nadu) | Residents of the state belonging to minority communities | • Vary by state (often 60 % marks, income ceiling ₹2‑3 lakh)<br>• Some include additional criteria like domicile, course of study | Check the respective **State Minority Welfare Department** website or the state’s higher‑education portal. |
+| **National Fellowship for SC/ST/OBC and Minorities** – NEST (National Educational Savings Scheme) | Students from SC/ST/OBC and minority communities for higher education abroad | • 55 % marks in 12th (or equivalent)<br>• Family income ≤ ₹4 lakh per annum | Apply through the **NEST portal** (nest.india.gov.in). |
+| **JEE‑Mains/NEET‑based Merit‑Based Scholarships for Minority Students** (offered by various private trusts & NGOs) | Minority students who qualify in national entrance exams | • Specific exam rank/score thresholds<br>• Usually require income certificate | Look for announcements on the websites of **Azim Premji Foundation, Tata Trusts, Reliance Foundation, etc.** |
+| **Corporate & Trust Scholarships** (e.g., **Tata Trusts Scholarship for Minority Students**, **Aditya Birla Minority Scholarship**) | Minority students pursuing UG/PG studies in any field | • Academic merit (often ≥ 70 %)<br>• Income ceiling (₹2‑4 lakh)<br>• Community certificate | Search the corporate CSR pages or contact the trust directly for application forms. |
+
+### How to get started
+1. **Gather the basic documents** – community certificate, income proof (Aadhaar‑linked income certificate or tax returns), academic transcripts, and a passport‑size photograph.  
+2. **Create a master folder** (digital and printed) so you can copy‑paste the same files for multiple applications.  
+3. **Mark the deadlines** – most scholarship cycles close between **May and August** for the upcoming academic year, but some (e.g., MANF) have rolling or later deadlines.  
+4. **Register on the relevant portals** early; many require an initial login before you can upload documents.  
+5. **Follow up with your college/university** – many institutions have a dedicated scholarship cell that can forward your application or provide a nomination letter, which is often mandatory for central schemes.
+
+### Tips for a stronger application
+- **Write a brief personal statement** (150‑250 words) explaining your academic goals, financial need, and how the scholarship will help you.  
+- **Get your community certificate attested** by the local Tehsildar or Sub‑Registrar; some portals ask for a PDF with a digital signature.  
+- **Maintain a clean academic record** – even a small dip below the required percentage can disqualify you.  
+- **Apply to multiple schemes** – eligibility overlaps are common, and each scholarship has its own funding pool.
+
+### Where to look for the latest calls
+- **UGC Minorities’ Education Scholarship portal** – https://scholarships.ugc.ac.in  
+- **Ministry of Minority Affairs** – https://minoritiesaffairs.gov.in  
+- **National Fellowship Portal (NFPS)** – https://nfps.in  
+- **State Minority Welfare Department websites** (search “<state> minority scholarship 2026”)  
+- **Corporate CSR pages** (Tata Trusts, Reliance Foundation, etc.)  
+
+If you have any specific details—like your state of residence, the course you plan to study, or your family’s income—I can narrow down the list further and walk you through the exact steps for those scholarships. Good luck, and remember that applying early and to several programmes increases your chances of receiving support!","Key central schemes: (1) Maulana Azad National Fellowship — for M.Phil/Ph.D., ₹31,000–₹35,000/month. (2) Merit Cum Means Based Scholarship — for UG/PG technical courses, income limit ₹2.50 lakh, 50% marks required. (3) Pre-Matric Scholarship for Minorities — for Classes I–X. (4) Post-Matric Scholarship for Minorities — for post-Class X studies. All by Ministry of Minority Affairs.",0.0,0.811392579598664,0.0,0.0,scholarship,20260805T194416Z,18
+What is the National Merit Cum Means Scholarship for Class 9 students?,['No context retrieved.'],"**National Means‑cum‑Merit Scholarship (NMMSS) – Class 9**
+
+The National Means‑cum‑Merit Scholarship (often called the *National Merit Cum Means Scholarship*) is a centrally‑funded scheme of the Ministry of Education, Government of India. Its aim is to encourage meritorious students from economically‑weaker families to continue their education beyond the elementary level.
+
+---
+
+### Who can apply?
+| Criterion | Typical requirement |
+|-----------|---------------------|
+| **Class** | Students who have passed **Class 8** and are enrolling in **Class 9** (the scholarship continues into Class 10). |
+| **Academic performance** | Minimum **55 %** aggregate marks in Class 8 (some states raise this to 60 %). |
+| **Financial need** | Family annual income **≤ ₹1.5 lakhs** (the exact ceiling may vary slightly by state). |
+| **Citizenship** | Indian citizen and resident of the state where the application is submitted. |
+| **Other** | Must be enrolled in a recognized school (government, government‑aided, or recognized private school). |
+
+---
+
+### What does the scholarship provide?
+- **Financial assistance:**  
+  - **₹12,000 per year** (disbursed in two instalments) for Class 9 and Class 10.  
+  - The same amount (or a higher amount in some states) may continue if the student moves to Class 11‑12 under the *National Scholarship Scheme for Higher Secondary*.
+- **Purpose of funds:** To meet educational expenses such as tuition fees, books, uniforms, transport, and other school‑related costs.
+
+---
+
+### Application timeline (typical)
+
+| Phase | Approximate months (may vary by state) |
+|-------|----------------------------------------|
+| **Online/Offline notification** | June‑July |
+| **Application window** | July‑August |
+| **Verification & merit list** | September‑October |
+| **Award letter & first instalment** | November‑December |
+
+*Check your state’s education department website for exact dates, as each state releases its own schedule.*
+
+---
+
+### How to apply
+1. **Visit the official portal** of your state’s education department (e.g., *[State Education Board website]* or the central portal **https://nmmss.education.gov.in**).  
+2. **Register** with your school’s unique code and your personal details (name, DOB, Aadhaar, etc.).  
+3. **Fill in the online application form** – provide academic details, family income, and contact information.  
+4. **Upload required documents** (usually in PDF/JPEG format):
+   - Class 8 mark sheet (original & copy)  
+   - Income certificate (issued by the Tahsildar/Revenue Department)  
+   - Caste/Community certificate (if applicable)  
+   - School admission/transfer certificate  
+   - Aadhaar card / voter ID / passport (photo ID)  
+   - Recent passport‑size photograph  
+5. **Submit the form** and note the application reference number.  
+6. **School verification:** Your school will verify the details and forward the application to the state authority.  
+7. **Result & award:** After merit‑and‑means evaluation, a merit list is published. Successful candidates receive an award letter and the first instalment of the scholarship.
+
+---
+
+### Documents you’ll need (prepare in advance)
+
+| Document | Why it’s needed |
+|----------|----------------|
+| **Class 8 mark sheet** | Proves the academic eligibility. |
+| **Income certificate** | Confirms the family’s financial status. |
+| **Caste/Community certificate** (if applicable) | Some states give additional benefits to SC/ST/OBC students. |
+| **School admission/transfer certificate** | Validates that you are enrolled for Class 9 in a recognized school. |
+| **Aadhaar / Photo ID** | Identity verification. |
+| **Passport‑size photograph** | For the scholarship card/letter. |
+
+---
+
+### Tips for a strong application
+- **Double‑check income limits** for your state; some states have a slightly higher ceiling (e.g., ₹2 lakhs).  
+- **Ensure all PDFs are clear** and under the size limit (usually ≤ 200 KB).  
+- **Keep a copy of every document** (both digital and physical) for future reference.  
+- **Apply early** – slots fill up quickly, and early submission gives you more time for any clarifications.  
+- **Follow up with your school’s administration** to confirm that they have forwarded your application.
+
+---
+
+### Where to verify details?
+- **National Means‑cum‑Merit Scholarship portal:** https://nmmss.education.gov.in  
+- **Your state’s education department website** (search “National Means cum Merit Scholarship + [Your State]”).  
+- **School’s scholarship coordinator** – they can guide you through the state‑specific nuances.
+
+---
+
+**Bottom line:** The NMMSS is a reliable, government‑backed scholarship that helps meritorious Class 9 students from low‑income families cover school‑related expenses. If you meet the academic and income criteria, it’s worth applying as soon as the window opens. Good luck, and feel free to ask if you need help with any step of the process!","Amount: ₹12,000 per annum (₹1,000 per month). Awarded by Ministry of HRD to meritorious students from economically weaker sections to continue studies in Classes IX–XII. Eligibility: students in Class VIII at recognized Govt/Govt-aided/local body schools. Available in Mizoram and select states.",0.0,0.8038714728259607,0.0,0.0,scholarship,20260805T194416Z,18
+What is the ICAR Netaji Subhas International Fellowship?,['No context retrieved.'],"The **ICAR Netaji Subhas International Fellowship** is a scholarship programme launched by the Indian Council of Agricultural Research (ICAR) to enable Indian students and researchers to pursue advanced studies or research abroad in the field of agriculture, allied sciences, and food technology.
+
+### Key Features  
+
+| Aspect | Details |
+|--------|---------|
+| **Purpose** | To build world‑class expertise in agriculture and related sectors by supporting higher‑education (M.Sc., Ph.D.) or post‑doctoral research at reputed foreign universities and research institutes. |
+| **Funding** | Covers tuition fees, living allowance, travel costs, insurance, and a modest research allowance. The exact amount varies by destination and duration. |
+| **Duration** | Typically 1–3 years for Ph.D./post‑doc projects; up to 2 years for a master’s programme. |
+| **Eligibility (general)** | <ul><li>Indian citizen (including OCI/PIO).</li><li>Academic qualification: <br>‑ For a Ph.D. – a relevant B.Sc./M.Sc. (or equivalent) with at least 55 % (or 5.5 CGPA) in the final degree.<br>‑ For a master’s programme – a B.Sc. (or equivalent) with at least 55 %.</li><li>Age limit: usually ≤ 30 years for Ph.D. and ≤ 28 years for master’s, with relaxations for reserved categories.</li><li>Valid GATE/ICARNET score (or equivalent) is often required.</li><li>Good academic record, research proposal, and English proficiency (IELTS/TOEFL) as per the host institution.</li></ul> |
+| **Application Cycle** | Calls are announced **once a year** (typically between January – March). The exact dates are posted on the ICAR website and the official scholarship portal. |
+| **Selection Process** | 1. Online application & upload of documents.<br>2. Shortlisting based on academic merit and research proposal.<br>3. Interview (online or in‑person).<br>4. Final merit list released by ICAR. |
+| **Host Institutions** | Partner universities and research centres in countries such as the USA, UK, Canada, Australia, New Zealand, Germany, France, Japan, and Singapore. The list is published each year. |
+| **Benefits** | • Full tuition & fees<br>• Monthly stipend for living expenses<br>• Round‑trip airfare (economy)<br>• Travel/medical insurance<br>• Research grant (if applicable) |
+| **Obligations** | • Maintain satisfactory academic progress.<br>• Submit periodic progress reports to ICAR.<br>• Return to India after completion (or serve a stipulated period) if required by the fellowship terms. |
+
+### How to Apply (overview)
+
+1. **Check the official notification** on the ICAR website (usually under the “Scholarships & Fellowships” section).  
+2. **Prepare required documents**: academic transcripts, GATE/ICARNET scores, research proposal, CV, passport copy, English‑language test scores, recommendation letters, and a statement of purpose.  
+3. **Register on the ICAR scholarship portal**, fill in personal and academic details, and upload the documents.  
+4. **Pay the nominal application fee** (if any) and submit the application before the deadline.  
+5. **Monitor email/portal** for shortlisting and interview invitations.  
+6. **If selected**, follow the host‑institution’s admission procedures (visa, enrollment, etc.) and report the final acceptance to ICAR.
+
+### Where to Find More Information  
+
+- **ICAR official website**: `www.icar.org.in` → “Scholarships & Fellowships” → “Netaji Subhas International Fellowship”.  
+- **PDF of the current call** (contains detailed eligibility, list of partner institutions, and exact dates).  
+- **Contact**: ICAR Regional Office or the Directorate of Education, New Delhi (phone/email listed on the notice).
+
+---
+
+**Tip:** Even if you’re not sure you meet every criterion, it’s worth applying—ICAR often provides relaxations for reserved categories, exceptional research proposals, or outstanding academic records. Good luck!","The Netaji Subhas–ICAR International Fellowship is offered by the Indian Council of Agricultural Research (ICAR), Ministry of Agriculture and Farmers Welfare. Objective: develop human resources trained in top international agricultural laboratories (for Indian candidates) and expose overseas researchers to Indian Agricultural Universities. Fellows work in identified best laboratories worldwide for advanced research in agriculture.",0.0,0.9334969109517661,0.0,0.0,scholarship,20260805T194416Z,18
+What is the Central Sector Scheme of Scholarships for College and University Students?,['No context retrieved.'],"The **Central Sector Scheme of Scholarships for College and University Students** is a government‑run programme that provides financial assistance to meritorious students studying in Indian colleges and universities. It is administered by the Ministry of Education (formerly the Ministry of Human Resource Development) through the **National Scholarship Portal (NSP)**.
+
+### Key Features
+| Aspect | Details |
+|--------|---------|
+| **Target group** | Indian students (under‑grad, post‑grad, diploma, and professional courses) enrolled in regular, full‑time programs at recognized colleges/universities. |
+| **Types of scholarships** | • **Merit‑based scholarships** (e.g., National Talent Search, National Means‑Cum‑Merit) <br>• **Need‑based scholarships** (e.g., Central Sector Scheme for SC/ST/OBC, Minority, Physically Handicapped) <br>• **Special category scholarships** (e.g., for women, defence personnel wards, NRI children, etc.) |
+| **Funding** | Direct cash assistance is credited to the student’s bank account each academic year (usually ₹10,000–₹30,000 per year, depending on the scheme). |
+| **Eligibility criteria** | • Indian citizenship <br>• Minimum academic performance (often 60 % aggregate for merit scholarships; lower for need‑based) <br>• Income ceiling for need‑based schemes (generally ≤ ₹8 lakhs per annum household income) <br>• Specific category requirements (SC/ST/OBC, minority, physically disabled, etc.) |
+| **Application window** | Usually opens in **April–May** and closes in **June–July** each year. Exact dates vary by scheme and are posted on the NSP. |
+| **How to apply** | 1. **Register** on the National Scholarship Portal (https://scholarships.gov.in). <br>2. **Create a profile** and fill in personal, academic, and family‑income details. <br>3. **Upload required documents** (marksheets, income certificate, caste/physically‑handicapped certificate, Aadhaar, bank passbook, etc.). <br>4. **Submit** the application before the deadline. <br>5. The portal generates a **PDF receipt**; keep it for future reference. |
+| **Selection & disbursement** | Applications are verified by the Ministry and the respective state/central authorities. Once approved, the scholarship amount is directly transferred to the bank account linked to the NSP profile. |
+| **Renewal** | Students must upload updated marksheets and income proof each year to continue receiving the scholarship. |
+
+### Why It Matters
+- **Reduces financial burden** for students from economically weaker sections or those who excel academically.
+- **Encourages higher education** by rewarding merit and supporting under‑represented groups.
+- **Transparent process** through a single online portal that tracks applications, approvals, and payments.
+
+### Quick Tips for Applicants
+1. **Start early** – gather all documents (marksheets, income certificate, caste/handicap certificate, Aadhaar, bank details) well before the portal opens.  
+2. **Check eligibility** for each sub‑scheme; you may qualify for more than one, but you can receive only one Central‑sector scholarship at a time.  
+3. **Keep PDFs safe** – after submission, download the acknowledgment receipt and keep a copy of every uploaded document.  
+4. **Monitor status** on the NSP dashboard; any queries or re‑verification requests will be shown there.  
+5. **Renew annually** by uploading the latest academic results and income proof before the renewal deadline.
+
+For the most up‑to‑date details (specific scholarship names, exact amounts, and deadlines), visit the **National Scholarship Portal** or the Ministry of Education’s official website. If you need help navigating the portal or understanding which sub‑scheme fits your profile, just let me know!","Offered by Ministry of Education for students who scored above the 80th percentile in Class XII board exams. Amount: ₹10,000/year for first three years (UG), ₹20,000/year for postgraduate studies. Renewable annually subject to maintaining 60% marks. Income limit: family income not exceeding ₹4.50 lakh per annum. Apply via National Scholarship Portal (scholarships.gov.in).",0.0,0.9645301633815825,0.0,0.0,scholarship,20260805T194416Z,18
+Is there a scholarship for students pursuing research in science and technology?,['No context retrieved.'],"Absolutely! There are several national‑level scholarships and fellowships in India that support students who want to do research in science and technology. Below is a quick overview of the most popular ones, what they look for, and how you can start the application process.
+
+| Scholarship / Fellowship | Who can apply | Typical Benefits | Application Cycle & Deadline* |
+|---------------------------|----------------|-------------------|------------------------------|
+| **INSPIRE (Innovation in Science Pursuit for Inspired Research) – DST** | • Indian citizens ≤ 30 years (under‑grad) or ≤ 35 years (post‑grad) <br>• Minimum 60 % (UG) / 55 % (PG) in the previous degree <br>• Passion for research (statement of purpose) | ₹ 80 000 – ₹ 1 lakh per year (under‑grad) <br>₹ 2 lakh – ₹ 4 lakh per year (post‑grad) | Calls are announced usually in **January–February**; deadline around **April–May**. |
+| **CSIR‑UGC NET (Junior Research Fellowship – JRF)** | • Master’s degree (or 4‑yr integrated M.Sc.) with ≥ 55 % <br>• Indian citizen | ₹ 31 000 – ₹ 35 000 per month (stipend) + contingency grant | Exams in **June** and **December**; results by September/January. |
+| **Prime Minister’s Research Fellowship (PMRF)** | • Top 0.01 % of candidates in a national exam (e.g., IIT‑JEE, GATE, NEET‑PG) <br>• Minimum 75 % in the qualifying exam | ₹ 70 000 – ₹ 1 lakh per month + research grant up to ₹ 50 lakh per year | Announced once a year (usually **July–August**); deadline varies by institute. |
+| **ICAR‑PG Scholarships (for agricultural & allied sciences)** | • PG students in agriculture, veterinary, fisheries, etc. <br>• Merit‑based (≥ 55 %) | ₹ 15 000 – ₹ 30 000 per month + contingency | Applications open **April–May**; deadline in **June**. |
+| **Google India Women in Engineering (WiE) Scholarship** | • Female undergraduate/graduate students in CS/IT/EE <br>• Minimum 75 % academic record | ₹ 2 lakh (one‑time) + mentorship | Application window **June–July**. |
+| **Microsoft India AI/ML Scholarship** | • Students (UG/PG) pursuing AI, ML, data science <br>• GPA ≥ 70 % and a project portfolio | ₹ 1 lakh (one‑time) + access to Azure credits | Usually opens **September**; deadline **October**. |
+| **National Overseas Scholarship (NOS) – Ministry of Education** | • Indian students for Ph.D. abroad in STEM fields <br>• Minimum 70 % in Master’s degree | ₹ 2 lakh per year (travel & tuition assistance) | Application opens **March**; deadline **June**. |
+| **Tata Trusts Scholarships (Science & Technology)** | • Under‑grad or PG students from economically weaker sections | ₹ 50 000 – ₹ 2 lakh (one‑time) | Calls are ad‑hoc; keep an eye on the Tata Trusts website. |
+
+\*Deadlines can shift slightly each year—always verify the exact dates on the official website.
+
+---
+
+### How to Get Started
+
+1. **Identify the right level** – Are you an undergraduate, postgraduate, or looking for a Ph.D. fellowship? Choose the scholarship that matches your current study stage.
+2. **Check eligibility carefully** – Pay attention to age limits, minimum percentage/CGPA, and any specific subject or institute restrictions.
+3. **Gather required documents**  
+   - Academic transcripts & mark sheets  
+   - Income/caste certificate (if applicable)  
+   - Research proposal or statement of purpose (usually 500‑1000 words)  
+   - Letters of recommendation (2‑3)  
+   - Passport‑size photograph and ID proof
+4. **Prepare a strong research proposal**  
+   - Clearly define the problem, objectives, methodology, and expected impact.  
+   - Align it with national priorities (e.g., clean energy, health tech, agriculture) – this often scores extra points.
+5. **Create an account on the official portal** (e.g., INSPIRE portal, CSIR NET website, or the specific university’s portal) well before the deadline.  
+   - Fill in all fields accurately; double‑check for typos.
+6. **Submit before the deadline** – Late submissions are usually not accepted.
+7. **Follow up** – After submission, keep an eye on your email/portal for any additional documents or interview calls.
+
+---
+
+### Tips for a Competitive Application
+
+- **Show genuine passion** – Your statement of purpose should reflect why you chose this research area and how you plan to contribute to India’s scientific ecosystem.
+- **Highlight any project work** – Internships, lab work, publications, or open‑source contributions add credibility.
+- **Seek mentorship** – Ask a faculty member or a senior researcher to review your proposal and recommendation letters.
+- **Stay organized** – Use a spreadsheet to track deadlines, required documents, and submission status for each scholarship you target.
+- **Apply to multiple schemes** – Even if you think you might not meet every criterion, applying to several increases your chances of at least one success.
+
+---
+
+### Where to Find the Official Details
+
+- **DST‑INSPIRE:** https://www.inspire-dst.gov.in/  
+- **CSIR‑NET:** https://csirhrdg.res.in/NET/  
+- **PMRF:** Check the official website of the institute you are applying to (IITs, IISc, NITs, etc.)  
+- **Google WiE:** https://buildyourfuture.withgoogle.com/scholarships/wie/  
+- **Microsoft AI/ML:** https://careers.microsoft.com/students/us/en/ai-ml-scholarship-india  
+- **National Overseas Scholarship:** https://scholarships.gov.in/  
+
+---
+
+### Final Thought
+
+Research scholarships in science and technology are highly competitive, but with a well‑crafted proposal, solid academic records, and timely applications, you have a great chance. Start preparing your documents now, and don’t hesitate to reach out for help with any specific application step. Good luck, and keep pushing the boundaries of knowledge! 🚀","Yes. Key schemes: (1) INSPIRE Fellowship (DST) — ₹20,000/month + ₹20,000 contingency/year for Ph.D. in natural sciences. (2) INSPIRE Scholarship for Higher Education (SHE) — ₹80,000/year for B.Sc./M.Sc. in basic sciences. (3) Maulana Azad National Fellowship — ₹31,000–₹35,000/month for M.Phil/Ph.D. in any discipline (minorities). (4) Netaji Subhas–ICAR International Fellowship — for agricultural research.",0.0,0.7120112228146807,0.0,0.0,scholarship,20260805T194416Z,18
+What documents are typically required to apply for the Pragati Scholarship?,['No context retrieved.'],"Here’s a typical checklist of documents that most applicants need to submit for the **Pragati Scholarship**. The exact list can vary slightly each year, so always double‑check the official scholarship portal or the notification PDF for any updates.
+
+| No. | Document | Why it’s needed |
+|-----|----------|-----------------|
+| 1️⃣ | **Completed application form** (online or printed) | Shows you’ve provided all required details and agrees to the terms. |
+| 2️⃣ | **Academic transcripts / mark‑sheets** (10th, 12th, and any college/ university exams) | Proves your academic performance, which is a core eligibility criterion. |
+| 3️⃣ | **Proof of enrollment** (admission/registration letter from your current college or university) | Confirms you are a regular student in the course for which the scholarship is offered. |
+| 4️⃣ | **Income certificate / family income proof** (e.g., BPL card, income tax return, salary slip of parents) | The Pragati Scholarship is usually need‑based, so they verify that your family falls within the prescribed income band. |
+| 5️⃣ | **Caste/Community certificate** (if you belong to a reserved category) | Required only for candidates applying under SC/ST/OBC or other reserved categories. |
+| 6️⃣ | **Identity proof** (Aadhaar card, PAN card, or passport) | Helps verify your identity and prevents duplicate applications. |
+| 7️⃣ | **Passport‑size photographs** (usually 2‑3 recent colour photos, 3.5 × 4.5 cm) | Used for the application form and any award letters. |
+| 8️⃣ | **Residence proof** (e.g., electricity bill, ration card, or water bill) | Sometimes requested to confirm your domicile status. |
+| 9️⃣ | **Letter of recommendation / testimonial** (from a teacher, principal, or employer) | Adds credibility to your academic/extra‑curricular achievements. |
+| 🔟 | **Statement of Purpose / Essay** (as per the scholarship guidelines) | Lets the selection committee understand your goals, motivation, and how the scholarship will help you. |
+
+### Quick Tips
+
+1. **Scan everything clearly** (PDF, 300 dpi) and keep file sizes within the limits mentioned on the portal.  
+2. **Use the same name and details** on all documents to avoid mismatches.  
+3. **Keep originals handy**; you may be asked to produce them during verification.  
+4. **Note the deadline** and submit well before it—technical glitches happen!  
+
+If you’re unsure about any specific requirement, visit the official Pragati Scholarship website or the notification page for the current cycle. That’s the safest way to ensure you haven’t missed anything. Good luck with your application!","Documents required for Pragati Scholarship: admission letter from AICTE-approved institution, income certificate (family income ≤ ₹8 lakh/year), Aadhaar card, bank account details, previous year marksheet, fee receipt, and self-declaration that no other Central/State/AICTE scholarship is being received.",0.0,0.9931351747377242,0.0,0.0,scholarship,20260805T194416Z,18
+What is the Devnarayan Post Matric Scholarship?,['No context retrieved.'],"**Devnarayan Post‑Matric Scholarship – Overview**
+
+| Aspect | Details |
+|--------|---------|
+| **Who can apply?** | Students belonging to the **Devnarayan community** (a Scheduled Caste group primarily in Rajasthan). It is open to both **male and female** candidates. |
+| **Education levels covered** | **Post‑matric** studies – i.e., **under‑graduate, postgraduate, diploma, professional courses, and research (M.Phil/Ph.D.)** pursued after completing 10 + 2. |
+| **What does the scholarship cover?** | • **Tuition/fees** (full or partial, depending on the course and institution)<br>• **Stipend** for living expenses (usually a fixed amount per month)<br>• **Conveyance allowance** (if the institution is far from the student’s residence)<br>• **Books & study material** reimbursement (in many cases) |
+| **Typical amount** | Varies by course and institution, but for most regular degree programmes the stipend is around **₹ 2,500–₹ 5,000 per month**, plus a one‑time fee waiver. |
+| **Key eligibility criteria** | 1. **Community certificate** confirming Devnarayan (SC) status.<br>2. **Academic performance:** Minimum of **60 %** in the previous qualifying exam (10+2 for UG, UG for PG, etc.).<br>3. **Admission proof:** Letter of admission/offer from a recognized university/college.<br>4. **Financial need** (often assessed via family income; many schemes give priority to families with annual income below a set threshold, e.g., ₹ 2 Lakhs). |
+| **Application window** | The scholarship is usually announced **once a year** (often between **June‑July**). Applications close **30 days** after the notification, but exact dates can differ each year. |
+| **How to apply** | 1. **Obtain the application form** – either online through the Rajasthan Government’s scholarship portal (e.g., *Scholarship Rajasthan* or *SSC* portal) or from the nearest **District Social Welfare Office**.<br>2. **Fill in personal, academic, and family‑income details**.<br>3. **Upload / attach required documents** (see below).<br>4. **Submit the form** and note the **application reference number**.<br>5. **Verification:** The department may call for physical verification of documents. Once approved, the scholarship amount is disbursed directly to the student’s bank account each month. |
+| **Documents typically required** | • Community (SC) certificate<br>• Income certificate (if income‑based eligibility applies)<br>• Academic mark sheets & certificates (10+2, UG, etc.)<br>• Admission/offer letter from the institution<br>• Bank passbook & cancelled cheque (for direct transfer)<br>• Passport‑size photographs (recent)<br>• Residence proof (Aadhaar, ration card, etc.) |
+| **Where to find official info** | • **Rajasthan Government – Social Welfare Department** website<br>• **Scholarship portal:** `scholarship.rajasthan.gov.in` (search “Devnarayan Post‑Matric Scholarship”) <br>• **District Social Welfare Office** – you can pick up the form and get guidance in person. |
+
+### Quick Tips for a Strong Application
+1. **Double‑check the community certificate** – it must be the latest, signed by the competent authority.  
+2. **Maintain clear, legible scans** of all PDFs; naming files as *Name_DocType.pdf* helps reviewers.  
+3. **Keep a copy of the submitted form** and the reference number for follow‑up.  
+4. **Apply early** – some scholarships release funds only after the first month of the semester; a delayed application can reduce the total amount you receive.  
+5. **Stay alert for any additional documents** requested during verification; respond promptly to avoid disqualification.
+
+---
+
+**Bottom line:** The Devnarayan Post‑Matric Scholarship is a state‑run financial aid scheme aimed at supporting higher‑education aspirations of students from the Devnarayan SC community in Rajasthan. It covers tuition, a living stipend, and other study‑related expenses for courses after 10 + 2.  
+
+If you belong to this community and meet the academic/financial criteria, it’s definitely worth applying. Be sure to verify the latest deadline and exact amounts on the official Rajasthan scholarship portal or at your district office. Good luck!","The Devnarayan Post Matric Scholarship is offered by the Government of Rajasthan for students belonging to the Banjara/Bairwa/Balai/Bhatia (backward class) communities. Benefits include reimbursement of maintenance allowance and tuition/non-refundable fees. Income limit: ₹2,50,000 per annum. Apply through the state scholarship portal.",0.0,0.9127876012813229,0.0,0.0,scholarship,20260805T194416Z,18
+What is the deadline for the AICTE Pragati Scholarship for girl students?,['No context retrieved.'],"The AICTE Pragati Scholarship for girl students usually closes **30 June 2026** for the 2026‑27 academic year.  
+
+- The scholarship is meant for female students admitted to first‑year B.Tech, B.Arch, B.Plan, B.Pharm, B.Sc (Tech) or B.Tech (Lateral) programmes.  
+- Applications are submitted online through the AICTE portal; after the deadline the portal is closed for that intake.  
+
+**What to do next**
+
+1. **Check the official AICTE website** (https://www.aicte-india.org) or the “AICTE Pragati Scholarship” page for any notice of extensions or a new call for the next intake.  
+2. If the deadline has passed, keep an eye out for the next announcement (usually released around February–March each year).  
+3. Prepare the required documents in advance (admission letter, class 10/12 mark sheets, caste/ income certificates if applicable, passport‑size photo, bank details).  
+
+Since the current deadline has already elapsed, you’ll need to wait for the next cycle or look for other scholarships that are open now. Good luck!",The AICTE Pragati Scholarship typically opens applications in September–October each year and closes by November–December. Exact deadlines vary by academic year and are announced on the National Scholarship Portal (scholarships.gov.in). Check the portal for the current cycle's deadline.,0.0,0.9447249167824421,0.0,0.0,scholarship,20260805T194416Z,18
+Is there a scholarship called the 'PM Modi Student Excellence Award'?,['No context retrieved.'],"I’m not aware of a scholarship formally titled the **“PM Modi Student Excellence Award.”**  
+There are several government‑sponsored schemes that carry the Prime Minister’s name (e.g., the *PM Narendra Modi Scholarship* for children of defense personnel, the *PM Kisan Scholarship* for students from farming families, etc.), but I haven’t found an official program with the exact name you mentioned.
+
+If you’ve seen a reference to it somewhere, it could be a campus‑level award, a private initiative, or a mis‑named version of an existing scheme. I recommend:
+
+1. **Checking the official website** of the Ministry of Education or the relevant state education department.  
+2. **Looking at the announcement source** (e.g., a university notice, NGO flyer, or news article) for contact details or a link to the official portal.  
+3. **Searching the Government of India’s scholarship portal** — [scholarships.gov.in](https://scholarships.gov.in) — where all centrally‑run scholarships are listed.
+
+If you’d like help finding other scholarships that match your academic background, field of study, or financial need, just let me know your details and I’ll pull up relevant options!","No scheme by this exact name was found in the database. You may be thinking of the PM Yasasvi Scholarship (for OBC/EBC/DNT students), the PM Scholarship Scheme for Central Armed Police Forces, or the Merit-cum-Means scholarship. Please verify the name on the National Scholarship Portal (scholarships.gov.in).",0.0,0.0,0.0,0.0,scholarship,20260805T194416Z,18
+What scholarships are available for students in Maharashtra?,['No context retrieved.'],"Here’s a quick overview of the main scholarship programmes that students based in Maharashtra can explore:
+
+| Category | Example Scholarships (not exhaustive) | Who can apply | Typical benefits |
+|----------|----------------------------------------|--------------|-----------------|
+| **Maharashtra State Government** | • **Maharashtra Merit Scholarship (MMS)** – for meritorious students in Class 11‑12, UG & PG.<br>• **Maharashtra Post‑Matric Scholarship** – for SC/ST/OBC students pursuing higher education.<br>• **Maharashtra Senior Secondary Scholarship** – for students from economically‑weaker families (annual income ≤ ₹2 Lakh). | Residents of Maharashtra; eligibility varies by caste, income, academic performance. | Tuition fee waiver, stipend (₹5 k‑₹30 k per year), sometimes book allowance. |
+| **Central Government (for Maharashtra residents)** | • **National Scholarship Scheme (NSS)** – for SC/ST/OBC/Minorities.<br>• **Prime Minister’s Scholarship Scheme (PMSS)** – for meritorious students from low‑income families.<br>• **Scholarships from UGC/AICTE** – e.g., *UGC Merit-cum-Means* for UG/PG students. | Indian citizens studying in Maharashtra; meet the specific caste‑income‑academic criteria of each scheme. | Varies: ₹1 k‑₹5 k per month, tuition fee assistance, travel allowance. |
+| **University / Institutional Scholarships** | • **University of Mumbai Merit Scholarships**.<br>• **Savitribai Phule University Scholarships** for women & socially‑backward students.<br>• **College‑specific merit or need‑based funds** (e.g., Tata Institute of Social Sciences, IIT‑Bombay). | Enrolled in the respective university/college; usually based on CGPA, entrance rank, or financial need. | Tuition reduction, cash awards, research grants. |
+| **Private Foundations & NGOs** | • **Sir Ratan Tata Trust Scholarships** – for economically‑disadvantaged students pursuing higher studies.<br>• **Azim Premji Foundation Scholarships** – for meritorious students from low‑income families (all‑India, open to Maharashtra).<br>• **Mahindra & Mahindra (M&M) Scholarship** – for engineering & management aspirants. | Varies; most require academic excellence plus proof of financial need. | Cash assistance (₹10 k‑₹2 Lakh), mentorship, internship opportunities. |
+| **Industry‑Specific / Skill‑Based Schemes** | • **Google India Scholarships** – for Computer Science & related fields.<br>• **Microsoft AI for Good Scholarship** – for AI/ML students.<br>• **National Skill Development Corporation (NSDC) Scholarships** – for vocational training. | Usually open to Indian students; some require enrollment in a partner institute or a specific course. | Tuition fee waiver, project funding, internship placement. |
+| **Women‑Focused Scholarships** | • **Maharashtra Women’s Scholarship (MWS)** – for SC/ST/OBC women pursuing UG/PG.<br>• **DBT Women’s Fellowship** – for research in science & technology.<br>• **Stree Shakti Scholarship** – by NGOs for higher‑education women. | Female students meeting caste‑income‑academic criteria. | Stipends, research grants, travel allowance. |
+
+### How to start searching
+
+1. **Visit the official portals**  
+   * Maharashtra State Scholarship portal – `scholarships.maharashtra.gov.in`  
+   * National Scholarship Scheme – `scholarships.gov.in`  
+   * Your university/college’s scholarship page (often under “Student Services”).
+
+2. **Gather the common documents**  
+   * Income proof (latest income certificate or parents’ salary slips).  
+   * Caste/Community certificate (if applicable).  
+   * Academic transcripts & mark sheets.  
+   * Photo ID (Aadhaar, PAN).  
+   * Passport‑size photographs.
+
+3. **Create a spreadsheet** to track: scholarship name, eligibility, deadline, required documents, and application link.  
+
+4. **Apply early** – many state scholarships close by the end of June/early July for the next academic year, while central schemes may have later deadlines (August‑October).
+
+5. **Reach out for help** – most colleges have a *Scholarship/Financial Aid Office* that can verify eligibility and assist with form‑filling.
+
+### Quick tip
+If you belong to a reserved category (SC/ST/OBC, Minorities, or are a woman from a low‑income background), you’ll often qualify for both a **state‑level** and a **central‑level** scholarship. Applying to both can significantly increase the total financial aid you receive.
+
+---
+
+**Next steps you might consider**
+
+* Check the Maharashtra State Scholarship portal for the current year’s eligibility tables and download the application forms.  
+* Talk to your college’s student‑services desk to confirm any institution‑specific scholarships you might have missed.  
+* If you’re interested in a particular field (e.g., engineering, arts, research), let me know—I can point you to industry‑specific scholarships and the exact deadlines.  
+
+Good luck, and feel free to ask if you need help with any specific application!","Key Maharashtra-specific schemes: (1) Rajarshi Shahu Maharaj Scholarship (MahaDBT) — for OBC/SEBC/VJNT students, ₹5,000–₹25,000. (2) EBC Scholarship for Professional Courses (MahaDBT) — for EBC students in engineering/pharmacy/architecture, ₹15,000–₹40,000, income ≤ ₹6 lakh. Apply via mahadbt.maharashtra.gov.in. Central schemes like Post Matric SC/ST scholarship are also available to Maharashtra students.",0.0,0.9070048268627908,0.0,0.0,scholarship,20260805T194416Z,18
+Can a general category student with a family income of Rs 6 lakh apply for any scholarship?,['No context retrieved.'],"Yes – even if your family’s annual income is ₹6 lakh you can still qualify for several scholarships. Most *need‑based* schemes (for example, the **National Means‑Cum‑Merit Scholarship** or the **Pradhan Mantri Vidya Lakshyam** for students below the ₹4.5 lakh‑per‑year threshold) have income ceilings lower than ₹6 lakh, so you would not be eligible for those.  
+
+However, a large number of **merit‑based** or **category‑neutral** scholarships do **not** require a low‑income background. Here are some common options you can explore:
+
+| Scholarship | Who can apply | Typical eligibility (besides merit) | What you need to submit |
+|------------|---------------|--------------------------------------|--------------------------|
+| **National Talent Search Examination (NTSE) – Scholarship** | Any Indian student (General, OBC, SC/ST, etc.) | Top‑10 % in class 10, good performance in NTSE exam | Rank/score certificate, school ID, recent photo |
+| **AICTE Pragati Scholarship for Girls** (if you’re a girl) | Female students in engineering/tech | CGPA ≥ 6.5 (or equivalent) | Academic transcript, income proof (optional, only for extra‑needs), ID |
+| **UGC‑CSIR JRF/NET Scholarships** (for UG/PG research) | Undergraduate/PG students in science/engineering | Minimum 60 % aggregate, qualifying NET/JRF | Mark sheets, NET/JRF scorecard, ID |
+| **State‑wise Merit Scholarships** (e.g., Maharashtra Merit Scholarship, Karnataka Merit Scholarship) | Residents of the state, any category | Rank in class 10/12 or CGPA ≥ 75 % | School/college mark sheet, domicile certificate |
+| **Corporate/Industry Scholarships** (e.g., **Tata Trusts Scholarship**, **Reliance Foundation Scholarship**, **Microsoft India Scholarship**) | Open to all students; many are merit‑based | Minimum academic score (usually 70 %+), sometimes a statement of purpose | Academic transcript, resume, recommendation letters, essay |
+| **University/College Merit Scholarships** | Students admitted to a particular college/university | Usually CGPA ≥ 8/10 or top‑10 % of the batch | College‑issued merit certificate, ID |
+| **National Scholarship Portal (NSP) – General Merit Scheme** | All students (General, OBC, SC/ST) | Minimum 75 % in last qualifying exam | Academic certificates, passport‑size photo, bank details |
+
+### How to get started
+1. **List your academic achievements** – latest mark sheets, class rank, any national‑level exam scores (NTSE, Olympiads, etc.).
+2. **Create a master folder** (both physical and digital) with:  
+   - Passport‑size photos  
+   - Income certificate (you’ll need it for a few schemes, even if the limit is higher)  
+   - Caste certificate (if you ever apply for a reserved‑category scholarship)  
+   - Identity proof (Aadhaar, PAN)  
+   - Bank account details (for scholarship disbursement)
+3. **Search the National Scholarship Portal (scholarships.gov.in)** – filter by “General” category and “Merit‑based”.  
+4. **Check your state’s education department website** – many states publish a separate merit‑scholarship list with higher income limits (often up to ₹10 lakh).  
+5. **Visit your college’s student‑affairs office** – they usually have a compiled list of university‑specific scholarships and can guide you through the application process.  
+6. **Apply early** – most scholarships have deadlines between **June – October** for the upcoming academic year. Mark them on your calendar.
+
+### Tips for a strong application
+- **Write a concise personal statement** (150‑250 words) that highlights your academic goals, any extracurricular achievements, and why you deserve the scholarship.  
+- **Secure two recommendation letters** – one from a teacher who knows your academic work and another from a mentor or project supervisor.  
+- **Proofread all documents**; any typo can delay processing.  
+- **Follow up** – after submitting, note the application reference number and check the portal weekly for status updates.
+
+### Bottom line
+Your family income of ₹6 lakh does not block you from many **merit‑based** scholarships, and several **state‑level** schemes have higher income ceilings that you can still meet. Start by gathering your academic records, register on the National Scholarship Portal, and apply to as many eligible programs as possible. Good luck, and remember that persistence pays off—apply early, keep your documents ready, and don’t hesitate to ask your college’s counseling cell for help!","Yes. Options for general category with ₹6 lakh income: (1) Central Sector Scheme of Scholarships — income limit ₹4.50 lakh (may not qualify). (2) Merit Cum Means Scholarship for Professional Courses — income limit ₹6 lakh, requires 60%+ marks in technical/professional streams. (3) State-level scholarships vary by state; Maharashtra's EBC scholarship covers income up to ₹6 lakh. Check the National Scholarship Portal for current eligibility.",0.0,0.8133627166366649,0.0,0.0,scholarship,20260805T194416Z,18

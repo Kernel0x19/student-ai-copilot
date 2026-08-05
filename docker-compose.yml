@@ -2,11 +2,11 @@ services:
   postgres:
     image: pgvector/pgvector:pg16
     environment:
-      POSTGRES_USER: edupilot
-      POSTGRES_PASSWORD: edupilot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2777
       POSTGRES_DB: edupilot
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
@@ -22,7 +22,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://edupilot:edupilot@postgres:5432/edupilot
+      DATABASE_URL: postgresql://postgres:2777@postgres:5432/edupilot
       REDIS_URL: redis://redis:6379/0
       CORS_ORIGINS: http://localhost:3000
       DEV_MODE: "true"
@@ -38,7 +38,7 @@ services:
       dockerfile: Dockerfile
     command: celery -A app.tasks worker -B -l info
     environment:
-      DATABASE_URL: postgresql://edupilot:edupilot@postgres:5432/edupilot
+      DATABASE_URL: postgresql://postgres:2777@postgres:5432/edupilot
       REDIS_URL: redis://redis:6379/0
     depends_on:
       - postgres

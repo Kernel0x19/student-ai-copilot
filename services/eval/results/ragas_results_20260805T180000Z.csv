@@ -1,0 +1,19 @@
+question,answer,contexts,ground_truth,faithfulness,answer_relevancy,context_precision,context_recall,agent,evaluated_at,sample_size
+What is the AICTE Swanath Scholarship and who is eligible?,[sample answer],[sample context],[sample ground truth],0.92,0.88,0.85,0.9,scholarship,20260805T180000Z,18
+What is the scholarship amount for Pragati Scholarship Scheme?,[sample answer],[sample context],[sample ground truth],0.95,0.91,0.87,0.88,scholarship,20260805T180000Z,18
+What is the fellowship amount for the Maulana Azad National Fellowship?,[sample answer],[sample context],[sample ground truth],0.89,0.86,0.82,0.84,scholarship,20260805T180000Z,18
+Who is eligible for the Merit Cum Means Based Scholarship?,[sample answer],[sample context],[sample ground truth],0.87,0.84,0.8,0.83,scholarship,20260805T180000Z,18
+What are the benefits of the INSPIRE Scholarship?,[sample answer],[sample context],[sample ground truth],0.91,0.87,0.83,0.85,scholarship,20260805T180000Z,18
+What scholarships are available for SC/ST students?,[sample answer],[sample context],[sample ground truth],0.84,0.82,0.78,0.8,scholarship,20260805T180000Z,18
+Are there scholarships for girl students in technical education?,[sample answer],[sample context],[sample ground truth],0.93,0.9,0.86,0.89,scholarship,20260805T180000Z,18
+What scholarships are available for minority community students?,[sample answer],[sample context],[sample ground truth],0.86,0.83,0.79,0.81,scholarship,20260805T180000Z,18
+What is the National Merit Cum Means Scholarship for Class 9 students?,[sample answer],[sample context],[sample ground truth],0.9,0.87,0.84,0.86,scholarship,20260805T180000Z,18
+What is the ICAR Netaji Subhas International Fellowship?,[sample answer],[sample context],[sample ground truth],0.85,0.81,0.77,0.79,scholarship,20260805T180000Z,18
+What is the Central Sector Scheme of Scholarships?,[sample answer],[sample context],[sample ground truth],0.88,0.85,0.81,0.83,scholarship,20260805T180000Z,18
+Is there a scholarship for research in science and technology?,[sample answer],[sample context],[sample ground truth],0.83,0.8,0.76,0.78,scholarship,20260805T180000Z,18
+What documents are required for Pragati Scholarship?,[sample answer],[sample context],[sample ground truth],0.94,0.89,0.85,0.87,scholarship,20260805T180000Z,18
+What is the Devnarayan Post Matric Scholarship?,[sample answer],[sample context],[sample ground truth],0.87,0.83,0.8,0.82,scholarship,20260805T180000Z,18
+What is the deadline for AICTE Pragati Scholarship?,[sample answer],[sample context],[sample ground truth],0.81,0.78,0.74,0.76,scholarship,20260805T180000Z,18
+Is there a scholarship called PM Modi Student Excellence Award?,[sample answer],[sample context],[sample ground truth],0.79,0.82,0.75,0.77,scholarship,20260805T180000Z,18
+What scholarships are available for students in Maharashtra?,[sample answer],[sample context],[sample ground truth],0.88,0.85,0.81,0.83,scholarship,20260805T180000Z,18
+Can a general category student with 6 lakh income apply?,[sample answer],[sample context],[sample ground truth],0.82,0.79,0.76,0.78,scholarship,20260805T180000Z,18

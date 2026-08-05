@@ -8,6 +8,7 @@ from app.api.routes import (
     admin, consent, experiments, feedback, notifications,
     profile, scholarships, workflow, search_api, documents_api, connectors, chat
 )
+from app.api.routes import eval as eval_routes
 from app.config import get_settings
 from app.db.session import init_db
 from app.ingestion.pipeline import run_ingestion
@@ -55,6 +56,7 @@ app.include_router(search_api.router)
 app.include_router(documents_api.router)
 app.include_router(connectors.router)
 app.include_router(chat.router, prefix="/api/v1")
+app.include_router(eval_routes.router, prefix="/api/v1")
 
 
 @app.get("/health")

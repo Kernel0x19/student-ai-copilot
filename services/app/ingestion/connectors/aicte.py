@@ -1,7 +1,8 @@
-"""AICTE Connector - Web scraper for AICTE scholarship portal
+"""AICTE Connector - Web scraper for AICTE scholarship portal using Playwright
 
 This connector fetches scholarship listings from the AICTE (All India Council for
-Technical Education) scholarship portal using web scraping with BeautifulSoup.
+Technical Education) scholarship portal using Playwright browser automation.
+This bypasses bot detection by simulating a real browser with JavaScript execution.
 
 Requirements satisfied:
 - Requirement 1.1: Retrieve scholarship listings from AICTE portal
@@ -17,7 +18,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional
 import logging
 
-import httpx
+from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 
 from .base import BaseConnector
@@ -26,11 +27,11 @@ logger = logging.getLogger(__name__)
 
 
 class AICTEConnector(BaseConnector):
-    """Scraper for AICTE scholarship portal with rate limiting and error handling
+    """Scraper for AICTE scholarship portal using Playwright browser automation
     
-    This connector implements web scraping for the AICTE scholarship portal,
-    extracting scholarship information including titles, descriptions, amounts,
-    deadlines, eligibility rules, and URLs.
+    This connector uses Playwright to launch a real Chromium browser, execute
+    JavaScript, and extract scholarship information. This approach bypasses
+    bot detection systems by providing realistic browser fingerprints.
     """
     
     # AICTE portal URL (using a typical scholarship listing page)
@@ -64,102 +65,160 @@ class AICTEConnector(BaseConnector):
         )
     
     async def fetch(self) -> List[Dict[str, Any]]:
-        """Fetch raw scholarship data from AICTE portal
+        """Fetch raw scholarship data from AICTE portal using Playwright browser automation
         
-        Implements web scraping with rate limiting to retrieve scholarship
-        listings from the AICTE portal. Each scholarship card is extracted
-        as raw HTML along with its URL.
+        Uses Playwright to simulate a real browser, bypassing bot detection systems.
+        This approach executes JavaScript and provides realistic browser fingerprints.
         
         Returns:
             List of dictionaries with 'html' and 'url' keys containing
             raw scholarship data
             
         Raises:
-            httpx.HTTPError: If HTTP request fails
-            Exception: For other network or parsing errors
+            Exception: For browser launch, navigation, or parsing errors
         """
-        logger.info(f"Fetching scholarships from AICTE portal: {self.base_url}")
+        logger.info(f"Fetching scholarships from AICTE portal using Playwright: {self.base_url}")
         
         raw_data = []
         
         try:
-            async with httpx.AsyncClient(
-                timeout=self.timeout,
-                follow_redirects=True,
-                headers={
-                    'User-Agent': 'Mozilla/5.0 (compatible; EduPilot/1.0; +https://edupilot.com/bot)'
-                }
-            ) as client:
-                # Fetch the main scholarships listing page
-                logger.debug(f"Requesting {self.base_url}")
-                response = await client.get(self.base_url)
-                response.raise_for_status()
-                
-                logger.debug(f"Received response: {response.status_code}, size={len(response.text)} bytes")
-                
-                # Parse the HTML
-                soup = BeautifulSoup(response.text, 'html.parser')
-                
-                # Find scholarship cards/items on the page
-                # Note: These selectors may need adjustment based on actual AICTE portal structure
-                scholarship_cards = soup.select('.scholarship-card, .scheme-card, article.scholarship, div.opportunity-card')
-                
-                if not scholarship_cards:
-                    # Try alternative selectors if primary ones don't match
-                    logger.warning("Primary selectors found no matches, trying alternatives")
-                    scholarship_cards = soup.select('[class*="scholarship"], [class*="scheme"]')
-                
-                logger.info(f"Found {len(scholarship_cards)} scholarship cards on page")
-                
-                if len(scholarship_cards) == 0:
-                    logger.warning(
-                        "No scholarship cards found. Portal structure may have changed. "
-                        "HTML snippet: " + response.text[:500]
+            # Use sync Playwright with run_in_executor for Windows compatibility
+            from playwright.sync_api import sync_playwright
+            import asyncio
+            from concurrent.futures import ThreadPoolExecutor
+            
+            def _fetch_with_playwright():
+                """Inner function to run Playwright synchronously"""
+                data = []
+                with sync_playwright() as p:
+                    # Launch Chromium browser in headless mode
+                    logger.debug("Launching Chromium browser...")
+                    browser = p.chromium.launch(
+                        headless=True,
+                        args=[
+                            '--disable-blink-features=AutomationControlled',  # Hide automation
+                            '--disable-dev-shm-usage',  # Overcome limited resource problems
+                            '--no-sandbox',  # Required for some environments
+                        ]
                     )
-                
-                # Extract each scholarship card
-                for idx, card in enumerate(scholarship_cards):
+                    
+                    # Create a new page with realistic browser context
+                    context = browser.new_context(
+                        viewport={'width': 1920, 'height': 1080},
+                        user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                        locale='en-US',
+                        timezone_id='Asia/Kolkata',
+                    )
+                    
+                    page = context.new_page()
+                    
+                    # Set extra headers to appear more browser-like
+                    page.set_extra_http_headers({
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+                        'Accept-Language': 'en-US,en;q=0.5',
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'DNT': '1',
+                        'Connection': 'keep-alive',
+                        'Upgrade-Insecure-Requests': '1',
+                        'Sec-Fetch-Dest': 'document',
+                        'Sec-Fetch-Mode': 'navigate',
+                        'Sec-Fetch-Site': 'none',
+                    })
+                    
+                    # Navigate to the AICTE scholarships page
+                    logger.debug(f"Navigating to {self.base_url}")
                     try:
-                        # Extract the link from the card
-                        link_elem = card.select_one('a[href], a')
-                        if link_elem and link_elem.get('href'):
-                            url = link_elem['href']
-                            
-                            # Convert relative URLs to absolute
-                            if url.startswith('/'):
-                                url = f"https://www.aicte-india.org{url}"
-                            elif not url.startswith('http'):
-                                url = f"https://www.aicte-india.org/{url}"
-                        else:
-                            # No link found, use base URL as fallback
-                            url = self.base_url
-                            logger.debug(f"Card {idx}: No link found, using base URL")
-                        
-                        raw_data.append({
-                            'html': str(card),
-                            'url': url,
-                            'card_index': idx
-                        })
-                        
-                        # Rate limiting between processing cards (Requirement 1.6)
-                        if idx < len(scholarship_cards) - 1:  # Don't delay after last item
-                            await asyncio.sleep(self.rate_limit_delay)
-                        
-                    except Exception as e:
-                        # Log parsing errors with diagnostic context (Requirement 1.2)
-                        logger.error(
-                            f"Failed to extract card {idx}: {str(e)}. "
-                            f"Card HTML: {str(card)[:200]}"
+                        response = page.goto(
+                            self.base_url,
+                            wait_until='networkidle',  # Wait until network is idle
+                            timeout=int(self.timeout * 1000)  # Convert to milliseconds
                         )
-                        continue
+                        
+                        if response:
+                            logger.debug(f"Page loaded with status: {response.status}")
+                        
+                    except Exception as nav_error:
+                        logger.error(f"Navigation error: {str(nav_error)}")
+                        # Try with a shorter timeout and different wait strategy
+                        page.goto(
+                            self.base_url,
+                            wait_until='domcontentloaded',
+                            timeout=15000  # 15 seconds
+                        )
+                    
+                    # Wait for potential dynamic content to load
+                    page.wait_for_timeout(2000)  # Wait 2 seconds for JS to execute
+                    
+                    # Get the full page HTML after JavaScript execution
+                    content = page.content()
+                    logger.debug(f"Retrieved page content, size={len(content)} bytes")
+                    
+                    # Parse the HTML
+                    soup = BeautifulSoup(content, 'html.parser')
+                    
+                    # Find scholarship cards/items on the page
+                    scholarship_cards = soup.select('.scholarship-card, .scheme-card, article.scholarship, div.opportunity-card')
+                    
+                    if not scholarship_cards:
+                        # Try alternative selectors if primary ones don't match
+                        logger.warning("Primary selectors found no matches, trying alternatives")
+                        scholarship_cards = soup.select('[class*="scholarship"], [class*="scheme"], article, .card')
+                    
+                    logger.info(f"Found {len(scholarship_cards)} scholarship cards on page")
+                    
+                    if len(scholarship_cards) == 0:
+                        logger.warning(
+                            "No scholarship cards found. Portal structure may have changed. "
+                            "HTML snippet: " + content[:500]
+                        )
+                    
+                    # Extract each scholarship card
+                    for idx, card in enumerate(scholarship_cards):
+                        try:
+                            # Extract the link from the card
+                            link_elem = card.select_one('a[href], a')
+                            if link_elem and link_elem.get('href'):
+                                url = link_elem['href']
+                                
+                                # Convert relative URLs to absolute
+                                if url.startswith('/'):
+                                    url = f"https://www.aicte-india.org{url}"
+                                elif not url.startswith('http'):
+                                    url = f"https://www.aicte-india.org/{url}"
+                            else:
+                                # No link found, use base URL as fallback
+                                url = self.base_url
+                                logger.debug(f"Card {idx}: No link found, using base URL")
+                            
+                            data.append({
+                                'html': str(card),
+                                'url': url,
+                                'card_index': idx
+                            })
+                            
+                        except Exception as e:
+                            # Log parsing errors with diagnostic context
+                            logger.error(
+                                f"Failed to extract card {idx}: {str(e)}. "
+                                f"Card HTML: {str(card)[:200]}"
+                            )
+                            continue
+                    
+                    logger.info(f"Successfully extracted {len(data)} scholarship cards")
+                    
+                    # Close browser
+                    context.close()
+                    browser.close()
                 
-                logger.info(f"Successfully extracted {len(raw_data)} scholarship cards")
-                
-        except httpx.HTTPError as e:
-            logger.error(f"HTTP error fetching AICTE portal: {str(e)}")
-            raise
+                return data
+            
+            # Run Playwright in a thread pool to avoid event loop issues on Windows
+            loop = asyncio.get_event_loop()
+            with ThreadPoolExecutor() as executor:
+                raw_data = await loop.run_in_executor(executor, _fetch_with_playwright)
+            
         except Exception as e:
-            logger.error(f"Unexpected error fetching AICTE data: {str(e)}", exc_info=True)
+            logger.error(f"Unexpected error fetching AICTE data with Playwright: {str(e)}", exc_info=True)
             raise
         
         return raw_data

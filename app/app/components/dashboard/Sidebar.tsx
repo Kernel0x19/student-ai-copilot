@@ -15,6 +15,7 @@ import {
   BookOpen,
   Search,
   BarChart3,
+  FlaskConical,
 } from "lucide-react";
 import { logout } from "@/app/auth/actions";
 
@@ -57,6 +58,7 @@ const NAV = [
   { href: "/dashboard/profile", icon: <User size={17} />, label: "Profile" },
   { href: "/dashboard/consent", icon: <BookOpen size={17} />, label: "Consent" },
   { href: "/dashboard/admin", icon: <BarChart3 size={17} />, label: "Admin" },
+  { href: "/dashboard/eval", icon: <FlaskConical size={17} />, label: "AI Quality" },
 ];
 
 export default function Sidebar() {

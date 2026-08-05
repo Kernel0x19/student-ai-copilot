@@ -2,7 +2,22 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import type { Session } from "@supabase/supabase-js";
-import { Send, MessageSquare, Bot, User, Loader2, Sparkles, Trash2, Copy, Check, Paperclip, X, Mic, MicOff } from "lucide-react";
+import {
+  Send,
+  MessageSquare,
+  Bot,
+  User,
+  Loader2,
+  Sparkles,
+  Trash2,
+  Copy,
+  Check,
+  Paperclip,
+  X,
+  Mic,
+  MicOff,
+  ChevronDown,
+} from "lucide-react";
 import { createClient } from "@/app/lib/supabase/client";
 
 interface Message {
@@ -65,14 +80,19 @@ export default function ChatPage() {
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-  const authHeaders = useCallback(() => ({
-    "X-User-Id": session?.user.id || "",
-    "X-User-Email": session?.user.email || "",
-  }), [session]);
+  const authHeaders = useCallback(
+    () => ({
+      "X-User-Id": session?.user.id || "",
+      "X-User-Email": session?.user.email || "",
+    }),
+    [session]
+  );
 
   const loadThreads = useCallback(async () => {
     if (!session?.user) return;
-    const response = await fetch(`${API_BASE}/api/v1/chat/threads`, { headers: authHeaders() });
+    const response = await fetch(`${API_BASE}/api/v1/chat/threads`, {
+      headers: authHeaders(),
+    });
     if (response.ok) {
       const data = await response.json();
       setThreads(data.threads || []);
@@ -81,59 +101,71 @@ export default function ChatPage() {
 
   const loadThread = async (selectedThreadId: string) => {
     if (!selectedThreadId) return;
-    const response = await fetch(`${API_BASE}/api/v1/chat/history/${selectedThreadId}`, { headers: authHeaders() });
+    const response = await fetch(
+      `${API_BASE}/api/v1/chat/history/${selectedThreadId}`,
+      { headers: authHeaders() }
+    );
     if (!response.ok) return;
     const data = await response.json();
     setThreadId(selectedThreadId);
-    setMessages(data.history.map((message: { role: "user" | "assistant"; content: string }, index: number) => ({
-      id: `${selectedThreadId}-${index}`,
-      role: message.role,
-      content: message.content,
-      timestamp: new Date(),
-    })));
+    setMessages(
+      data.history.map(
+        (
+          message: { role: "user" | "assistant"; content: string },
+          index: number
+        ) => ({
+          id: `${selectedThreadId}-${index}`,
+          role: message.role,
+          content: message.content,
+          timestamp: new Date(),
+        })
+      )
+    );
     setError(null);
   };
 
-  // Keep the current Supabase session in sync without the deprecated
-  // @supabase/auth-helpers-react package.
   useEffect(() => {
     const supabase = createClient();
-
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
     });
-
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
-
     return () => subscription.unsubscribe();
   }, []);
 
   useEffect(() => {
-    // Defer the initial fetch until after this render commits.
     const timer = window.setTimeout(() => {
       loadThreads().catch(() => undefined);
     }, 0);
     return () => window.clearTimeout(timer);
   }, [loadThreads]);
 
-  // Auto-scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Focus input on mount
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  useEffect(() => () => {
-    shouldListenRef.current = false;
-    recognitionRef.current?.stop();
-  }, []);
+  useEffect(
+    () => () => {
+      shouldListenRef.current = false;
+      recognitionRef.current?.stop();
+    },
+    []
+  );
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    const el = e.target;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 192)}px`;
+  };
 
   const toggleVoiceInput = async () => {
     if (shouldListenRef.current) {
@@ -142,26 +174,36 @@ export default function ChatPage() {
       setIsListening(false);
       return;
     }
-    const SpeechRecognition = (window as typeof window & {
-      SpeechRecognition?: SpeechRecognitionConstructor;
-      webkitSpeechRecognition?: SpeechRecognitionConstructor;
-    }).SpeechRecognition || (window as typeof window & {
-      webkitSpeechRecognition?: SpeechRecognitionConstructor;
-    }).webkitSpeechRecognition;
+    const SpeechRecognition = (
+      window as typeof window & {
+        SpeechRecognition?: SpeechRecognitionConstructor;
+        webkitSpeechRecognition?: SpeechRecognitionConstructor;
+      }
+    ).SpeechRecognition ||
+      (
+        window as typeof window & {
+          webkitSpeechRecognition?: SpeechRecognitionConstructor;
+        }
+      ).webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      setError("Voice input is not supported by this browser. Please use Chrome or Edge.");
+      setError(
+        "Voice input is not supported by this browser. Please use Chrome or Edge."
+      );
       return;
     }
     if (!navigator.mediaDevices?.getUserMedia) {
-      setError("Your browser cannot access a microphone. Please use the latest Chrome or Edge over HTTPS or localhost.");
+      setError(
+        "Your browser cannot access a microphone. Please use the latest Chrome or Edge over HTTPS or localhost."
+      );
       return;
     }
     try {
-      // Trigger the browser permission prompt before beginning speech recognition.
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       stream.getTracks().forEach((track) => track.stop());
     } catch {
-      setError("Microphone permission is required. Allow microphone access in your browser settings and try again.");
+      setError(
+        "Microphone permission is required. Allow microphone access in your browser settings and try again."
+      );
       return;
     }
     const recognition = new SpeechRecognition();
@@ -169,7 +211,11 @@ export default function ChatPage() {
     recognition.continuous = true;
     recognition.interimResults = false;
     recognition.onresult = (event) => {
-      for (let index = event.resultIndex; index < event.results.length; index += 1) {
+      for (
+        let index = event.resultIndex;
+        index < event.results.length;
+        index += 1
+      ) {
         const result = event.results[index];
         const transcript = result[0].transcript.trim();
         if (result.isFinal && transcript) {
@@ -182,8 +228,6 @@ export default function ChatPage() {
         setIsListening(false);
         return;
       }
-      // Browsers can end recognition after a pause even in continuous mode.
-      // Restart until the student explicitly taps the microphone again.
       window.setTimeout(() => {
         if (!shouldListenRef.current) return;
         try {
@@ -191,7 +235,9 @@ export default function ChatPage() {
         } catch {
           shouldListenRef.current = false;
           setIsListening(false);
-          setError("Voice recognition stopped unexpectedly. Please start it again.");
+          setError(
+            "Voice recognition stopped unexpectedly. Please start it again."
+          );
         }
       }, 150);
     };
@@ -201,12 +247,17 @@ export default function ChatPage() {
       shouldListenRef.current = false;
       setIsListening(false);
       const voiceErrors: Record<string, string> = {
-        "not-allowed": "Microphone permission was denied. Allow it in the browser address bar and try again.",
-        "service-not-allowed": "Speech recognition is blocked by this browser or network.",
+        "not-allowed":
+          "Microphone permission was denied. Allow it in the browser address bar and try again.",
+        "service-not-allowed":
+          "Speech recognition is blocked by this browser or network.",
         "audio-capture": "No microphone was found. Connect one and try again.",
-        "no-speech": "No speech was detected. Please speak clearly and try again.",
+        "no-speech":
+          "No speech was detected. Please speak clearly and try again.",
       };
-      setError(voiceErrors[event.error] || "Voice recognition failed. Please try again.");
+      setError(
+        voiceErrors[event.error] || "Voice recognition failed. Please try again."
+      );
     };
     recognitionRef.current = recognition;
     setError(null);
@@ -217,7 +268,9 @@ export default function ChatPage() {
     } catch {
       shouldListenRef.current = false;
       setIsListening(false);
-      setError("Voice recognition could not start. Please wait a moment and try again.");
+      setError(
+        "Voice recognition could not start. Please wait a moment and try again."
+      );
     }
   };
 
@@ -226,11 +279,11 @@ export default function ChatPage() {
 
     const userMessage = input.trim() || `Uploaded ${selectedFile?.name}`;
     setInput("");
+    if (inputRef.current) inputRef.current.style.height = "auto";
     setSelectedFile(null);
     setIsLoading(true);
     setError(null);
 
-    // Add user message immediately
     const newUserMessage: Message = {
       id: Date.now().toString(),
       role: "user",
@@ -247,18 +300,28 @@ export default function ChatPage() {
         if (threadId) form.append("thread_id", threadId);
         form.append("attach_to_profile", "true");
         const response = await fetch(`${API_BASE}/api/v1/chat/upload`, {
-          method: "POST", headers: authHeaders(), body: form,
+          method: "POST",
+          headers: authHeaders(),
+          body: form,
         });
-        if (!response.ok) throw new Error(`Upload failed: ${await response.text()}`);
+        if (!response.ok)
+          throw new Error(`Upload failed: ${await response.text()}`);
         const data = await response.json();
-        setMessages((previous) => [...previous, {
-          id: (Date.now() + 1).toString(), role: "assistant", content: data.response,
-          timestamp: new Date(), sources: data.retrieved_docs || [],
-        }]);
+        setMessages((previous) => [
+          ...previous,
+          {
+            id: (Date.now() + 1).toString(),
+            role: "assistant",
+            content: data.response,
+            timestamp: new Date(),
+            sources: data.retrieved_docs || [],
+          },
+        ]);
         if (data.thread_id) setThreadId(data.thread_id);
         await loadThreads();
         return;
       }
+
       const response = await fetch(`${API_BASE}/api/v1/chat/stream`, {
         method: "POST",
         headers: {
@@ -277,6 +340,7 @@ export default function ChatPage() {
       }
 
       if (!response.body) throw new Error("The server did not return a stream");
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
@@ -289,6 +353,7 @@ export default function ChatPage() {
       const decoder = new TextDecoder();
       let buffer = "";
       let completed = false;
+
       while (!completed) {
         const { value, done } = await reader.read();
         if (done) break;
@@ -296,19 +361,29 @@ export default function ChatPage() {
         const events = buffer.split("\n\n");
         buffer = events.pop() || "";
         for (const event of events) {
-          const dataLine = event.split("\n").find((line) => line.startsWith("data: "));
+          const dataLine = event
+            .split("\n")
+            .find((line) => line.startsWith("data: "));
           if (!dataLine) continue;
           const eventData = JSON.parse(dataLine.slice(6));
           if (eventData.type === "token") {
-            setMessages((previous) => previous.map((item) => item.id === assistantMessage.id
-              ? { ...item, content: item.content + eventData.content }
-              : item));
+            setMessages((previous) =>
+              previous.map((item) =>
+                item.id === assistantMessage.id
+                  ? { ...item, content: item.content + eventData.content }
+                  : item
+              )
+            );
           } else if (eventData.type === "done") {
             completed = true;
             setThreadId(eventData.thread_id);
-            setMessages((previous) => previous.map((item) => item.id === assistantMessage.id
-              ? { ...item, sources: eventData.retrieved_docs || [] }
-              : item));
+            setMessages((previous) =>
+              previous.map((item) =>
+                item.id === assistantMessage.id
+                  ? { ...item, sources: eventData.retrieved_docs || [] }
+                  : item
+              )
+            );
             await loadThreads();
           } else if (eventData.type === "error") {
             throw new Error(eventData.detail || "Chat generation failed");
@@ -316,10 +391,9 @@ export default function ChatPage() {
         }
       }
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Failed to send message";
+      const errorMessage =
+        err instanceof Error ? err.message : "Failed to send message";
       setError(errorMessage);
-
-      // Add error message to chat
       const errorMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
@@ -352,89 +426,103 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex h-full flex-col bg-background">
-      {/* Header */}
-      <div className="flex items-center justify-between border-b p-4 bg-card">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <Bot className="h-5 w-5" />
+    <div className="flex h-full flex-col bg-white dark:bg-[#08090E] text-gray-900 dark:text-[#F0F4FF] transition-colors duration-500">
+      <div className="flex items-center justify-between border-b border-black/10 dark:border-white/8 px-4 sm:px-6 py-3 bg-white dark:bg-[#08090E] transition-colors duration-500">
+        <div className="flex items-center gap-3 transition-colors duration-500">
+          <div className="w-8 h-8 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0 transition-colors duration-500">
+            <Bot className="h-4 w-4" />
           </div>
           <div>
-            <h1 className="text-lg font-semibold text-foreground">AI Chat Assistant</h1>
-            <p className="text-sm text-muted-foreground">
-              Powered by Ollama + LangGraph • Your student success copilot
+            <h1 className="font-syne text-sm font-extrabold tracking-tight text-gray-900 dark:text-[#F0F4FF] transition-colors duration-500">
+              AI Chat Assistant
+            </h1>
+            <p className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280] tracking-wide transition-colors duration-500">
+              Ollama + LangGraph • student copilot
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <select
-            value={threadId}
-            onChange={(event) => loadThread(event.target.value)}
-            className="max-w-44 rounded-lg border bg-background px-2 py-1.5 text-sm"
-            aria-label="Saved conversations"
-          >
-            <option value="">Saved conversations</option>
-            {threads.map((thread) => <option key={thread.id} value={thread.id}>{thread.title}</option>)}
-          </select>
+
+        <div className="flex items-center gap-2 transition-colors duration-500">
+          <div className="relative">
+            <select
+              value={threadId}
+              onChange={(event) => loadThread(event.target.value)}
+              className="appearance-none max-w-44 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0D0E16] font-mono text-[11px] text-gray-500 dark:text-[#6B7280] px-3 py-1.5 pr-7 focus:outline-none focus:border-[#0C65D2]/50 transition-colors duration-500"
+              aria-label="Saved conversations"
+            >
+              <option value="">Conversations</option>
+              {threads.map((thread) => (
+                <option key={thread.id} value={thread.id}>
+                  {thread.title}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 h-3 w-3 text-gray-400 dark:text-[#6B7280] transition-colors duration-500" />
+          </div>
+
           {threadId && (
-            <span className="px-2 py-1 text-xs bg-muted rounded-full font-mono">
-              Thread: {threadId.slice(0, 8)}...
+            <span className="font-mono text-[10px] text-[#0C65D2] border border-[#0C65D2]/30 bg-[#0C65D2]/5 px-2 py-1 tracking-widest hidden sm:inline transition-colors duration-500">
+              {threadId.slice(0, 8)}…
             </span>
           )}
+
           <button
             onClick={clearChat}
             disabled={messages.length === 0}
-            className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors disabled:opacity-50"
+            className="flex items-center gap-1.5 font-mono text-[11px] text-gray-400 dark:text-[#6B7280] hover:text-gray-900 dark:hover:text-[#F0F4FF] border border-black/10 dark:border-white/8 hover:border-black/30 dark:hover:border-white/20 px-3 py-1.5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-500"
           >
-            <Trash2 className="h-4 w-4 mr-1" />
+            <Trash2 className="h-3.5 w-3.5" />
             New Chat
           </button>
         </div>
       </div>
 
-      {/* Error Banner */}
       {error && (
-        <div className="border-y border-destructive/20 bg-destructive/5 px-4 py-2 flex items-center justify-between">
-          <span className="text-sm text-destructive flex items-center gap-2">
-            <MessageSquare className="h-4 w-4" />
+        <div className="border-b border-red-500/20 bg-red-500/5 px-4 py-2 flex items-center justify-between">
+          <span className="font-mono text-[11px] text-red-500 flex items-center gap-2 transition-colors duration-500">
+            <MessageSquare className="h-3.5 w-3.5 shrink-0" />
             {error}
           </span>
           <button
             onClick={() => setError(null)}
-            className="text-destructive hover:text-destructive/80"
+            className="text-red-400 hover:text-red-600 ml-4 shrink-0"
+            aria-label="Dismiss error"
           >
-            ✕
+            <X className="h-3.5 w-3.5" />
           </button>
         </div>
       )}
 
-      {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-6 space-y-5 transition-colors duration-500">
         {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
-            <MessageSquare className="h-16 w-16 mb-4 opacity-30" />
-            <h3 className="text-lg font-medium mb-2">Start a conversation</h3>
-            <p className="max-w-md text-sm">
-              Ask me about scholarships, internships, eligibility, applications,
-              or anything related to your student journey!
+          <div className="flex flex-col items-center justify-center h-full text-center transition-colors duration-500">
+            <div className="w-12 h-12 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] mb-5 transition-colors duration-500">
+              <MessageSquare className="h-5 w-5" />
+            </div>
+            <h3 className="font-syne text-lg font-extrabold text-gray-900 dark:text-[#F0F4FF] mb-2">
+              Start a conversation
+            </h3>
+            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] max-w-sm leading-relaxed mb-6 transition-colors duration-500">
+              Ask about scholarships, internships, eligibility, applications, or
+              anything on your student journey.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2 justify-center">
-              <SuggestionChip onClick={() => setInput("What scholarships am I eligible for?")}>
-                <Sparkles className="h-3 w-3 mr-1" />
-                Find Scholarships
-              </SuggestionChip>
-              <SuggestionChip onClick={() => setInput("How do I apply for internships?")}>
-                <Sparkles className="h-3 w-3 mr-1" />
-                Internship Guide
-              </SuggestionChip>
-              <SuggestionChip onClick={() => setInput("What documents do I need for applications?")}>
-                <Sparkles className="h-3 w-3 mr-1" />
-                Required Documents
-              </SuggestionChip>
-              <SuggestionChip onClick={() => setInput("Explain the eligibility criteria for merit scholarships")}>
-                <Sparkles className="h-3 w-3 mr-1" />
-                Eligibility Help
-              </SuggestionChip>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {[
+                { label: "Find Scholarships", q: "What scholarships am I eligible for?" },
+                { label: "Internship Guide", q: "How do I apply for internships?" },
+                { label: "Required Documents", q: "What documents do I need for applications?" },
+                { label: "Eligibility Help", q: "Explain the eligibility criteria for merit scholarships" },
+              ].map(({ label, q }) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setInput(q)}
+                  className="flex items-center gap-1.5 font-mono text-[10px] text-gray-400 dark:text-[#6B7280] border border-black/10 dark:border-white/8 px-3 py-1.5 hover:border-[#0C65D2]/40 hover:text-[#0C65D2] transition-all duration-500"
+                >
+                  <Sparkles className="h-3 w-3" />
+                  {label}
+                </button>
+              ))}
             </div>
           </div>
         ) : (
@@ -444,84 +532,134 @@ export default function ChatPage() {
                 key={message.id}
                 message={message}
                 onCopy={copyMessage}
-                showSources={message.id === messages.find((item) => item.role === "assistant" && item.sources?.length)?.id}
               />
             ))}
             <div ref={messagesEndRef} />
           </>
         )}
 
-        {/* Typing Indicator */}
         {isLoading && (
-          <div className="flex items-start gap-3 animate-fade-in">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <Bot className="h-4 w-4" />
+          <div className="flex items-start gap-3 transition-colors duration-500">
+            <div className="w-7 h-7 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0">
+              <Bot className="h-3.5 w-3.5" />
             </div>
-            <div className="flex items-center gap-1 px-4 py-3 bg-muted rounded-2xl rounded-bl-sm">
-              <Loader2 className="h-4 w-4 animate-spin text-primary" />
-              <span className="text-sm text-muted-foreground">AI is thinking...</span>
+            <div className="flex items-center gap-2 px-4 py-3 border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0D0E16]">
+              <Loader2 className="h-3.5 w-3.5 animate-spin text-[#0C65D2]" />
+              <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+                thinking…
+              </span>
             </div>
           </div>
         )}
       </div>
 
-      {/* Input Area */}
-      <div className="border-t p-4 bg-card">
+      <div className="border-t border-black/10 dark:border-white/8 px-4 sm:px-6 py-4 bg-white dark:bg-[#08090E] transition-colors duration-500">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-end gap-2">
-            <label className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-xl border hover:bg-accent" aria-label="Attach a document">
-              <Paperclip className="h-5 w-5" />
-              <input type="file" className="sr-only" accept="image/*,.pdf" onChange={(event) => setSelectedFile(event.target.files?.[0] || null)} disabled={isLoading} />
+          {selectedFile && (
+            <div className="mb-2 flex w-fit items-center gap-2 border border-[#0C65D2]/30 bg-[#0C65D2]/5 px-3 py-1.5">
+              <Paperclip className="h-3 w-3 text-[#0C65D2]" />
+              <span className="font-mono text-[10px] text-[#0C65D2]">
+                {selectedFile.name}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedFile(null)}
+                aria-label="Remove attachment"
+                className="text-[#0C65D2]/60 hover:text-[#0C65D2] transition-colors"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+          )}
+
+          <div className="flex items-end gap-2 transition-colors duration-500">
+            <label
+              className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center border border-black/10 dark:border-white/8 text-gray-400 hover:border-[#0C65D2]/40 hover:text-[#0C65D2] transition-all duration-500"
+              aria-label="Attach a document"
+            >
+              <Paperclip className="h-4 w-4" />
+              <input
+                type="file"
+                className="sr-only"
+                accept="image/*,.pdf"
+                onChange={(event) =>
+                  setSelectedFile(event.target.files?.[0] || null)
+                }
+                disabled={isLoading}
+              />
             </label>
+
             <textarea
               ref={inputRef}
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={handleInputChange}
               onKeyDown={handleKeyDown}
-              placeholder="Ask about scholarships, internships, eligibility, applications..."
+              placeholder="Ask about scholarships, internships, eligibility…"
               disabled={isLoading}
-              className="flex-1 min-h-[44px] max-h-48 px-4 py-3 bg-background border rounded-2xl resize-none focus-visible:ring-2 focus-visible:ring-ring transition-shadow"
               rows={1}
+              className="flex-1 min-h-9 max-h-48 px-4 py-2 bg-gray-50 dark:bg-[#0D0E16] border border-black/10 dark:border-white/8 font-mono text-sm text-gray-900 dark:text-[#F0F4FF] placeholder:text-gray-400 dark:placeholder:text-[#6B7280] resize-none focus:outline-none focus:border-[#0C65D2]/50 transition-colors duration-500"
+              style={{ height: "36px" }}
             />
-            <select
-              value={voiceLanguage}
-              onChange={(event) => setVoiceLanguage(event.target.value)}
-              disabled={isLoading || isListening}
-              className="h-10 rounded-xl border bg-background px-2 text-xs"
-              aria-label="Voice input language"
-            >
-              <option value="en-IN">English</option>
-              <option value="hi-IN">हिन्दी</option>
-              <option value="mr-IN">मराठी</option>
-            </select>
+
+            <div className="relative">
+              <select
+                value={voiceLanguage}
+                onChange={(event) => setVoiceLanguage(event.target.value)}
+                disabled={isLoading || isListening}
+                className="appearance-none h-9 border border-black/10 dark:border-white/8 bg-white dark:bg-[#0D0E16] font-mono text-[10px] text-gray-400 dark:text-[#6B7280] px-2 pr-5 focus:outline-none focus:border-[#0C65D2]/50 transition-colors duration-500"
+                aria-label="Voice input language"
+              >
+                <option value="en-IN">EN</option>
+                <option value="hi-IN">HI</option>
+                <option value="mr-IN">MR</option>
+              </select>
+              <ChevronDown className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 h-2.5 w-2.5 text-gray-400" />
+            </div>
+
             <button
               type="button"
               onClick={toggleVoiceInput}
               disabled={isLoading}
-              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-colors ${isListening ? "bg-destructive text-destructive-foreground" : "hover:bg-accent"}`}
+              className={`flex h-9 w-9 shrink-0 items-center justify-center border transition-all duration-500 ${
+                isListening
+                  ? "border-red-500/40 bg-red-500/10 text-red-500"
+                  : "border-black/10 dark:border-white/8 text-gray-400 hover:border-[#0C65D2]/40 hover:text-[#0C65D2]"
+              }`}
               aria-label={isListening ? "Stop voice input" : "Start voice input"}
-              title={isListening ? "Listening… click to stop" : "Speak your question"}
+              title={
+                isListening ? "Listening… click to stop" : "Speak your question"
+              }
             >
-              {isListening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
+              {isListening ? (
+                <MicOff className="h-4 w-4" />
+              ) : (
+                <Mic className="h-4 w-4" />
+              )}
             </button>
+
             <button
               onClick={sendMessage}
-              disabled={(!input.trim() && !selectedFile) || isLoading || !session?.user}
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              disabled={
+                (!input.trim() && !selectedFile) ||
+                isLoading ||
+                !session?.user
+              }
+              className="flex h-9 w-9 items-center justify-center bg-[#0C65D2] text-white hover:bg-[#0a52b0] disabled:opacity-30 disabled:cursor-not-allowed transition-colors duration-500"
               aria-label="Send message"
             >
-              <Send className="h-5 w-5" />
+              <Send className="h-4 w-4" />
             </button>
           </div>
-          {selectedFile && (
-            <div className="mt-2 flex w-fit items-center gap-2 rounded-lg bg-muted px-3 py-1.5 text-xs">
-              <Paperclip className="h-3.5 w-3.5" /> {selectedFile.name}
-              <button type="button" onClick={() => setSelectedFile(null)} aria-label="Remove attachment"><X className="h-3.5 w-3.5" /></button>
-            </div>
-          )}
-          <p className="mt-2 text-xs text-center text-muted-foreground">
-            Press <kbd className="px-1.5 py-0.5 bg-muted rounded text-[10px] font-mono">Enter</kbd> to send,
-            <kbd className="px-1.5 py-0.5 bg-muted rounded text-[10px] font-mono ml-1">Shift+Enter</kbd> for new line. Select a language, then use the microphone to dictate.
+
+          <p className="mt-2 font-mono text-[10px] text-center text-gray-400 dark:text-[#6B7280] transition-colors duration-500">
+            <kbd className="px-1 py-0.5 border border-black/10 dark:border-white/8 text-[9px]">
+              Enter
+            </kbd>{" "}
+            send ·{" "}
+            <kbd className="px-1 py-0.5 border border-black/10 dark:border-white/8 text-[9px]">
+              Shift+Enter
+            </kbd>{" "}
+            new line
           </p>
         </div>
       </div>
@@ -532,11 +670,11 @@ export default function ChatPage() {
 interface MessageBubbleProps {
   message: Message;
   onCopy: (content: string) => void;
-  showSources: boolean;
 }
 
-function MessageBubble({ message, onCopy, showSources }: MessageBubbleProps) {
+function MessageBubble({ message, onCopy }: MessageBubbleProps) {
   const [copied, setCopied] = useState(false);
+  const isUser = message.role === "user";
 
   const handleCopy = () => {
     onCopy(message.content);
@@ -546,64 +684,50 @@ function MessageBubble({ message, onCopy, showSources }: MessageBubbleProps) {
 
   return (
     <div
-      className={`flex gap-3 animate-fade-in ${
-        message.role === "user" ? "justify-end" : "justify-start"
-      }`}
+      className={`flex items-start gap-3 ${isUser ? "flex-row-reverse" : "flex-row"} transition-colors duration-500`}
     >
-      {message.role === "assistant" && (
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
-          <Bot className="h-4 w-4" />
-        </div>
-      )}
-      {message.role === "user" && (
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted shrink-0">
-          <User className="h-4 w-4 text-muted-foreground" />
-        </div>
-      )}
-
       <div
-        className={`max-w-[75%] ${
-          message.role === "user"
-            ? "rounded-2xl rounded-tr-sm bg-primary text-primary-foreground"
-            : "rounded-2xl rounded-tl-sm bg-muted"
-        } flex flex-col`}
+        className={`w-7 h-7 shrink-0 flex items-center justify-center border ${
+          isUser
+            ? "border-black/10 dark:border-white/8 bg-gray-100 dark:bg-[#0D0E16] text-gray-400"
+            : "border-[#0C65D2]/20 bg-[#0C65D2]/10 text-[#0C65D2]"
+        }`}
       >
-        <div className="order-2 px-4 py-3 prose prose-sm dark:prose-invert max-w-none">
-          <p className="whitespace-pre-wrap m-0">{message.content}</p>
-        </div>
+        {isUser ? (
+          <User className="h-3.5 w-3.5" />
+        ) : (
+          <Bot className="h-3.5 w-3.5" />
+        )}
+      </div>
 
-        {/* Sources */}
-        {showSources && message.sources && message.sources.length > 0 && (
-          <div className="order-1 px-4 pb-3 pt-3 border-b border-border/50">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
-              <Sparkles className="h-3 w-3" />
-              <span className="font-medium">Sources ({message.sources.length})</span>
+      <div className={`flex flex-col gap-1 max-w-[75%] ${isUser ? "items-end" : "items-start"} transition-colors duration-500`}>
+        {!isUser && message.sources && message.sources.length > 0 && (
+          <div className="w-full border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0D0E16] px-3 py-2.5">
+            <div className="flex items-center gap-1.5 font-mono text-[10px] text-gray-400 dark:text-[#6B7280] mb-2 tracking-widest uppercase">
+              <Sparkles className="h-3 w-3 text-[#0C65D2]" />
+              Sources ({message.sources.length})
             </div>
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               {message.sources.map((source, index) => (
                 <div
                   key={index}
-                  className="px-3 py-2 bg-background/50 rounded-lg text-xs border border-border/50"
+                  className="border border-black/10 dark:border-white/8 px-2.5 py-2 bg-white dark:bg-[#08090E]"
                 >
-                  <div className="font-medium text-foreground">{source.title}</div>
-                  <div className="flex flex-wrap gap-2 mt-1 text-muted-foreground">
-                    <span className="px-1.5 py-0.5 bg-primary/10 text-primary rounded text-[10px]">
-                      {source.category}
-                    </span>
+                  <p className="font-mono text-[11px] text-gray-900 dark:text-[#F0F4FF] mb-1">
+                    {source.title}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    <Tag color="blue">{source.category}</Tag>
                     {source.relevance_score && (
-                      <span className="px-1.5 py-0.5 bg-green/10 text-green rounded text-[10px]">
-                        Relevance: {(source.relevance_score * 100).toFixed(0)}%
-                      </span>
+                      <Tag color="green">
+                        {(source.relevance_score * 100).toFixed(0)}% match
+                      </Tag>
                     )}
                     {source.deadline && (
-                      <span className="px-1.5 py-0.5 bg-orange/10 text-orange rounded text-[10px]">
-                        Deadline: {source.deadline}
-                      </span>
+                      <Tag color="amber">Due {source.deadline}</Tag>
                     )}
                     {source.amount && (
-                      <span className="px-1.5 py-0.5 bg-blue/10 text-blue rounded text-[10px]">
-                        ₹{source.amount.toLocaleString()}
-                      </span>
+                      <Tag color="blue">₹{source.amount.toLocaleString()}</Tag>
                     )}
                   </div>
                 </div>
@@ -612,20 +736,33 @@ function MessageBubble({ message, onCopy, showSources }: MessageBubbleProps) {
           </div>
         )}
 
-        {/* Timestamp and Actions */}
-        <div className="order-3 flex items-center justify-end gap-2 px-4 pb-2 text-[10px] text-muted-foreground">
-          <span>{formatTime(message.timestamp)}</span>
+        <div
+          className={`px-4 py-3 transition-colors duration-500 ${
+            isUser
+              ? "bg-[#0C65D2] text-white"
+              : "border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0D0E16] text-gray-900 dark:text-[#F0F4FF]"
+          }`}
+        >
+          <p className="font-mono text-sm leading-relaxed whitespace-pre-wrap m-0">
+            {message.content}
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2 px-1">
+          <span className="font-mono text-[10px] text-gray-400 dark:text-[#6B7280]">
+            {formatTime(message.timestamp)}
+          </span>
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 p-1 rounded hover:bg-background/50 transition-colors"
+            className="flex items-center gap-1 font-mono text-[10px] text-gray-400 hover:text-gray-700 dark:hover:text-[#F0F4FF] transition-colors"
             aria-label={copied ? "Copied!" : "Copy message"}
           >
             {copied ? (
-              <Check className="h-3 w-3 text-green" />
+              <Check className="h-3 w-3 text-[#0C65D2]" />
             ) : (
               <Copy className="h-3 w-3" />
             )}
-            {copied && <span className="text-[10px]">Copied!</span>}
+            {copied && <span>Copied</span>}
           </button>
         </div>
       </div>
@@ -633,23 +770,27 @@ function MessageBubble({ message, onCopy, showSources }: MessageBubbleProps) {
   );
 }
 
-function formatTime(date: Date) {
-  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-}
-
-interface SuggestionChipProps {
+function Tag({
+  color,
+  children,
+}: {
+  color: "blue" | "green" | "amber";
   children: React.ReactNode;
-  onClick: () => void;
-}
-
-function SuggestionChip({ children, onClick }: SuggestionChipProps) {
+}) {
+  const styles = {
+    blue: "border-[#0C65D2]/20 bg-[#0C65D2]/5 text-[#0C65D2]",
+    green: "border-emerald-500/20 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400",
+    amber: "border-amber-500/20 bg-amber-500/5 text-amber-600 dark:text-amber-400",
+  };
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="px-3 py-1.5 text-xs bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground rounded-full border border-border transition-colors"
+    <span
+      className={`font-mono text-[9px] border px-1.5 py-0.5 tracking-wide ${styles[color]}`}
     >
       {children}
-    </button>
+    </span>
   );
+}
+
+function formatTime(date: Date) {
+  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }

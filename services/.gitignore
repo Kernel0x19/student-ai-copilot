@@ -1,3 +1,8 @@
 /.servicesEnv
 venv 
+<<<<<<< HEAD
+.env*
+.env.example
+=======
 .env
+>>>>>>> parent of 05be928 (fix: fixed some bugs in AI Chat Component and Updated the UI)

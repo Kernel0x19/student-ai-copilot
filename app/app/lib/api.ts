@@ -59,9 +59,23 @@ export type StudentProfile = {
   year_of_study?: number | null;
   cgpa?: number | null;
   percentage_12th?: number | null;
+  backlogs?: number | null;
   skills?: string[];
   documents?: { type: string; name: string }[];
-  preferences?: Record<string, unknown>;
+  preferences?: {
+    // Skills & Preferences section
+    work_mode?: string;           // "Remote" | "Onsite" | "Hybrid"
+    pref_duration?: string;       // "1 Month" | "3 Months" | "6 Months" | "6+ Months"
+    availability?: string;        // ISO date string
+    pref_locations?: string[];    // ["Mumbai", "Bangalore", ...]
+    interests?: string[];         // ["Software Dev", "Finance", ...]
+    // Documents section
+    resume_url?: string;
+    portfolio_url?: string;
+    cover_letter_url?: string;
+    // Legacy/other fields
+    [key: string]: unknown;
+  };
   readiness_score?: number;
 };
 
@@ -116,6 +130,65 @@ export function getRecommendations(userId: string, userEmail?: string, query?: s
     `/api/v1/scholarships/recommendations?${params}`,
     { userId, userEmail }
   );
+}
+
+// ─── Internship types ────────────────────────────────────────────────────
+
+export type InternshipOpportunity = {
+  id: string;
+  source: string;
+  title: string;
+  description: string | null;
+  amount_min: number | null;
+  amount_max: number | null;
+  deadline: string | null;
+  eligibility_rules: Record<string, unknown>;
+  documents_required: string[];
+  application_url: string | null;
+  tags: string[];
+  // stored inside raw_data by the backend normalizer
+  raw_data: {
+    company?: string | null;
+    location?: string | null;
+    duration?: string | null;
+  } | null;
+};
+
+export type InternshipMatchResult = {
+  opportunity: InternshipOpportunity;
+  match_score: number;
+  eligibility: {
+    eligible: boolean;
+    score: number;
+    passed: string[];
+    failed: string[];
+    warnings: string[];
+  };
+  reasons: string[];
+};
+
+export type InternshipRecommendationResponse = {
+  matches: InternshipMatchResult[];
+  total: number;
+};
+
+export function getInternshipRecommendations(userId: string, userEmail?: string, query?: string) {
+  const params = new URLSearchParams();
+  if (query) params.set("query", query);
+  params.set("limit", "30");
+  return apiFetch<InternshipRecommendationResponse>(
+    `/api/v1/internships/recommendations?${params}`,
+    { userId, userEmail }
+  );
+}
+
+export function saveInternship(userId: string, opportunityId: string, userEmail?: string) {
+  return apiFetch<Application>(`/api/v1/internships/applications`, {
+    method: "POST",
+    body: JSON.stringify({ opportunity_id: opportunityId, saved: true }),
+    userId,
+    userEmail,
+  });
 }
 
 export function getDashboardStats(userId: string, userEmail?: string) {

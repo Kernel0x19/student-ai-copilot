@@ -64,7 +64,8 @@ EduPilot provides:
 
 ### 📊 **Student Dashboard**
 - ✅ **Profile Management** - Complete student profile with verification
-- ✅ **Opportunity Discovery** - Browse scholarships, internships, grants
+- ✅ **Scholarship Finder** - Browse and get matched scholarships
+- ✅ **Internship Finder** - Multi-platform internship feed (Internshala live + Indeed, Naukri, Wellfound, Unstop)
 - ✅ **Application Tracking** - Monitor application status
 - ✅ **Document Upload** - Secure document storage
 - ✅ **Notification Center** - Multi-channel notifications
@@ -298,7 +299,8 @@ student-ai-copilot/
 │   ├── app/
 │   │   ├── agents/               # AI agents
 │   │   │   ├── chatbot.py        # Conversational AI
-│   │   │   └── scholarship.py    # Scholarship assistant
+│   │   │   ├── scholarship.py    # Scholarship assistant
+│   │   │   └── internship.py     # Internship finder agent
 │   │   ├── analytics/            # Analytics & metrics
 │   │   │   ├── event_service.py
 │   │   │   ├── experiment_service.py
@@ -309,6 +311,7 @@ student-ai-copilot/
 │   │   │   │   ├── consent.py
 │   │   │   │   ├── documents.py
 │   │   │   │   ├── feedback.py
+│   │   │   │   ├── internships.py
 │   │   │   │   ├── notifications.py
 │   │   │   │   ├── profile.py
 │   │   │   │   ├── scholarships.py
@@ -321,6 +324,12 @@ student-ai-copilot/
 │   │   │   └── migrations/       # Alembic migrations
 │   │   ├── ingestion/            # Data pipelines
 │   │   │   ├── connectors/       # Data connectors
+│   │   │   │   ├── seed_connectors.py      # Scholarship + Internshala seed data
+│   │   │   │   ├── internshala_sync.py     # Internshala live Playwright wrapper
+│   │   │   │   ├── indeed_connector.py     # Indeed dummy data
+│   │   │   │   ├── naukri_connector.py     # Naukri dummy data
+│   │   │   │   ├── wellfound_connector.py  # Wellfound dummy data
+│   │   │   │   └── unstop_connector.py     # Unstop dummy data
 │   │   │   ├── pipeline.py
 │   │   │   └── normalizer.py
 │   │   ├── intelligence/         # AI/ML services
@@ -547,6 +556,44 @@ Monitor platform health and metrics:
 - Accuracy metrics
 - A/B test results
 - Audit logs
+
+---
+
+### 7. Internship Finder
+
+**Location:** `app/app/dashboard/internships/`
+
+Discover internships from multiple platforms in one unified feed, ranked by your profile fit.
+
+**How it works:**
+- **Internshala** — live listings fetched via Playwright scraper on every ingestion run
+- **Indeed, Naukri, Wellfound, Unstop, AICTE** — curated static listings (dummy data); "Apply Now" redirects to each platform's homepage
+- Source-balanced feed: each platform gets proportional representation so no single source dominates
+- Profile-aware scoring: stream, skills, year of study, and CGPA all influence ranking
+
+**Architecture:**
+```
+Per-platform adapter (connector file)
+    ↓ RawOpportunity (common schema)
+normalize_internship()
+    ↓ Opportunity (DB model, category=INTERNSHIP)
+InternshipAgent.recommend()
+    → source-balanced sampling
+    → eligibility + skill scoring
+    → /api/v1/internships/recommendations
+InternshipsClient.tsx
+    → source badge per card
+    → platform filter + work type / stipend / location / duration filters
+    → "Apply Now" opens platform homepage in new tab
+```
+
+**Common internship schema** (stored per `Opportunity.raw_data`):
+```json
+{ "company": "...", "location": "...", "duration": "..." }
+```
+Eligibility rules include `streams`, `skills`, `year_of_study`, and `states`.
+
+**Adding a new platform:** create a connector file in `services/app/ingestion/connectors/` returning `list[RawOpportunity]`, add it to `_load_internship_connectors()` in `pipeline.py`, and add the platform badge in `PLATFORMS` in `InternshipsClient.tsx`.
 
 ---
 
@@ -805,6 +852,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - ✅ Document upload & OCR
 - ✅ User dashboard
 - ✅ Admin analytics
+- ✅ Internship Finder (Internshala live + multi-platform feed with profile-based ranking)
 
 ### Upcoming Features 🚀
 - 🔄 Mobile app (React Native)

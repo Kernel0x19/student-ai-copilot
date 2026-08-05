@@ -54,3 +54,37 @@ def init_db() -> None:
     from app.db import models  # noqa: F401
 
     Base.metadata.create_all(bind=engine)
+    _run_migrations()
+
+
+def _run_migrations() -> None:
+    """Apply additive schema migrations that create_all cannot handle."""
+    with engine.connect() as conn:
+        # Add backlogs column to student_profiles if it doesn't exist yet
+        if database_url.startswith("sqlite"):
+            from sqlalchemy import text
+            cols = [
+                row[1] for row in conn.execute(
+                    text("PRAGMA table_info(student_profiles)")
+                )
+            ]
+            if "backlogs" not in cols:
+                conn.execute(text(
+                    "ALTER TABLE student_profiles ADD COLUMN backlogs INTEGER"
+                ))
+                conn.commit()
+        else:
+            # PostgreSQL — use DO $$ ... $$ block
+            from sqlalchemy import text
+            conn.execute(text("""
+                DO $$
+                BEGIN
+                    IF NOT EXISTS (
+                        SELECT 1 FROM information_schema.columns
+                        WHERE table_name='student_profiles' AND column_name='backlogs'
+                    ) THEN
+                        ALTER TABLE student_profiles ADD COLUMN backlogs INTEGER;
+                    END IF;
+                END $$;
+            """))
+            conn.commit()

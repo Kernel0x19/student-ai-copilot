@@ -88,6 +88,7 @@ class StudentProfile(Base):
     skills: Mapped[list | None] = mapped_column(JSON, default=list)
     documents: Mapped[list | None] = mapped_column(JSON, default=list)
     preferences: Mapped[dict | None] = mapped_column(JSON, default=dict)
+    backlogs: Mapped[int | None] = mapped_column(Integer, nullable=True)
     readiness_score: Mapped[float] = mapped_column(Float, default=0.0)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 

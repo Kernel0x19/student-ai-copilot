@@ -401,6 +401,40 @@ class UserEvent(Base):
     )
 
 
+class Hackathon(Base):
+    """Separate table for hackathon listings.
+
+    Intentionally decoupled from the Opportunity table so hackathon-specific
+    fields (mode, team_size, prize_pool, start/end dates) don't pollute the
+    scholarship/internship schema.
+    """
+
+    __tablename__ = "hackathons"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=_uuid)
+    external_id: Mapped[str] = mapped_column(String(128), index=True)
+    source: Mapped[str] = mapped_column(String(64), index=True)
+    title: Mapped[str] = mapped_column(String(512))
+    organizer: Mapped[str | None] = mapped_column(String(255))
+    mode: Mapped[str] = mapped_column(String(16), default="online")   # online|offline|hybrid
+    location: Mapped[str | None] = mapped_column(String(255))
+    team_size: Mapped[str | None] = mapped_column(String(32))
+    prize_pool: Mapped[int] = mapped_column(Integer, default=0)        # rupees; 0 = no cash prize
+    registration_deadline: Mapped[date | None] = mapped_column(Date, index=True)
+    start_date: Mapped[date | None] = mapped_column(Date, index=True)
+    end_date: Mapped[date | None] = mapped_column(Date)
+    themes: Mapped[list | None] = mapped_column(JSON, default=list)    # ["AI", "Blockchain", …]
+    apply_link: Mapped[str | None] = mapped_column(String(1024))
+    posted_date: Mapped[date | None] = mapped_column(Date)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    last_synced_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("source", "external_id", name="uq_hackathon_source_external"),
+    )
+
+
 class ChatThread(Base):
     """A persistent, user-owned conversation thread."""
 

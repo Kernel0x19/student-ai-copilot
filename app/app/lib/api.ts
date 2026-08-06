@@ -439,3 +439,53 @@ export type AccuracyMetrics = {
 export function getAccuracyMetrics(userId: string, userEmail?: string) {
   return apiFetch<AccuracyMetrics>(`/api/v1/admin/accuracy-metrics`, { userId, userEmail });
 }
+
+// ─── Hackathon types ─────────────────────────────────────────────────────────
+
+export type HackathonItem = {
+  id: string;
+  source: string;
+  title: string;
+  organizer: string | null;
+  mode: string;          // "online" | "offline" | "hybrid"
+  location: string | null;
+  team_size: string | null;
+  prize_pool: number;    // integer rupees; 0 = no cash prize
+  registration_deadline: string | null;  // YYYY-MM-DD
+  start_date: string | null;             // YYYY-MM-DD
+  end_date: string | null;               // YYYY-MM-DD
+  themes: string[];
+  apply_link: string | null;
+  posted_date: string | null;            // YYYY-MM-DD
+};
+
+export type HackathonListResponse = {
+  items: HackathonItem[];
+  total: number;
+};
+
+export function getHackathons(
+  userId: string,
+  userEmail?: string,
+  params?: {
+    query?: string;
+    mode?: string;
+    source?: string;
+    theme?: string;
+    prize_min?: number;
+    location?: string;
+    deadline_days?: number;
+    limit?: number;
+  }
+) {
+  const p = new URLSearchParams();
+  if (params?.query)         p.set("query",         params.query);
+  if (params?.mode)          p.set("mode",          params.mode);
+  if (params?.source)        p.set("source",        params.source);
+  if (params?.theme)         p.set("theme",         params.theme);
+  if (params?.prize_min)     p.set("prize_min",     String(params.prize_min));
+  if (params?.location)      p.set("location",      params.location);
+  if (params?.deadline_days) p.set("deadline_days", String(params.deadline_days));
+  p.set("limit", String(params?.limit ?? 60));
+  return apiFetch<HackathonListResponse>(`/api/v1/hackathons?${p}`, { userId, userEmail });
+}

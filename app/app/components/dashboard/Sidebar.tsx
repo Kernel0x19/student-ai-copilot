@@ -7,6 +7,7 @@ import {
   LayoutDashboard,
   GraduationCap,
   Briefcase,
+  Code2,
   MessageSquare,
   FileText,
   Bell,
@@ -34,6 +35,11 @@ const NAV = [
     href: "/dashboard/internships",
     icon: <Briefcase size={17} />,
     label: "Internships",
+  },
+  {
+    href: "/dashboard/hackathons",
+    icon: <Code2 size={17} />,
+    label: "Hackathons",
   },
   {
     href: "/dashboard/chat",

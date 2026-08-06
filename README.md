@@ -66,6 +66,7 @@ EduPilot provides:
 - ✅ **Profile Management** - Complete student profile with verification
 - ✅ **Scholarship Finder** - Browse and get matched scholarships
 - ✅ **Internship Finder** - Multi-platform internship feed (Internshala live + Indeed, Naukri, Wellfound, Unstop)
+- ✅ **Hackathon Finder** - Live hackathon feed from 8 sources (Unstop, Devfolio, MLH, lablab.ai live + Devpost, HackerEarth, HackIndia, Hack2Skill)
 - ✅ **Application Tracking** - Monitor application status
 - ✅ **Document Upload** - Secure document storage
 - ✅ **Notification Center** - Multi-channel notifications
@@ -597,6 +598,62 @@ Eligibility rules include `streams`, `skills`, `year_of_study`, and `states`.
 
 ---
 
+### 8. Hackathon Finder
+
+**Location:** `app/app/dashboard/hackathons/`
+
+Browse hackathons from 8 platforms in one feed, with platform badges, mode indicators, prize pools, and a direct Register Now link.
+
+**Data sources:**
+
+| Platform | Type | Notes |
+|---|---|---|
+| Unstop | Live (Playwright) | Scrapes `unstop.com/hackathons`; extracts title, organizer, team size, prize pool, deadline |
+| Devfolio | Live (Playwright) | Scrapes `devfolio.co/hackathons`; parses `HackathonCard` components |
+| MLH | Live (Playwright + SSR) | Scrapes `mlh.io/seasons/2027/events`; prize pool always 0 (MLH is a prestige circuit, no cash prizes) |
+| lablab.ai | Live (Playwright + SSR) | Scrapes `lablab.ai/event`; USD prizes converted to INR at Rs.83 = $1 |
+| Devpost | Dummy/placeholder | Live scraping not feasible — SPA with auth-gated XHR; 15 realistic static listings |
+| HackerEarth | Dummy/placeholder | Live scraping not feasible — challenge data behind login; 15 realistic static listings |
+| HackIndia | Dummy/placeholder | Domain parked/for sale as of Aug 2026; 15 realistic static listings |
+| Hack2Skill | Dummy/placeholder | Client-side SPA, no extractable HTML; 15 realistic static listings |
+
+**How it works:**
+- Hackathons live in their own `hackathons` table — intentionally decoupled from the `opportunities` table so hackathon-specific fields (mode, team_size, prize_pool, start/end dates) don't pollute the scholarship/internship schema
+- On startup and on each daily Celery run, the 4 live scrapers run in a background thread and the 4 dummy connectors return static data instantly; all 8 are upserted by `external_id` so re-runs update rather than duplicate
+- Expired hackathons (past `registration_deadline` or `start_date`) are deactivated automatically each ingestion run
+
+**Architecture:**
+```
+Per-platform connector (live Playwright or dummy static)
+    ↓ RawHackathon (common schema — hackathon_base.py)
+run_hackathon_ingestion()
+    → _deactivate_expired()
+    → _upsert_hackathon()  (insert or update by source + external_id)
+    ↓ Hackathon (DB model, separate table)
+HackathonAgent.list()
+    → hard filters: mode, source, prize_min, deadline_days
+    → soft filters: location, theme, query (Python-side)
+    → sort: soonest registration deadline first
+    → /api/v1/hackathons
+HackathonsClient.tsx
+    → source badge per card (colour-coded per platform)
+    → mode badge: Online / In-Person / Hybrid
+    → filter panel: Mode, Platform, Min Prize, Register By, Theme, Location
+    → "Register Now" opens the hackathon's apply_link in a new tab
+```
+
+**Filter dimensions:**
+- **Mode** — Online / In-Person / Hybrid
+- **Platform** — filter to a single source (e.g. show only MLH or only Devfolio)
+- **Min Prize Pool** — Any / Has prize / ₹1L+ / ₹5L+ / ₹10L+
+- **Register By** — This week / 2 weeks / 1 month / 2 months
+- **Theme** — free-text or quick-pick (AI, Web3, HealthTech, FinTech, IoT)
+- **Location** — free-text or quick-pick city (Online, Bengaluru, Delhi, Mumbai)
+
+**Adding a new platform:** create a connector in `services/app/ingestion/connectors/` returning `list[RawHackathon]`, add it to `_load_hackathon_connectors()` in `hackathon_pipeline.py`, and add its badge entry to `PLATFORMS` in `HackathonsClient.tsx`.
+
+---
+
 ## ⚙️ Configuration
 
 ### Frontend Environment Variables
@@ -853,6 +910,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - ✅ User dashboard
 - ✅ Admin analytics
 - ✅ Internship Finder (Internshala live + multi-platform feed with profile-based ranking)
+- ✅ Hackathon Finder (8 platforms: Unstop, Devfolio, MLH, lablab.ai live + Devpost, HackerEarth, HackIndia, Hack2Skill)
 
 ### Upcoming Features 🚀
 - 🔄 Mobile app (React Native)

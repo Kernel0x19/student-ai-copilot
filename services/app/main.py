@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.middleware import ExperimentContextMiddleware
 from app.api.routes import (
-    admin, consent, experiments, feedback, internships, notifications,
+    admin, consent, experiments, feedback, hackathons, internships, notifications,
     profile, scholarships, workflow, search_api, documents_api, connectors, chat
 )
 from app.api.routes import eval as eval_routes
@@ -19,6 +19,29 @@ settings = get_settings()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
+    # Seed hackathon data on startup (dummy connectors run instantly; live
+    # scrapers are async-wrapped and run in a thread so startup isn't blocked).
+    import threading
+    def _seed_hackathons():
+        try:
+            from app.db.session import SessionLocal
+            from app.ingestion.hackathon_pipeline import run_hackathon_ingestion
+            db = SessionLocal()
+            try:
+                stats = run_hackathon_ingestion(db)
+                import logging
+                logging.getLogger(__name__).info(
+                    f"Hackathon seed: inserted={stats['inserted']} "
+                    f"updated={stats['updated']} errors={stats['errors']}"
+                )
+            finally:
+                db.close()
+        except Exception as exc:
+            import logging
+            logging.getLogger(__name__).warning(f"Hackathon seed failed: {exc}")
+
+    t = threading.Thread(target=_seed_hackathons, daemon=True)
+    t.start()
     yield
 
 
@@ -39,6 +62,7 @@ app.add_middleware(ExperimentContextMiddleware)
 
 app.include_router(scholarships.router, prefix="/api/v1")
 app.include_router(internships.router, prefix="/api/v1")
+app.include_router(hackathons.router, prefix="/api/v1")
 app.include_router(profile.router, prefix="/api/v1")
 app.include_router(consent.router, prefix="/api/v1")
 app.include_router(workflow.router, prefix="/api/v1")

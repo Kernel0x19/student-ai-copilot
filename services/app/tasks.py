@@ -44,10 +44,14 @@ def poll_data_sources():
 def run_daily_ingestion():
     from app.db.session import SessionLocal
     from app.ingestion.pipeline import run_ingestion
+    from app.ingestion.hackathon_pipeline import run_hackathon_ingestion
 
     db = SessionLocal()
     try:
-        return run_ingestion(db)
+        stats = run_ingestion(db)
+        hackathon_stats = run_hackathon_ingestion(db)
+        stats["hackathons"] = hackathon_stats
+        return stats
     finally:
         db.close()
 

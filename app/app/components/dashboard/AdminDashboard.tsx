@@ -116,7 +116,7 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
   const kpis = analytics?.platform_kpis;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 transition-all duration-500">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -124,13 +124,13 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
             <Zap size={20} className="text-[#0C65D2]" />
             Admin Dashboard
           </h1>
-          <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+          <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
             Platform analytics, connector health, and accuracy metrics
           </p>
         </div>
         <button
           onClick={() => fetchAll()}
-          className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#0C65D2] transition-all"
+          className="flex items-center gap-1.5 px-3 py-1.5 border border-black/10 dark:border-white/8 font-mono text-[11px] text-gray-500 hover:text-[#0C65D2] transition-all duration-500"
         >
           <RefreshCw size={12} /> Refresh
         </button>
@@ -138,7 +138,7 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
 
       {/* KPI Cards */}
       {kpis && (
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 transition-all duration-500">
           <KpiCard icon={<Users size={16} />} label="Users" value={kpis.total_users} />
           <KpiCard
             icon={<GraduationCap size={16} />}
@@ -164,11 +164,11 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
       )}
 
       {/* Conversion & Accuracy Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-500">
         {/* Conversion Rate */}
         {analytics && (
-          <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-gray-500">
+          <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500  p-5 flex flex-col gap-2">
+            <div className="flex items-center gap-2 text-gray-500 transition-all duration-500">
               <TrendingUp size={14} />
               <span className="font-mono text-[11px] uppercase tracking-wide">
                 Conversion Rate
@@ -182,7 +182,7 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
 
         {/* Freshness Score */}
         {freshness && (
-          <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
+          <div className="border border-black/10 dark:border-white/8 transition-all duration-500 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-gray-500">
               <Database size={14} />
               <span className="font-mono text-[11px] uppercase tracking-wide">
@@ -208,7 +208,7 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
 
         {/* Accuracy */}
         {accuracy && (
-          <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
+          <div className="border border-black/10 dark:border-white/8 transition-all duration-500 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-2">
             <div className="flex items-center gap-2 text-gray-500">
               <Target size={14} />
               <span className="font-mono text-[11px] uppercase tracking-wide">
@@ -228,7 +228,7 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
       {/* Connector Status Table */}
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+          <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
             Data Connectors
           </p>
           <button
@@ -245,10 +245,10 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
           </button>
         </div>
 
-        <div className="border border-black/10 dark:border-white/8 overflow-hidden">
+        <div className="border border-black/10 dark:border-white/8 overflow-hidden transition-all duration-500">
           <table className="w-full">
             <thead>
-              <tr className="bg-gray-50 dark:bg-[#0F1117] border-b border-black/10 dark:border-white/8">
+              <tr className="bg-gray-50 dark:bg-[#0F1117] border-b border-black/10 dark:border-white/8 transition-all duration-500">
                 <th className="text-left px-4 py-2.5 font-mono text-[11px] text-gray-500 uppercase">
                   Connector
                 </th>
@@ -280,10 +280,10 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
                 connectors.map((c) => (
                   <tr
                     key={c.name}
-                    className="border-b border-black/5 dark:border-white/5 last:border-0"
+                    className="border-b border-black/5 dark:border-white/5 last:border-0 transition-all duration-500"
                   >
                     <td className="px-4 py-3">
-                      <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+                      <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
                         {c.name}
                       </p>
                     </td>
@@ -312,14 +312,14 @@ export default function AdminDashboard({ userId, userEmail }: Props) {
                         ? new Date(c.last_run).toLocaleString()
                         : "Never"}
                     </td>
-                    <td className="px-4 py-3 text-right font-mono text-[12px] text-gray-700 dark:text-gray-300">
+                    <td className="px-4 py-3 text-right font-mono text-[12px] text-gray-700 dark:text-gray-300transition-all duration-500">
                       {c.records_processed}
                     </td>
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => handleTrigger(c.name)}
                         disabled={triggering !== null}
-                        className="flex items-center gap-1 px-2 py-1 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-500 hover:text-[#0C65D2] transition-all ml-auto"
+                        className="flex items-center gap-1 px-2 py-1 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-500 hover:text-[#0C65D2] ml-auto transition-all duration-500"
                       >
                         {triggering === c.name ? (
                           <Loader2 size={10} className="animate-spin" />
@@ -374,14 +374,14 @@ function KpiCard({
   value: number;
 }) {
   return (
-    <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-4 flex flex-col gap-1">
-      <div className="flex items-center gap-2 text-gray-400">
+    <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-4 flex flex-col gap-1 transition-all duration-500">
+      <div className="flex items-center gap-2 text-gray-400 transition-all duration-500">
         {icon}
         <span className="font-mono text-[10px] uppercase tracking-wide">
           {label}
         </span>
       </div>
-      <p className="font-mono text-xl font-bold text-gray-900 dark:text-[#F0F4FF]">
+      <p className="font-mono text-xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
         {value.toLocaleString()}
       </p>
     </div>

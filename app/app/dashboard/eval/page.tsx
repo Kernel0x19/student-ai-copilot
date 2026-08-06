@@ -74,7 +74,7 @@ const METRIC_CONFIG = [
 function ScoreRing({ score }: { score: number | null }) {
   if (score === null) {
     return (
-      <div className="text-3xl font-bold text-gray-400 dark:text-gray-500 font-mono">
+      <div className="text-3xl font-bold text-gray-400 dark:text-gray-500 font-mono transition-all duration-500">
         —
       </div>
     );
@@ -89,7 +89,7 @@ function ScoreRing({ score }: { score: number | null }) {
   return (
     <div className={`text-4xl font-bold font-mono tabular-nums ${color}`}>
       {pct}
-      <span className="text-lg font-normal text-gray-400 dark:text-gray-500">
+      <span className="text-lg font-normal text-gray-400 dark:text-gray-500 transition-all duration-500">
         %
       </span>
     </div>
@@ -111,7 +111,7 @@ function MetricCard({
         bg-white dark:bg-[#0F1117]
         border ${config.borderColor} dark:border-opacity-100
         shadow-sm hover:shadow-md dark:shadow-none
-        transition-all duration-300
+        transition-all duration-500
       `}
       style={{
         background: `radial-gradient(ellipse at top left, ${config.bgGlow} 0%, transparent 60%)`,
@@ -121,11 +121,11 @@ function MetricCard({
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
           <div
-            className={`p-2 rounded-xl bg-gradient-to-br ${config.color} text-white shadow-sm`}
+            className={`p-2 rounded-xl bg-linear-to-br ${config.color} text-white shadow-sm`}
           >
             <Icon size={16} />
           </div>
-          <span className="font-semibold text-sm text-gray-800 dark:text-[#E2E8F0]">
+          <span className="font-semibold text-sm text-gray-800 dark:text-[#E2E8F0] transition-all duration-500">
             {config.label}
           </span>
         </div>
@@ -143,14 +143,14 @@ function MetricCard({
       </div>
 
       {/* Score */}
-      <div className="flex items-end gap-3">
+      <div className="flex items-end gap-3 transition-all duration-500">
         <ScoreRing score={value} />
         {value !== null && (
           <div className="mb-1 flex-1">
             {/* Progress bar */}
-            <div className="h-1.5 rounded-full bg-gray-100 dark:bg-white/8 overflow-hidden">
+            <div className="h-1.5 rounded-full bg-gray-100 dark:bg-white/8 overflow-hidden transition-all duration-500">
               <div
-                className={`h-full rounded-full bg-gradient-to-r ${config.color} transition-all duration-700`}
+                className={`h-full rounded-full bg-linear-to-r ${config.color} transition-all duration-700`}
                 style={{ width: `${Math.round(value * 100)}%` }}
               />
             </div>
@@ -164,7 +164,7 @@ function MetricCard({
       </div>
 
       {/* Definition */}
-      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed transition-all duration-500">
         {config.definition}
       </p>
     </div>
@@ -181,7 +181,7 @@ function StatPill({
   value: string;
 }) {
   return (
-    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/6 text-sm">
+    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/6 text-sm transition-all duration-500">
       <Icon size={14} className="text-gray-400 dark:text-gray-500 shrink-0" />
       <span className="text-gray-500 dark:text-gray-400">{label}</span>
       <span className="font-medium text-gray-800 dark:text-[#E2E8F0] font-mono">
@@ -232,11 +232,11 @@ export default function EvalPage() {
   };
 
   return (
-    <div className="space-y-8 max-w-5xl mx-auto">
+    <div className="space-y-8 max-w-5xl mx-auto transition-all duration-500">
       {/* Page header */}
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-gradient-to-br from-[#0C65D2] to-violet-500 text-white shadow-md">
+      <div className="flex flex-col gap-2 transition-all duration-500">
+        <div className="flex items-center gap-3 transition-all duration-500">
+          <div className="p-2.5 rounded-xl bg-linear-to-br from-[#0C65D2] to-violet-500 text-white shadow-md">
             <FlaskConical size={20} />
           </div>
           <div>
@@ -250,7 +250,7 @@ export default function EvalPage() {
         </div>
 
         {/* Trust explainer */}
-        <div className="mt-2 p-4 rounded-xl border border-[#0C65D2]/20 bg-[#0C65D2]/5 dark:bg-[#0C65D2]/8">
+        <div className="mt-2 p-4 rounded-xl border border-[#0C65D2]/20 bg-[#0C65D2]/5 dark:bg-[#0C65D2]/8 transition-all duration-500">
           <p className="text-sm text-gray-700 dark:text-[#C8D5F0] leading-relaxed">
             <span className="font-semibold text-[#0C65D2]">
               Why does this matter?
@@ -265,8 +265,8 @@ export default function EvalPage() {
       </div>
 
       {/* Scope badge */}
-      <div className="flex flex-wrap items-center gap-3">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#0C65D2]/30 bg-[#0C65D2]/8 text-[#0C65D2] text-xs font-medium">
+      <div className="flex flex-wrap items-center gap-3 transition-all duration-500">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#0C65D2]/30 bg-[#0C65D2]/8 text-[#0C65D2] text-xs font-medium transition-all duration-500">
           <GraduationCap size={13} />
           Currently covering: Scholarship Agent
         </div>
@@ -278,7 +278,7 @@ export default function EvalPage() {
 
       {/* Loading state */}
       {loading && (
-        <div className="flex items-center justify-center gap-3 py-20 text-gray-400 dark:text-gray-500">
+        <div className="flex items-center justify-center gap-3 py-20 text-gray-400 dark:text-gray-500 transition-all duration-500">
           <RefreshCcw size={18} className="animate-spin" />
           <span className="text-sm">Loading evaluation results…</span>
         </div>
@@ -286,8 +286,8 @@ export default function EvalPage() {
 
       {/* Error state */}
       {!loading && error && (
-        <div className="flex flex-col items-center gap-4 py-16 text-center">
-          <div className="p-3 rounded-full bg-red-100 dark:bg-red-900/20 text-red-500">
+        <div className="flex flex-col items-center gap-4 py-16 text-center transition-all duration-500">
+          <div className="p-3 rounded-full bg-red-100 dark:bg-red-900/20 text-red-500 transition-all duration-500">
             <AlertCircle size={24} />
           </div>
           <div>
@@ -302,7 +302,7 @@ export default function EvalPage() {
           </div>
           <button
             onClick={fetchResults}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0C65D2] text-white text-sm font-medium hover:bg-[#0B58BC] transition-colors"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0C65D2] text-white text-sm font-medium hover:bg-[#0B58BC] transition-all duration-500"
           >
             <RefreshCcw size={14} />
             Retry
@@ -333,7 +333,7 @@ export default function EvalPage() {
           </div>
 
           {/* Metric cards grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-500">
             {METRIC_CONFIG.map((config) => (
               <MetricCard
                 key={config.key}
@@ -344,9 +344,9 @@ export default function EvalPage() {
           </div>
 
           {/* Methodology note */}
-          <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/3 border border-gray-200/80 dark:border-white/6">
+          <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/3 border border-gray-200/80 dark:border-white/6 transition-all duration-500">
             <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-              <span className="font-semibold text-gray-600 dark:text-gray-300">
+              <span className="font-semibold text-gray-600 dark:text-gray-300 transition-all duration-500">
                 Methodology:
               </span>{" "}
               Scores are computed using the{" "}

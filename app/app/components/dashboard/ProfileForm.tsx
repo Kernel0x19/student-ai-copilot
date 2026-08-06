@@ -166,17 +166,17 @@ export default function ProfileForm({ initial, userId, userEmail }: Props) {
 
       {/* heading */}
       <div>
-        <h1 className="font-syne text-xl font-bold text-gray-900 dark:text-[#F0F4FF]">
+        <h1 className="font-syne text-xl font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
           Student Profile
         </h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
           Complete your profile for accurate scholarship & internship matching.
         </p>
       </div>
 
       {/* message banner */}
       {message && (
-        <p className={`font-mono text-[12px] px-4 py-2 border flex items-center gap-2 ${
+        <p className={`font-mono text-[12px] transition-all duration-500 px-4 py-2 border flex items-center gap-2 ${
           message.ok
             ? "border-green-500/30 bg-green-500/5 text-green-600"
             : "border-red-400/30 bg-red-400/5 text-red-500"
@@ -188,7 +188,7 @@ export default function ProfileForm({ initial, userId, userEmail }: Props) {
 
       {/* ── Personal Details ─────────────────────────────────────────── */}
       <Section title="Personal Details">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-500">
           <Field label="Full name"       value={form.full_name    ?? ""} onChange={(v) => set("full_name",    v)} />
           <Field label="Phone"           value={form.phone        ?? ""} onChange={(v) => set("phone",        v)} />
           <Select label="Gender"   value={form.gender   ?? ""} options={["Male","Female","Other"]}  onChange={(v) => set("gender",   v)} />
@@ -201,7 +201,7 @@ export default function ProfileForm({ initial, userId, userEmail }: Props) {
 
       {/* ── Academic Info ────────────────────────────────────────────── */}
       <Section title="Academic Info">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 transition-all duration-500">
           <Field label="College"    value={form.college    ?? ""} onChange={(v) => set("college",    v)} />
           <Field label="University" value={form.university ?? ""} onChange={(v) => set("university", v)} />
           <Select label="Stream" value={form.stream ?? ""} options={STREAMS} onChange={(v) => set("stream", v)} />
@@ -221,7 +221,7 @@ export default function ProfileForm({ initial, userId, userEmail }: Props) {
 
       {/* ── Skills & Preferences ─────────────────────────────────────── */}
       <Section title="Skills & Preferences">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 transition-all duration-500">
 
           {/* Skills */}
           <TagInput
@@ -357,8 +357,8 @@ export default function ProfileForm({ initial, userId, userEmail }: Props) {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="border border-black/10 dark:border-white/8 p-5 flex flex-col gap-4">
-      <h2 className="font-syne font-bold text-sm text-gray-900 dark:text-[#F0F4FF]">{title}</h2>
+    <section className="border border-black/10 dark:border-white/8 p-5 flex flex-col gap-4 transition-all duration-500">
+      <h2 className="font-syne font-bold text-sm text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">{title}</h2>
       {children}
     </section>
   );
@@ -374,15 +374,15 @@ function Field({
   hint?: string;
 }) {
   return (
-    <label className="flex flex-col gap-1">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">{label}</span>
+    <label className="flex flex-col gap-1 transition-all duration-500">
+      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">{label}</span>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50"
+        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50 transition-all duration-500"
       />
-      {hint && <span className="font-mono text-[10px] text-gray-300 dark:text-gray-600">{hint}</span>}
+      {hint && <span className="font-mono text-[10px] text-gray-300 dark:text-gray-600 transition-all duration-500">{hint}</span>}
     </label>
   );
 }
@@ -397,11 +397,11 @@ function Select({
 }) {
   return (
     <label className="flex flex-col gap-1">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">{label}</span>
+      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">{label}</span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50"
+        className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50 transition-all duration-500"
       >
         <option value="">Select…</option>
         {options.map((o) => <option key={o} value={o}>{o}</option>)}
@@ -440,15 +440,15 @@ function TagInput({
   const unused = suggestions.filter((s) => !tags.includes(s));
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">{label}</span>
+    <div className="flex flex-col gap-1.5 transition-all duration-500">
+      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">{label}</span>
 
       {/* tag bag + input */}
-      <div className="min-h-[42px] flex flex-wrap gap-1.5 px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] focus-within:border-[#0C65D2]/50">
+      <div className="min-h-10.5 flex flex-wrap gap-1.5 px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] focus-within:border-[#0C65D2]/50 transition-all duration-500">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="flex items-center gap-1 px-2 py-0.5 bg-[#0C65D2]/10 border border-[#0C65D2]/20 font-mono text-[11px] text-[#0C65D2]"
+            className="flex items-center gap-1 px-2 py-0.5 bg-[#0C65D2]/10 border border-[#0C65D2]/20 font-mono text-[11px] text-[#0C65D2] transition-all duration-500"
           >
             {tag}
             <button
@@ -467,7 +467,7 @@ function TagInput({
           onKeyDown={handleKey}
           onBlur={() => commit(input)}
           placeholder={tags.length === 0 ? hint : ""}
-          className="flex-1 min-w-[120px] bg-transparent font-mono text-[12px] focus:outline-none placeholder:text-gray-300 dark:placeholder:text-gray-600"
+          className="flex-1 min-w-30 bg-transparent font-mono text-[12px] focus:outline-none placeholder:text-gray-300 dark:placeholder:text-gray-600 transition-all duration-500"
         />
       </div>
 
@@ -479,7 +479,7 @@ function TagInput({
               key={s}
               type="button"
               onClick={() => onAdd(s)}
-              className="flex items-center gap-1 px-2 py-0.5 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-400 hover:border-[#0C65D2]/40 hover:text-[#0C65D2] transition-colors"
+              className="flex items-center gap-1 px-2 py-0.5 border border-black/10 dark:border-white/8 font-mono text-[10px] text-gray-400 hover:border-[#0C65D2]/40 hover:text-[#0C65D2] transition-all duration-500"
             >
               <Plus size={9} /> {s}
             </button>
@@ -545,13 +545,13 @@ function FileOrLink({
   }
 
   return (
-    <div className="flex flex-col gap-1">
-      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+    <div className="flex flex-col gap-1 transition-all duration-500">
+      <span className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
         {label}
-        {optional && <span className="ml-1 text-gray-300 dark:text-gray-600">(optional)</span>}
+        {optional && <span className="ml-1 text-gray-300 dark:text-gray-600 transition-all duration-500">(optional)</span>}
       </span>
 
-      <div className="flex items-center gap-3 px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822]">
+      <div className="flex items-center gap-3 px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] transition-all duration-500">
         <FileText size={14} className="text-gray-400 shrink-0" />
         <span className="flex-1 font-mono text-[12px] text-gray-500 truncate">
           {fileName || <span className="text-gray-300 dark:text-gray-600">{hint}</span>}

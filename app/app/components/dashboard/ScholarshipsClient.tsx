@@ -38,31 +38,31 @@ export default function ScholarshipsClient({ initialMatches, userId, userEmail }
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 transition-all duration-500">
       <div>
         <h1 className="font-syne text-xl font-bold">Scholarship Agent</h1>
-        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
+        <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1 transition-all duration-500">
           Matched from NSP, MahaDBT & myScheme — ranked by eligibility fit
         </p>
       </div>
 
-      <form onSubmit={handleSearch} className="flex gap-2">
+      <form onSubmit={handleSearch} className="flex gap-2 transition-all duration-500">
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Semantic search e.g. engineering girls scholarship Maharashtra"
-          className="flex-1 px-4 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px]"
+          className="flex-1 px-4 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] transition-all duration-500"
         />
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 bg-[#0C65D2] text-white font-mono text-[12px] flex items-center gap-2"
+          className="px-4 py-2 bg-[#0C65D2] text-white font-mono text-[12px] flex items-center gap-2 transition-all duration-500"
         >
           <Search size={14} /> {loading ? "…" : "Search"}
         </button>
       </form>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 transition-all duration-500">
         {matches.length === 0 ? (
           <p className="font-mono text-[12px] text-gray-400 py-10 text-center">
             No matches. Complete your profile for personalized recommendations.
@@ -87,8 +87,8 @@ function ScholarshipCard({ match, onSave, userId, userEmail }: { match: MatchRes
         : "Amount varies";
 
   return (
-    <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-3">
-      <div className="flex items-start justify-between gap-4">
+    <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-3 transition-all duration-500">
+      <div className="flex items-start justify-between gap-4 transition-all duration-500">
         <div className="flex items-start gap-3 min-w-0">
           <div className="w-9 h-9 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0">
             <GraduationCap size={16} />
@@ -111,7 +111,7 @@ function ScholarshipCard({ match, onSave, userId, userEmail }: { match: MatchRes
         <p className="font-mono text-[12px] text-gray-600 dark:text-[#a8c7fa] leading-relaxed">{o.description}</p>
       )}
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 transition-all duration-500">
         {eligibility.eligible ? (
           <span className="flex items-center gap-1 font-mono text-[11px] text-green-600">
             <CheckCircle size={12} /> Likely eligible
@@ -123,13 +123,13 @@ function ScholarshipCard({ match, onSave, userId, userEmail }: { match: MatchRes
         )}
       </div>
 
-      <ul className="flex flex-col gap-1">
+      <ul className="flex flex-col gap-1 transition-all duration-500">
         {reasons.slice(0, 4).map((r, i) => (
           <li key={i} className="font-mono text-[11px] text-gray-500 dark:text-[#6B7280]">{r}</li>
         ))}
       </ul>
 
-      <div className="flex gap-2 pt-1">
+      <div className="flex gap-2 pt-1 transition-all duration-500">
         <button
           onClick={onSave}
           className="flex items-center gap-1.5 px-3 py-1.5 border border-[#0C65D2]/30 text-[#0C65D2] font-mono text-[11px] hover:bg-[#0C65D2]/5"

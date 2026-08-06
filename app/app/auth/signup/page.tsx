@@ -41,6 +41,7 @@ const Page = () => {
       setError(result.error);
       setLoading(false);
     }
+    localStorage.setItem('session_login_time', Date.now().toString())
   };
 
   const handleOAuth = async (provider: "google" | "github") => {
@@ -51,6 +52,7 @@ const Page = () => {
       setError(result.error);
       setOauthLoading(null);
     }
+    localStorage.setItem('session_login_time', Date.now().toString())
   };
 
   return (

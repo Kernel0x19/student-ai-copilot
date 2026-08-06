@@ -116,7 +116,6 @@ export default async function DashboardPage() {
         saved: new Date(a.created_at).toLocaleDateString(),
       }));
   } catch {
-    // API offline — show empty states
   }
 
   const profileComplete = !!(
@@ -143,7 +142,7 @@ export default async function DashboardPage() {
           </Link>
         </div>
       )}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 transition-all duration-500">
         {[
           {
             label: "Scholarships matched",
@@ -184,7 +183,7 @@ export default async function DashboardPage() {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 transition-all duration-500">
         {[
           {
             href: "/dashboard/scholarships",
@@ -247,14 +246,14 @@ export default async function DashboardPage() {
               action={{ label: "Complete profile", href: "/dashboard/profile" }}
             />
           ) : (
-            <div className="flex flex-col">
+            <div className="flex flex-col transition-all duration-500">
               {scholarships.map((s, i) => (
                 <Link
                   key={s.id}
                   href="/dashboard/scholarships"
-                  className={`flex items-center justify-between gap-4 px-5 py-4 ${i !== scholarships.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group`}
+                  className={`flex items-center justify-between gap-4 px-5 py-4 ${i !== scholarships.length - 1 ? "border-b border-black/10 dark:border-white/8" : ""} hover:bg-white dark:hover:bg-[#161822] transition-colors duration-500 cursor-pointer group `}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
+                  <div className="flex items-center gap-3 min-w-0 transition-all duration-500">
                     <div className="w-8 h-8 bg-[#0C65D2]/10 border border-[#0C65D2]/20 flex items-center justify-center text-[#0C65D2] shrink-0">
                       <GraduationCap size={14} />
                     </div>
@@ -287,7 +286,7 @@ export default async function DashboardPage() {
           )}
         </div>
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-black/10 dark:border-white/8">
+          <div className="flex items-center justify-between px-5 py-4 border-b border-black/10 dark:border-white/8 transition-all duration-500">
             <div>
               <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
                 Upcoming Deadlines
@@ -335,10 +334,10 @@ export default async function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 transition-all duration-500">
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500">
           <div className="px-5 py-4 border-b border-black/10 dark:border-white/8">
-            <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
+            <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
               Application Progress
             </p>
-            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+            <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
               Track your active applications
             </p>
           </div>
@@ -355,7 +354,7 @@ export default async function DashboardPage() {
               {applications.map((app) => (
                 <div key={app.id}>
                   <div className="flex items-center justify-between mb-1.5">
-                    <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate">
+                    <p className="font-mono text-[12px] text-gray-900 dark:text-[#F0F4FF] truncate transition-all duration-500">
                       {app.title}
                     </p>
                     <span
@@ -370,7 +369,7 @@ export default async function DashboardPage() {
                       {app.status}
                     </span>
                   </div>
-                  <div className="w-full h-1.5 bg-black/8 dark:bg-white/8 rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-black/8 dark:bg-white/8 rounded-full overflow-hidden transition-all duration-500">
                     <div
                       className={`h-full rounded-full transition-all duration-500 ${app.pct === 100 ? "bg-green-500" : "bg-[#0C65D2]"}`}
                       style={{ width: `${app.pct}%` }}
@@ -382,9 +381,9 @@ export default async function DashboardPage() {
           )}
         </div>
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-black/10 dark:border-white/8">
+          <div className="flex items-center justify-between px-5 transition-all duration-500 py-4 border-b border-black/10 dark:border-white/8">
             <div>
-              <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
+              <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
                 Recent AI Chats
               </p>
               <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
@@ -406,10 +405,10 @@ export default async function DashboardPage() {
         <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] transition-all duration-500">
           <div className="flex items-center justify-between px-5 py-4 border-b border-black/10 dark:border-white/8">
             <div>
-              <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm">
+              <p className="font-syne font-bold text-gray-900 dark:text-[#F0F4FF] text-sm transition-all duration-500">
                 Saved Opportunities
               </p>
-              <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280]">
+              <p className="font-mono text-[11px] text-gray-400 dark:text-[#6B7280] transition-all duration-500">
                 Your bookmarked items
               </p>
             </div>

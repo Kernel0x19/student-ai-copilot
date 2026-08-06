@@ -39,26 +39,26 @@ export default function ConsentManager({ userId, userEmail }: Props) {
   if (loading) return <p className="font-mono text-[12px] text-gray-400">Loading consents…</p>;
 
   return (
-    <div className="flex flex-col gap-4 max-w-xl">
+    <div className="flex flex-col gap-4 max-w-xl transition-all duration-500">
       <div>
-        <h1 className="font-syne text-xl font-bold">Consent Management</h1>
-        <p className="font-mono text-[12px] text-gray-400 mt-1">
+        <h1 className="font-syne text-xl font-bold transition-all duration-500">Consent Management</h1>
+        <p className="font-mono text-[12px] text-gray-400 mt-1 transition-all duration-500">
           DPDP Act compliant opt-in per data use case. All access is audit-logged.
         </p>
       </div>
       {Object.entries(PURPOSE_LABELS).map(([purpose, label]) => (
         <label
           key={purpose}
-          className="flex items-start gap-3 border border-black/10 dark:border-white/8 p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#0F1117]"
+          className="flex items-start gap-3 border border-black/10 dark:border-white/8 p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#0F1117] transition-all duration-500"
         >
           <input
             type="checkbox"
             checked={consents[purpose] ?? false}
             onChange={(e) => toggle(purpose, e.target.checked)}
-            className="mt-0.5"
+            className="mt-0.5 transition-all duration-500"
           />
           <div>
-            <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF]">{label}</p>
+            <p className="font-mono text-[13px] text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">{label}</p>
             <p className="font-mono text-[10px] text-gray-400 mt-0.5">{purpose}</p>
           </div>
         </label>

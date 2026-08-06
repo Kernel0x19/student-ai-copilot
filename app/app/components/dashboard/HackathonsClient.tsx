@@ -21,7 +21,6 @@ import {
 } from "lucide-react";
 import type { HackathonItem } from "@/app/lib/api";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Filters {
   mode: string;
@@ -45,8 +44,6 @@ interface Props {
   userId: string;
   userEmail: string;
 }
-
-// ─── Platform metadata ────────────────────────────────────────────────────────
 
 const PLATFORMS: Record<string, { label: string; color: string; bg: string }> =
   {
@@ -102,7 +99,6 @@ function platformMeta(src: string) {
   );
 }
 
-// ─── Small helpers ────────────────────────────────────────────────────────────
 
 function SourceBadge({ source }: { source: string }) {
   const { label, color, bg } = platformMeta(source);
@@ -161,8 +157,6 @@ function FilterPill({
   );
 }
 
-// ─── URL builder ──────────────────────────────────────────────────────────────
-
 function buildUrl(
   base: string,
   query: string,
@@ -181,7 +175,6 @@ function buildUrl(
   return `${base}/api/v1/hackathons?${p}`;
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
 
 export default function HackathonsClient({ userId, userEmail }: Props) {
   const [items, setItems] = useState<HackathonItem[]>([]);
@@ -218,7 +211,6 @@ export default function HackathonsClient({ userId, userEmail }: Props) {
     if (didFetchRef.current) return;
     didFetchRef.current = true;
     doFetch("", EMPTY_FILTERS);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   function handleSearch(e: React.FormEvent) {
@@ -283,8 +275,7 @@ export default function HackathonsClient({ userId, userEmail }: Props) {
   const isBusy = loading || isPending;
 
   return (
-    <div className="flex flex-col gap-5">
-      {/* Header */}
+    <div className="flex flex-col gap-5 transition-all duration-500">
       <div>
         <h1 className="font-syne text-xl font-bold">Hackathon Finder</h1>
         <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
@@ -293,18 +284,17 @@ export default function HackathonsClient({ userId, userEmail }: Props) {
         </p>
       </div>
 
-      {/* Search bar */}
-      <form onSubmit={handleSearch} className="flex gap-2">
+      <form onSubmit={handleSearch} className="flex gap-2 transition-all duration-500">
         <div className="relative flex-1">
           <Search
             size={14}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none transition-all duration-500"
           />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search hackathon, organizer, theme&hellip;"
-            className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50"
+            className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50 transition-all duration-500"
           />
         </div>
         <button
@@ -551,12 +541,12 @@ export default function HackathonsClient({ userId, userEmail }: Props) {
 
       {/* Results */}
       {isBusy ? (
-        <div className="flex items-center justify-center py-16 gap-3 font-mono text-[12px] text-gray-400">
+        <div className="flex items-center justify-center py-16 gap-3 font-mono text-[12px] text-gray-400 transition-all duration-500">
           <Loader2 size={16} className="animate-spin text-[#0C65D2]" /> Finding
           hackathons&hellip;
         </div>
       ) : items.length === 0 ? (
-        <div className="flex flex-col items-center py-16 gap-2 text-center">
+        <div className="flex flex-col items-center py-16 gap-2 text-center transition-all duration-500">
           <Code2 size={32} className="text-gray-300 dark:text-gray-600" />
           <p className="font-mono text-[13px] text-gray-500">
             No hackathons found

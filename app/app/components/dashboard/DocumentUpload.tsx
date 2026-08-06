@@ -88,10 +88,10 @@ export default function DocumentUpload({ userId }: Props) {
   }, [file, docType, userId]);
 
   return (
-    <div className="flex flex-col gap-6 max-w-2xl">
+    <div className="flex flex-col gap-6 max-w-2xl transition-all duration-500">
       {/* Header */}
       <div>
-        <h1 className="font-syne text-xl font-bold flex items-center gap-2">
+        <h1 className="font-syne text-xl font-bold flex items-center gap-2 transition-all duration-500">
           <Shield size={20} className="text-[#0C65D2]" />
           Document Vault
         </h1>
@@ -102,8 +102,8 @@ export default function DocumentUpload({ userId }: Props) {
       </div>
 
       {/* Upload Form */}
-      <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-6 flex flex-col gap-4">
-        <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF]">
+      <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-6 flex flex-col gap-4 transition-all duration-500">
+        <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] transition-all duration-500">
           Upload Document
         </p>
 
@@ -119,7 +119,7 @@ export default function DocumentUpload({ userId }: Props) {
             id="doc-type-select"
             value={docType}
             onChange={(e) => setDocType(e.target.value)}
-            className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] outline-none focus:border-[#0C65D2]/40"
+            className="px-3 py-2 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] outline-none focus:border-[#0C65D2]/40 transition-all duration-500"
           >
             {DOC_TYPES.map((dt) => (
               <option key={dt.value} value={dt.value}>
@@ -130,7 +130,7 @@ export default function DocumentUpload({ userId }: Props) {
         </div>
 
         {/* File Picker */}
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1.5 transition-all duration-500">
           <label
             htmlFor="doc-file-input"
             className="font-mono text-[11px] text-gray-500"
@@ -139,7 +139,7 @@ export default function DocumentUpload({ userId }: Props) {
           </label>
           <div
             onClick={() => fileInputRef.current?.click()}
-            className="border-2 border-dashed border-black/10 dark:border-white/8 p-8 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#0C65D2]/30 transition-all"
+            className="border-2 border-dashed border-black/10 dark:border-white/8 p-8 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#0C65D2]/30 transition-all duration-500"
           >
             <Upload size={24} className="text-gray-300 dark:text-[#3B3F51]" />
             <p className="font-mono text-[12px] text-gray-400">
@@ -170,7 +170,7 @@ export default function DocumentUpload({ userId }: Props) {
         <button
           onClick={handleUpload}
           disabled={!file || uploading}
-          className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#0C65D2] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[12px] transition-all"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#0C65D2] hover:bg-[#0B5ABD] disabled:opacity-50 text-white font-mono text-[12px] transition-all duration-500"
         >
           {uploading ? (
             <Loader2 size={14} className="animate-spin" />
@@ -203,12 +203,12 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
     : [];
 
   return (
-    <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-3">
+    <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-5 flex flex-col gap-3 transition-all duration-500">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <FileText size={16} className="text-[#0C65D2]" />
           <div>
-            <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] uppercase">
+            <p className="font-mono text-[13px] font-bold text-gray-900 dark:text-[#F0F4FF] uppercase transition-all duration-500">
               {doc.document_type.replace("_", " ")}
             </p>
             <p className="font-mono text-[10px] text-gray-400">
@@ -227,7 +227,7 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
         <span className="font-mono text-[11px] text-gray-500 shrink-0">
           Confidence
         </span>
-        <div className="flex-1 h-2 bg-gray-200 dark:bg-[#1C1F2E] rounded-full overflow-hidden">
+        <div className="flex-1 h-2 bg-gray-200 dark:bg-[#1C1F2E] rounded-full overflow-hidden transition-all duration-500">
           <div
             className="h-full bg-[#0C65D2] transition-all duration-700"
             style={{ width: `${Math.round(doc.confidence_score * 100)}%` }}
@@ -244,12 +244,12 @@ function DocumentCard({ doc }: { doc: DocumentStatus }) {
           {fields.slice(0, 8).map(([key, value]) => (
             <div
               key={key}
-              className="border border-black/5 dark:border-white/5 p-2"
+              className="border border-black/5 dark:border-white/5 p-2 transition-all duration-500"
             >
               <p className="font-mono text-[10px] text-gray-400 uppercase">
                 {key.replace(/_/g, " ")}
               </p>
-              <p className="font-mono text-[12px] text-gray-800 dark:text-[#F0F4FF] truncate">
+              <p className="font-mono text-[12px] text-gray-800 dark:text-[#F0F4FF] truncate transition-all duration-500">
                 {String(value)}
               </p>
             </div>

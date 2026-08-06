@@ -30,8 +30,6 @@ interface Props {
   userEmail: string;
 }
 
-// ─── Platform metadata ────────────────────────────────────────────────────────
-
 const PLATFORMS: Record<string, { label: string; color: string; bg: string }> = {
   internshala: { label: "Internshala", color: "text-[#007bff]", bg: "bg-[#007bff]/8 border-[#007bff]/20" },
   indeed:      { label: "Indeed",      color: "text-[#2557a7]", bg: "bg-[#2557a7]/8 border-[#2557a7]/20" },
@@ -47,8 +45,6 @@ function platformMeta(src: string) {
     bg: "bg-gray-100/50 border-gray-200 dark:bg-white/5 dark:border-white/10",
   };
 }
-
-// ─── Small helper components ──────────────────────────────────────────────────
 
 function SourceBadge({ source }: { source: string }) {
   const { label, color, bg } = platformMeta(source);
@@ -78,8 +74,6 @@ function ScoreRing({ score }: { score: number }) {
   );
 }
 
-// ─── URL builder ──────────────────────────────────────────────────────────────
-
 function buildUrl(base: string, query: string, filters: Filters, limit = 30): string {
   const p = new URLSearchParams();
   if (query.trim())            p.set("query",        query.trim());
@@ -91,8 +85,6 @@ function buildUrl(base: string, query: string, filters: Filters, limit = 30): st
   p.set("limit", String(limit));
   return `${base}/api/v1/internships/recommendations?${p}`;
 }
-
-// ─── Main component ───────────────────────────────────────────────────────────
 
 export default function InternshipsClient({ userId, userEmail }: Props) {
   const [matches, setMatches]         = useState<InternshipMatchResult[]>([]);
@@ -118,8 +110,6 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
     }
   }, [apiBase, userId, userEmail]);
 
-  // Fetch on mount — client-side only, bypasses Next.js server cache.
-  // We use a ref to prevent the effect firing twice in StrictMode.
   const didFetchRef = React.useRef(false);
   useEffect(() => {
     if (didFetchRef.current) return;
@@ -131,10 +121,9 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
     })
       .then((r) => r.json())
       .then((data) => { if (!cancelled) setMatches(data.matches ?? []); })
-      .catch(() => { /* silent — no matches shown */ })
+      .catch(() => {  })
       .finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
 
   function handleSearch(e: React.FormEvent) {
@@ -167,25 +156,21 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
   const isBusy = loading || isPending;
 
   return (
-    <div className="flex flex-col gap-5">
-
-      {/* Header */}
-      <div>
+    <div className="flex flex-col gap-5 transition-all duration-500">
+      <div className="transition-all duration-500">
         <h1 className="font-syne text-xl font-bold">Internship Finder</h1>
         <p className="font-mono text-[12px] text-gray-400 dark:text-[#6B7280] mt-1">
           Matched from Internshala, Indeed, Naukri, Wellfound &amp; Unstop &middot; ranked by your profile fit
         </p>
       </div>
-
-      {/* Search bar */}
-      <form onSubmit={handleSearch} className="flex gap-2">
+      <form onSubmit={handleSearch} className="flex gap-2 transition-all duration-500">
         <div className="relative flex-1">
-          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+          <Search size={14} className="absolute transition-all duration-500 left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search role, skill, company or location&hellip;"
-            className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50"
+            className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] focus:outline-none focus:border-[#0C65D2]/50 transition-all duration-500"
           />
         </div>
         <button
@@ -203,10 +188,8 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
           {isBusy ? <Loader2 size={13} className="animate-spin" /> : <Search size={13} />} Search
         </button>
       </form>
-
-      {/* Filter panel */}
       {showFilters && (
-        <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-4 grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="border border-black/10 dark:border-white/8 bg-gray-50 dark:bg-[#0F1117] p-4 grid grid-cols-2 md:grid-cols-5 gap-4 transition-all duration-500">
 
           <div className="flex flex-col gap-1.5">
             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">Work type</p>
@@ -220,7 +203,7 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 transition-all duration-500">
             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">Max duration</p>
             <div className="flex flex-col gap-1">
               {[{v:"1",l:"Up to 1 month"},{v:"2",l:"Up to 2 months"},{v:"3",l:"Up to 3 months"},{v:"6",l:"Up to 6 months"}].map(({v,l}) => (
@@ -232,7 +215,7 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 transition-all duration-500">
             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">Min stipend /mo</p>
             <div className="flex flex-col gap-1">
               {[{v:"0",l:"Unpaid / any"},{v:"5000",l:"\u20b95,000+"},{v:"10000",l:"\u20b910,000+"},{v:"15000",l:"\u20b915,000+"}].map(({v,l}) => (
@@ -244,7 +227,7 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 transition-all duration-500">
             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">City</p>
             <div className="relative">
               <MapPin size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
@@ -261,7 +244,7 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-1.5 transition-all duration-500">
             <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide">Platform</p>
             <div className="flex flex-col gap-1">
               {Object.entries(PLATFORMS).map(([val, { label, color }]) => (
@@ -276,29 +259,26 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
         </div>
       )}
 
-      {/* Active filter pills */}
       {activePills.length > 0 && (
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2 transition-all duration-500">
           <span className="font-mono text-[11px] text-gray-400">Active:</span>
           {activePills.map(p => <FilterPill key={p.key} label={p.label} onRemove={() => removeFilter(p.key)} />)}
           <button type="button" onClick={clearAll} className="font-mono text-[11px] text-gray-400 hover:text-red-500 ml-1">Clear all</button>
         </div>
       )}
 
-      {/* Profile banner */}
       {!searched && matches.length > 0 && (
-        <div className="flex items-center gap-2 px-3 py-2 border border-[#0C65D2]/20 bg-[#0C65D2]/5 font-mono text-[11px] text-[#0C65D2]">
+        <div className="flex items-center gap-2 px-3 py-2 border border-[#0C65D2]/20 bg-[#0C65D2]/5 font-mono text-[11px] text-[#0C65D2] transition-all duration-500">
           <User size={12} /> Showing recommendations personalised to your profile. Use search or filters to refine.
         </div>
       )}
 
-      {/* Results */}
       {isBusy ? (
-        <div className="flex items-center justify-center py-16 gap-3 font-mono text-[12px] text-gray-400">
+        <div className="flex items-center justify-center py-16 gap-3 font-mono text-[12px] text-gray-400 transition-all duration-500">
           <Loader2 size={16} className="animate-spin text-[#0C65D2]" /> Finding internships&hellip;
         </div>
       ) : matches.length === 0 ? (
-        <div className="flex flex-col items-center py-16 gap-2 text-center">
+        <div className="flex flex-col items-center py-16 gap-2 text-center transition-all duration-500">
           <Briefcase size={32} className="text-gray-300 dark:text-gray-600" />
           <p className="font-mono text-[13px] text-gray-500">No internships found</p>
           <p className="font-mono text-[11px] text-gray-400">
@@ -309,7 +289,7 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
           )}
         </div>
       ) : (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 transition-all duration-500">
           <p className="font-mono text-[11px] text-gray-400">
             {matches.length} result{matches.length !== 1 ? "s" : ""}
             {searched && query ? ` for "${query}"` : ""}
@@ -330,7 +310,6 @@ export default function InternshipsClient({ userId, userEmail }: Props) {
   );
 }
 
-// ─── Card ─────────────────────────────────────────────────────────────────────
 
 function InternshipCard({ match, onSave, userId, userEmail }: {
   match: InternshipMatchResult;
@@ -355,12 +334,10 @@ function InternshipCard({ match, onSave, userId, userEmail }: {
     : null;
 
   return (
-    <div className="border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] flex flex-col">
-
-      {/* Top row */}
+    <div className="border border-black/10 dark:border-white/8 bg-white dark:bg-[#0F1117] flex flex-col transition-all duration-500">
       <div className="flex items-start justify-between gap-4 p-4">
         <div className="flex items-start gap-3 min-w-0">
-          <div className="w-10 h-10 bg-[#0C65D2]/8 border border-[#0C65D2]/15 flex items-center justify-center text-[#0C65D2] shrink-0 mt-0.5">
+          <div className="w-10 h-10 bg-[#0C65D2]/8 border border-[#0C65D2]/15 flex items-center justify-center text-[#0C65D2] shrink-0 mt-0.5 transition-all duration-500">
             <Briefcase size={17} />
           </div>
           <div className="min-w-0 flex flex-col gap-0.5">
@@ -385,8 +362,7 @@ function InternshipCard({ match, onSave, userId, userEmail }: {
         <ScoreRing score={match_score} />
       </div>
 
-      {/* Eligibility bar */}
-      <div className="px-4 pb-2 flex items-center gap-2 border-t border-black/5 dark:border-white/5 pt-2">
+      <div className="px-4 pb-2 flex items-center gap-2 border-t border-black/5 dark:border-white/5 pt-2 transition-all duration-500">
         {eligibility.eligible
           ? <span className="flex items-center gap-1 font-mono text-[11px] text-green-600"><CheckCircle size={12} /> Eligible</span>
           : <span className="flex items-center gap-1 font-mono text-[11px] text-red-400"><XCircle size={12} /> May not qualify</span>}
@@ -401,9 +377,8 @@ function InternshipCard({ match, onSave, userId, userEmail }: {
         </button>
       </div>
 
-      {/* Expandable breakdown */}
       {expanded && (
-        <div className="px-4 pb-4 flex flex-col gap-3 border-t border-black/5 dark:border-white/5 pt-3">
+        <div className="px-4 pb-4 flex flex-col gap-3 border-t border-black/5 dark:border-white/5 pt-3 transition-all duration-500">
           {reasons.length > 0 && (
             <div>
               <p className="font-mono text-[10px] text-gray-400 uppercase tracking-wide mb-1">Match breakdown</p>
@@ -428,8 +403,7 @@ function InternshipCard({ match, onSave, userId, userEmail }: {
         </div>
       )}
 
-      {/* Actions */}
-      <div className="flex gap-2 px-4 py-3 border-t border-black/5 dark:border-white/5">
+      <div className="flex gap-2 px-4 py-3 border-t border-black/5 dark:border-white/5 transition-all duration-500">
         <button
           type="button"
           onClick={() => { if (!saved) { setSaved(true); onSave(); } }}

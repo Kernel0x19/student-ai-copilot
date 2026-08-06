@@ -61,19 +61,19 @@ export default function SemanticSearch() {
       </div>
 
       {/* Search Form */}
-      <form onSubmit={handleSearch} className="flex flex-col gap-3">
-        <div className="flex gap-2">
-          <div className="flex-1 relative">
+      <form onSubmit={handleSearch} className="flex flex-col gap-3 transition-all duration-500">
+        <div className="flex gap-2 transition-all duration-500">
+          <div className="flex-1 relative transition-all duration-500">
             <Search
               size={15}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 transition-all duration-500"
             />
             <input
               id="semantic-search-input"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="e.g. 'engineering scholarship for girls in Maharashtra'"
-              className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] placeholder:text-gray-300 dark:placeholder:text-[#3B3F51] transition-all focus:border-[#0C65D2]/40 focus:ring-1 focus:ring-[#0C65D2]/20 outline-none"
+              className="w-full pl-9 pr-4 py-2.5 border border-black/10 dark:border-white/8 bg-white dark:bg-[#161822] font-mono text-[13px] placeholder:text-gray-300 dark:placeholder:text-[#3B3F51] focus:border-[#0C65D2]/40 focus:ring-1 focus:ring-[#0C65D2]/20 outline-none transition-all duration-500"
             />
           </div>
           <button

@@ -11,7 +11,5 @@ export default async function HackathonsPage() {
   } = await supabase.auth.getUser();
   if (!user) redirect("/auth/login");
 
-  // Pass only auth identifiers — the client fetches its own data on mount
-  // so results are always fresh and never served from a stale server cache.
   return <HackathonsClient userId={user.id} userEmail={user.email ?? ""} />;
 }

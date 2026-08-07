@@ -1,50 +1,147 @@
+version: "3.9"
+
+# ── Shared env loaded from your .env file ────────────────────────────────────
+# Copy .env.example → .env and fill in secrets before deploying.
+
 services:
-  postgres:
-    image: pgvector/pgvector:pg16
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 2777
-      POSTGRES_DB: edupilot
-    ports:
-      - "5433:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 
-  redis:
-    image: redis:7-alpine
-    ports:
-      - "6379:6379"
-
+  # ── 1. FastAPI app ──────────────────────────────────────────────────────────
   api:
-    build:
-      context: ./services
-      dockerfile: Dockerfile
+    build: .
+    container_name: edupilot_api
+    restart: unless-stopped
     ports:
       - "8000:8000"
+    env_file: .env
     environment:
-      DATABASE_URL: postgresql://postgres:2777@postgres:5432/edupilot
-      REDIS_URL: redis://redis:6379/0
-      CORS_ORIGINS: http://localhost:3000
-      DEV_MODE: "true"
+      # Override Ollama host so it points to the sidecar container
+      OLLAMA_BASE_URL: http://ollama:11434
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      ollama:
+        condition: service_started
     volumes:
-      - ./services:/app
+      - chroma_data:/app/chroma_data
+    networks:
+      - edupilot_net
 
-  worker:
-    build:
-      context: ./services
-      dockerfile: Dockerfile
-    command: celery -A app.tasks worker -B -l info
+  # ── 2. Celery Worker (same image, different CMD) ────────────────────────────
+  celery_worker:
+    build: .
+    container_name: edupilot_celery_worker
+    restart: unless-stopped
+    command: celery -A app.celery_app worker --loglevel=info --concurrency=2
+    env_file: .env
     environment:
-      DATABASE_URL: postgresql://postgres:2777@postgres:5432/edupilot
-      REDIS_URL: redis://redis:6379/0
+      OLLAMA_BASE_URL: http://ollama:11434
     depends_on:
-      - postgres
-      - redis
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
     volumes:
-      - ./services:/app
+      - chroma_data:/app/chroma_data
+    networks:
+      - edupilot_net
 
+  # ── 3. Celery Beat (scheduler) ──────────────────────────────────────────────
+  celery_beat:
+    build: .
+    container_name: edupilot_celery_beat
+    restart: unless-stopped
+    command: celery -A app.celery_app beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    env_file: .env
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - edupilot_net
+
+  # ── 4. PostgreSQL + pgvector ────────────────────────────────────────────────
+  postgres:
+    image: pgvector/pgvector:pg16          # pgvector pre-installed
+    container_name: edupilot_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-edupilot}
+      POSTGRES_USER: ${POSTGRES_USER:-edupilot_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-edupilot_user} -d ${POSTGRES_DB:-edupilot}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - edupilot_net
+    # Do NOT expose 5432 to host in prod — internal network only
+
+  # ── 5. Redis (Celery broker + result backend) ───────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: edupilot_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - edupilot_net
+    # Do NOT expose 6379 to host in prod
+
+  # ── 6. Ollama (LLM runtime) ─────────────────────────────────────────────────
+  # WARNING: Ollama without a GPU is slow. On a $24/mo 4GB DO droplet
+  # (2 vCPUs) expect ~10-30s per inference on small models (llama3.2:3b).
+  # Pull your model once after first boot:
+  #   docker exec edupilot_ollama ollama pull llama3.2:3b
+  ollama:
+    image: ollama/ollama:latest
+    container_name: edupilot_ollama
+    restart: unless-stopped
+    volumes:
+      - ollama_data:/root/.ollama      # model weights persist across restarts
+    networks:
+      - edupilot_net
+    # Expose locally only if you need to curl Ollama for debugging:
+    # ports:
+    #   - "11434:11434"
+
+  # ── 7. Nginx reverse proxy ──────────────────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: edupilot_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/certs:/etc/nginx/certs:ro        # Let's Encrypt certs go here
+    depends_on:
+      - api
+    networks:
+      - edupilot_net
+
+
+# ── Volumes ───────────────────────────────────────────────────────────────────
 volumes:
-  pgdata:
+  postgres_data:
+  redis_data:
+  chroma_data:
+  ollama_data:          # ~2-4 GB per model — provision your droplet accordingly
+
+
+# ── Network ───────────────────────────────────────────────────────────────────
+networks:
+  edupilot_net:
+    driver: bridge
